@@ -12,17 +12,17 @@ export const siteConfig = {
 
   offers: {
     digital: {
-      price: 160,
+      price: 179,
       label: "100% digitale",
       includes: ["Photos numériques illimitées", "Retrait sur Tours", "Galerie / envoi après événement si besoin", "Guide d'installation fourni"],
     },
     print: {
-      price: 250,
+      price: 259,
       label: "Impressions",
       includes: ["200 impressions incluses", "Photos numériques illimitées", "Retrait sur Tours", "Galerie / envoi après événement si besoin"],
     },
     options: [
-      { name: "Livraison", note: "à partir de 25€ selon la distance" },
+      { name: "Livraison", note: "à partir de 29€ selon la distance" },
       { name: "Template personnalisé", note: "10€" },
     ],
   },
