@@ -1,42 +1,81 @@
+// src/components/Header.tsx
+"use client";
+
 import Link from "next/link";
-import { Container } from "@/components/Container";
-import { Button } from "@/components/Button";
-import { siteConfig } from "@/config/site";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { Container } from "./Container";
+
+const links = [
+  { href: "/tarifs", label: "Tarifs" },
+  { href: "/galerie", label: "Galerie" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/contact", label: "Contact" },
+];
 
 export function Header() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+
+  // Ferme le menu quand on change de page
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
-    <header style={{ position: "sticky", top: 0, zIndex: 50, backdropFilter: "blur(10px)" }}>
-      <div style={{ background: "rgba(251,251,253,.75)", borderBottom: "1px solid rgba(17,24,39,.10)" }}>
-        <Container>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 0", gap: 14 }}>
-            <Link href="/" aria-label="Accueil">
-              <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
-                <div style={{ fontWeight: 850, letterSpacing: "-0.02em" }}>{siteConfig.brandName}</div>
-                <div className="small" style={{ display: "flex", gap: 6 }}>
-                  <span>Photobooth</span>
-                  <span>•</span>
-                  <span>{siteConfig.cityLabel}</span>
-                  <span>•</span>
-                  <span>{siteConfig.zoneLabel}</span>
-                </div>
-              </div>
+    <header className="site-header">
+      <Container>
+        <div className="header-row">
+          <Link className="brand" href="/">
+            <span style={{ fontSize: 18 }}>C&Photobooth</span>
+            <span className="muted" style={{ fontWeight: 600, fontSize: 14 }}>
+              Photobooth • Tours • 37
+            </span>
+          </Link>
+
+          <nav className="nav-desktop" aria-label="Navigation principale">
+            {links.map((l) => (
+              <Link key={l.href} href={l.href}>
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="header-actions">
+            <Link className="btn btn-ghost" href="/tarifs">
+              Voir les tarifs
+            </Link>
+            <Link className="btn btn-primary" href="/contact">
+              Demander un devis
             </Link>
 
-            <nav style={{ display: "flex", alignItems: "center", gap: 14 }}>
-              {siteConfig.navigation.map((item) => (
-                <Link key={item.href} href={item.href} className="small" style={{ fontWeight: 650 }}>
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <Button href="/tarifs" variant="ghost">Voir les tarifs</Button>
-              <Button href="/contact" variant="primary">Demander un devis</Button>
-            </div>
+            <button
+              className="burger"
+              aria-label="Ouvrir le menu"
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+              type="button"
+            >
+              <span />
+              <span />
+              <span />
+            </button>
           </div>
-        </Container>
-      </div>
+        </div>
+
+        <div className={`mobile-drawer ${open ? "open" : ""}`}>
+          <div className="mobile-nav">
+            {links.map((l) => (
+              <Link key={l.href} href={l.href}>
+                {l.label}
+              </Link>
+            ))}
+            <Link className="btn btn-primary" href="/contact">
+              Demander un devis
+            </Link>
+          </div>
+        </div>
+      </Container>
     </header>
   );
 }
