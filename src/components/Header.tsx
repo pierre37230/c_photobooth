@@ -1,81 +1,90 @@
-// src/components/Header.tsx
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Container } from "./Container";
+import Link from "next/link";
 
-const links = [
-  { href: "/tarifs", label: "Tarifs" },
-  { href: "/galerie", label: "Galerie" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" },
-];
-
-export function Header() {
-  const pathname = usePathname();
+export default function Header() {
   const [open, setOpen] = useState(false);
 
-  // Ferme le menu quand on change de page
+  // Empêche le scroll derrière le menu mobile
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
     <header className="site-header">
-      <Container>
-        <div className="header-row">
-          <Link className="brand" href="/">
-            <span style={{ fontSize: 18 }}>C&Photobooth</span>
-            <span className="muted" style={{ fontWeight: 600, fontSize: 14 }}>
-              Photobooth • Tours • 37
-            </span>
-          </Link>
+      <div className="site-header__inner">
+        {/* Logo / Nom */}
+        <Link href="/" className="brand" aria-label="Accueil C&Photobooth" onClick={() => setOpen(false)}>
+          <span className="brand__name">C&Photobooth</span>
+          <span className="brand__meta">Photobooth • Tours • 37</span>
+        </Link>
 
-          <nav className="nav-desktop" aria-label="Navigation principale">
-            {links.map((l) => (
-              <Link key={l.href} href={l.href}>
-                {l.label}
-              </Link>
-            ))}
-          </nav>
+        {/* Nav desktop */}
+        <nav className="nav nav--desktop" aria-label="Navigation principale">
+          <Link href="/tarifs" className="nav__link">Tarifs</Link>
+          <Link href="/galerie" className="nav__link">Galerie</Link>
+          <Link href="/faq" className="nav__link">FAQ</Link>
+          <Link href="/contact" className="nav__link">Contact</Link>
+        </nav>
 
-          <div className="header-actions">
-            <Link className="btn btn-ghost" href="/tarifs">
-              Voir les tarifs
-            </Link>
-            <Link className="btn btn-primary" href="/contact">
-              Demander un devis
-            </Link>
-
-            <button
-              className="burger"
-              aria-label="Ouvrir le menu"
-              aria-expanded={open}
-              onClick={() => setOpen((v) => !v)}
-              type="button"
-            >
-              <span />
-              <span />
-              <span />
-            </button>
-          </div>
+        {/* Actions desktop */}
+        <div className="actions actions--desktop">
+          <Link href="/tarifs" className="btn btn--ghost">Voir les tarifs</Link>
+          <Link href="/contact" className="btn btn--primary">Demander un devis</Link>
         </div>
 
-        <div className={`mobile-drawer ${open ? "open" : ""}`}>
-          <div className="mobile-nav">
-            {links.map((l) => (
-              <Link key={l.href} href={l.href}>
-                {l.label}
+        {/* Actions mobile */}
+        <div className="actions actions--mobile">
+          <Link href="/contact" className="btn btn--primary btn--sm">Devis</Link>
+
+          <button
+            type="button"
+            className="burger"
+            aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </div>
+
+      {/* Menu mobile (drawer) */}
+      {open && (
+        <div className="mobile">
+          <div className="mobile__backdrop" onClick={() => setOpen(false)} />
+          <div className="mobile__panel" role="dialog" aria-label="Menu">
+            <div className="mobile__top">
+              <div className="mobile__title">Menu</div>
+              <button className="mobile__close" onClick={() => setOpen(false)} aria-label="Fermer">
+                ✕
+              </button>
+            </div>
+
+            <div className="mobile__links">
+              <Link href="/tarifs" className="mobile__link" onClick={() => setOpen(false)}>Tarifs</Link>
+              <Link href="/galerie" className="mobile__link" onClick={() => setOpen(false)}>Galerie</Link>
+              <Link href="/faq" className="mobile__link" onClick={() => setOpen(false)}>FAQ</Link>
+              <Link href="/contact" className="mobile__link" onClick={() => setOpen(false)}>Contact</Link>
+            </div>
+
+            <div className="mobile__cta">
+              <Link href="/tarifs" className="btn btn--ghost btn--block" onClick={() => setOpen(false)}>
+                Voir les tarifs
               </Link>
-            ))}
-            <Link className="btn btn-primary" href="/contact">
-              Demander un devis
-            </Link>
+              <Link href="/contact" className="btn btn--primary btn--block" onClick={() => setOpen(false)}>
+                Demander un devis
+              </Link>
+            </div>
           </div>
         </div>
-      </Container>
+      )}
     </header>
   );
 }
