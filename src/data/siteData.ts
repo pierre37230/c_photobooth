@@ -170,11 +170,11 @@ export const siteData = {
 
   legalEntity: {
     companyName: "CPhotobooth",
-    legalForm: "Auto-entrepreneur",
-    siret: "XXX XXX XXX XXXXX",
-    address: "Tours, 37000, France",
+    legalForm: "Micro entreprise",
+    siret: "numéro de SIRET en cours d'attribution",
+    address: "Dangé Saint Romain, 86220, France",
     email: "contact@cphotobooth.fr",
     phone: "07 81 41 51 95",
-    directorName: "Votre Nom",
+    directorName: "Cannelle Laverne",
   },
 };
