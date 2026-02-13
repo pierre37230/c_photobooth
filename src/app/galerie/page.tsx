@@ -1,55 +1,39 @@
-import { Container } from "@/components/Container";
-import { Button } from "@/components/Button";
+import type { Metadata } from 'next';
+import { siteData } from '@/data/siteData';
+
+export const metadata: Metadata = {
+  title: 'Galerie Photos Photobooth Tours',
+  description: 'Découvrez nos photobooths premium en action lors de mariages, anniversaires et événements à Tours et en Indre-et-Loire.',
+  keywords: ['galerie photobooth Tours', 'photos borne photo 37', 'photobooth mariage Tours'],
+};
 
 export default function GaleriePage() {
   return (
     <section className="section">
-      <Container>
-        <div className="pill">
-          <span className="badge">Galerie</span>
-          <span>Exemples de rendus</span>
+      <div className="container">
+        <div className="section-title">
+          <h1>Galerie Photos</h1>
+          <p>Nos photobooths en action lors de vos événements</p>
         </div>
 
-        <h1 className="h1" style={{ marginTop: 14 }}>Galerie</h1>
-        <p className="p" style={{ marginTop: 10, fontSize: 18 }}>
-          Ici, tu peux mettre des exemples d’impressions, de formats (strips), et quelques photos d’événements.
-        </p>
-
-        <div className="grid grid-3" style={{ marginTop: 18 }}>
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="card" style={{ padding: 14 }}>
-              <div
-                style={{
-                  height: 180,
-                  borderRadius: 16,
-                  border: "1px dashed rgba(17,24,39,.20)",
-                  background: "rgba(255,255,255,.6)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "rgba(17,24,39,.55)",
-                  fontWeight: 750,
-                }}
-              >
-                Image {i + 1}
-              </div>
-              <div className="small" style={{ marginTop: 10 }}>
-                Légende (à compléter)
-              </div>
+        <div className="gallery-grid">
+          {siteData.gallery.map((image, index) => (
+            <div key={index} className="gallery-item">
+              <img src={image.src} alt={image.alt} />
             </div>
           ))}
         </div>
 
-        <div className="card" style={{ padding: 22, marginTop: 18 }}>
-          <h2 className="h2">Tu veux voir un exemple complet ?</h2>
-          <p className="p" style={{ marginTop: 10 }}>
-            On peut aussi envoyer une vidéo démo (et un exemple de galerie post-événement).
+        <div className="card" style={{ marginTop: '4rem', textAlign: 'center' }}>
+          <h2>Envie de créer vos propres souvenirs ?</h2>
+          <p style={{ marginBottom: '2rem', color: 'var(--text-light)' }}>
+            Réservez dès maintenant votre photobooth pour votre prochain événement à Tours
           </p>
-          <div style={{ marginTop: 14 }}>
-            <Button href="/contact" variant="primary">Nous contacter</Button>
-          </div>
+          <a href="/contact" className="btn btn-primary">
+            Nous contacter
+          </a>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

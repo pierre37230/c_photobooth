@@ -1,11 +1,13 @@
 'use client';
 
-import type { Metadata } from 'next';
 import { useState } from 'react';
+import Link from 'next/link';
 import { siteData } from '@/data/siteData';
+import './FAQPreview.css';
 
-export default function FAQPage() {
+export default function FAQPreview() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const previewFAQ = siteData.faq.slice(0, 4);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -15,12 +17,12 @@ export default function FAQPage() {
     <section className="section">
       <div className="container">
         <div className="section-title">
-          <h1>Questions Fréquentes</h1>
-          <p>Tout ce que vous devez savoir sur la location de photobooth à Tours</p>
+          <h2>Questions Fréquentes</h2>
+          <p>Tout ce que vous devez savoir</p>
         </div>
 
         <div className="faq-list">
-          {siteData.faq.map((item, index) => (
+          {previewFAQ.map((item, index) => (
             <div key={index} className={`faq-item ${openIndex === index ? 'active' : ''}`}>
               <button className="faq-question" onClick={() => toggleFAQ(index)}>
                 <span>{item.question}</span>
@@ -33,14 +35,10 @@ export default function FAQPage() {
           ))}
         </div>
 
-        <div className="card" style={{ marginTop: '4rem', textAlign: 'center' }}>
-          <h2>Une autre question ?</h2>
-          <p style={{ marginBottom: '2rem', color: 'var(--text-light)' }}>
-            N'hésitez pas à nous contacter, nous serons ravis de vous répondre
-          </p>
-          <a href="/contact" className="btn btn-primary">
-            Nous contacter
-          </a>
+        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+          <Link href="/faq" className="btn btn-secondary">
+            Voir toutes les questions
+          </Link>
         </div>
       </div>
     </section>

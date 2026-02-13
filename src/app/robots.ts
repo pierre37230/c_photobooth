@@ -1,9 +1,12 @@
-import { siteConfig } from "@/config/site";
+import { MetadataRoute } from 'next';
 
-export default function robots() {
-  const base = siteConfig.domain ? `https://${siteConfig.domain}` : undefined;
+export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [{ userAgent: "*", allow: "/" }],
-    sitemap: base ? `${base}/sitemap.xml` : undefined,
+    rules: {
+      userAgent: '*',
+      allow: '/',
+      disallow: ['/api/', '/admin/'],
+    },
+    sitemap: 'https://cphotobooth.fr/sitemap.xml',
   };
 }

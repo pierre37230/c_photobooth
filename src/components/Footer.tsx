@@ -1,57 +1,48 @@
-// src/components/Footer.tsx
-import Link from "next/link";
-import { Container } from "./Container";
+import Link from 'next/link';
+import { siteData } from '@/data/siteData';
+import './Footer.css';
 
-export function Footer() {
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="site-footer">
-      <Container>
-        <div className="footer-grid">
-          <div>
-            <div style={{ fontWeight: 800, fontSize: 18, marginBottom: 10 }}>
-              C&Photobooth
-            </div>
-            <p className="muted" style={{ margin: 0 }}>
-              Location de photobooth à Tours et en Indre-et-Loire (37). Retrait
-              sur Tours, livraison en option.
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-content">
+          <div className="footer-section">
+            <h3>{siteData.businessName}</h3>
+            <p>{siteData.tagline}</p>
+            <p className="footer-contact">
+              <strong>Email:</strong> {siteData.contact.email}<br />
+              <strong>Tél:</strong> {siteData.contact.phone}<br />
+              <strong>Zone:</strong> {siteData.contact.address}
             </p>
           </div>
 
-          <div>
-            <div style={{ fontWeight: 750, marginBottom: 10 }}>Liens</div>
-            <div style={{ display: "grid", gap: 8 }}>
-              <Link href="/tarifs">Tarifs</Link>
-              <Link href="/galerie">Galerie</Link>
-              <Link href="/faq">FAQ</Link>
-              <Link href="/contact">Contact</Link>
-            </div>
+          <div className="footer-section">
+            <h4>Navigation</h4>
+            <ul>
+              <li><Link href="/">Accueil</Link></li>
+              <li><Link href="/tarifs">Tarifs</Link></li>
+              <li><Link href="/galerie">Galerie</Link></li>
+              <li><Link href="/faq">FAQ</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
+            </ul>
           </div>
 
-          <div>
-            <div style={{ fontWeight: 750, marginBottom: 10 }}>Légal</div>
-            <div style={{ display: "grid", gap: 8 }}>
-              <Link href="/mentions-legales">Mentions légales</Link>
-              <Link href="/politique-confidentialite">Confidentialité</Link>
-            </div>
+          <div className="footer-section">
+            <h4>Légal</h4>
+            <ul>
+              <li><Link href="/mentions-legales">Mentions légales</Link></li>
+              <li><Link href="/politique-confidentialite">Politique de confidentialité</Link></li>
+            </ul>
           </div>
         </div>
 
-        <div
-          style={{
-            borderTop: "1px solid var(--border)",
-            padding: "14px 0",
-            fontSize: 14,
-            color: "var(--subtle)",
-            display: "flex",
-            justifyContent: "space-between",
-            gap: 12,
-            flexWrap: "wrap",
-          }}
-        >
-          <span>© {new Date().getFullYear()} C&Photobooth. Tous droits réservés.</span>
-          <span>Fabriqué en France • Photobooth en bois</span>
+        <div className="footer-bottom">
+          <p>&copy; {currentYear} {siteData.businessName}. Tous droits réservés.</p>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

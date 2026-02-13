@@ -1,90 +1,139 @@
-import { Container } from "@/components/Container";
-import { Button } from "@/components/Button";
-import { siteConfig } from "@/config/site";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { siteData } from '@/data/siteData';
 
-function OfferCard({
-  title,
-  price,
-  lines,
-  highlight,
-}: {
-  title: string;
-  price: number;
-  lines: string[];
-  highlight?: boolean;
-}) {
-  return (
-    <div className="card" style={{ padding: 22, border: highlight ? "1px solid rgba(255,77,141,.35)" : undefined }}>
-      <div className="pill" style={{ justifyContent: "space-between" }}>
-        <span className="badge">Offre</span>
-        {highlight ? <span style={{ fontWeight: 750, color: "#c81e64" }}>La plus demandée</span> : <span />}
-      </div>
-
-      <div style={{ marginTop: 14, fontWeight: 900, fontSize: 22 }}>{title}</div>
-      <div style={{ marginTop: 10, display: "flex", alignItems: "baseline", gap: 8 }}>
-        <div style={{ fontSize: 44, fontWeight: 950, letterSpacing: "-0.03em" }}>{price}€</div>
-        <div className="small">/ week-end</div>
-      </div>
-
-      <ul className="small" style={{ marginTop: 12, paddingLeft: 16, lineHeight: 1.85 }}>
-        {lines.map((l) => (
-          <li key={l}>{l}</li>
-        ))}
-      </ul>
-
-      <div style={{ marginTop: 16 }}>
-        <Button href="/contact" variant={highlight ? "primary" : "ghost"}>
-          Réserver / demander dispo
-        </Button>
-      </div>
-    </div>
-  );
-}
+export const metadata: Metadata = {
+  title: 'Tarifs Location Photobooth Tours - Dès 179€',
+  description: 'Tarifs transparents pour la location de photobooth à Tours. Formule weekend dès 179€. Retrait express, installation simple, fabrication française. Pas de frais cachés.',
+  keywords: ['tarif photobooth Tours', 'prix location borne photo 37', 'photobooth pas cher Tours', 'location weekend Tours'],
+};
 
 export default function TarifsPage() {
   return (
-    <section className="section">
-      <Container>
-        <div className="pill">
-          <span className="badge">Tarifs</span>
-          <span>Retrait sur Tours • Livraison en option</span>
-        </div>
+    <>
+      <section className="section">
+        <div className="container">
+          <div className="section-title">
+            <h1>Nos Tarifs</h1>
+            <p>Location weekend ou soirée • Retrait express à Tours • Tarifs transparents, sans surprise</p>
+          </div>
 
-        <h1 className="h1" style={{ marginTop: 14 }}>Tarifs de location</h1>
-        <p className="p" style={{ marginTop: 10, fontSize: 18 }}>
-          Deux formules simples, retrait sur Tours. Options possibles selon votre événement.
-        </p>
-
-        <div className="grid grid-2" style={{ marginTop: 18 }}>
-          <OfferCard
-            title={siteConfig.offers.digital.label}
-            price={siteConfig.offers.digital.price}
-            lines={siteConfig.offers.digital.includes}
-          />
-          <OfferCard
-            title={siteConfig.offers.print.label}
-            price={siteConfig.offers.print.price}
-            lines={siteConfig.offers.print.includes}
-            highlight
-          />
-        </div>
-
-        <div className="card" style={{ padding: 22, marginTop: 18 }}>
-          <h2 className="h2">Options</h2>
-          <div className="grid grid-2" style={{ marginTop: 12 }}>
-            {siteConfig.offers.options.map((o) => (
-              <div key={o.name} className="kpi">
-                <div style={{ fontWeight: 850 }}>{o.name}</div>
-                <div className="small" style={{ marginTop: 6 }}>{o.note}</div>
+          <div className="grid grid-3">
+            {siteData.pricing.map((plan, index) => (
+              <div key={index} className={`pricing-card ${plan.popular ? 'popular' : ''}`}>
+                {plan.badge && <div className="plan-badge">{plan.badge}</div>}
+                <h2>{plan.name}</h2>
+                <div className="price">
+                  <span className="amount">{plan.price}</span>
+                  <span className="duration">{plan.duration}</span>
+                </div>
+                <ul className="features">
+                  {plan.features.map((feature, i) => (
+                    <li key={i}>{feature}</li>
+                  ))}
+                </ul>
+                <Link href="/contact" className="btn btn-primary">
+                  Réserver
+                </Link>
               </div>
             ))}
           </div>
 
-          <div className="small" style={{ marginTop: 14 }}>
-            * Ajustements possibles selon disponibilité, distance et configuration de l’événement.
+          <div className="card" style={{ marginTop: '4rem' }}>
+            <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Options Supplémentaires</h2>
+            <div className="grid grid-3">
+              {siteData.options.map((option, index) => (
+                <div key={index} className="option-item">
+                  <h3>{option.name}</h3>
+                  <p className="option-price">{option.price}</p>
+                  <p className="option-desc">{option.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="card" style={{ marginTop: '3rem', textAlign: 'center' }}>
+            <h2>Modalités de Location</h2>
+            <div style={{ maxWidth: '800px', margin: '1.5rem auto 0', textAlign: 'left' }}>
+              <h3>📍 Retrait & Restitution</h3>
+              <ul style={{ lineHeight: '2', color: 'var(--text-light)' }}>
+                <li><strong>Retrait :</strong> À Tours (adresse communiquée à la réservation)</li>
+                <li><strong>Retrait express :</strong> En 5 minutes avec guide et vidéos d'installation</li>
+                <li><strong>Option livraison :</strong> À partir de 29€ selon le lieu</li>
+                <li><strong>Restitution :</strong> Même lieu que le retrait, le lundi suivant</li>
+              </ul>
+
+              <h3 style={{ marginTop: '2rem' }}>⚡ Installation</h3>
+              <ul style={{ lineHeight: '2', color: 'var(--text-light)' }}>
+                <li>Installation ultra-simple : branchez et c'est parti !</li>
+                <li>Guide papier fourni + vidéos explicatives</li>
+                <li>Assistance téléphonique 7j/7 pendant votre événement</li>
+                <li>Aucun montage compliqué, tout est prêt à l'emploi</li>
+              </ul>
+
+              <h3 style={{ marginTop: '2rem' }}>💳 Paiement & Réservation</h3>
+              <ul style={{ lineHeight: '2', color: 'var(--text-light)' }}>
+                <li>Acompte de 30% à la réservation</li>
+                <li>Solde à régler avant le retrait</li>
+                <li>Paiement par virement ou espèces</li>
+                <li>Annulation gratuite jusqu'à 14 jours avant l'événement</li>
+              </ul>
+
+              <h3 style={{ marginTop: '2rem' }}>🎯 Nos Engagements</h3>
+              <ul style={{ lineHeight: '2', color: 'var(--text-light)' }}>
+                <li><strong>Transparence totale :</strong> Pas de frais cachés, tous les tarifs sont clairs</li>
+                <li><strong>Qualité premium :</strong> Photobooth fabriqué en France, bois véritable, vrai appareil photo</li>
+                <li><strong>Simplicité :</strong> Installation en 2 minutes, aucune prise de tête</li>
+                <li><strong>Fiabilité :</strong> Matériel testé et vérifié avant chaque location</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+            <Link href="/contact" className="btn btn-primary" style={{ marginRight: '1rem' }}>
+              Réserver maintenant
+            </Link>
+            <Link href="/faq" className="btn btn-secondary">
+              Questions fréquentes
+            </Link>
           </div>
         </div>
-      </Container>
-    </section>
+      </section>
+
+      <style jsx>{`
+        .option-item {
+          text-align: center;
+          padding: 1.5rem;
+          background: var(--background-light);
+          border-radius: 8px;
+        }
+
+        .option-item h3 {
+          color: var(--primary);
+          margin-bottom: 0.75rem;
+          font-size: 1.25rem;
+        }
+
+        .option-price {
+          color: var(--accent);
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+        }
+
+        .option-desc {
+          color: var(--text-light);
+          font-size: 0.95rem;
+          margin: 0;
+        }
+
+        @media (max-width: 768px) {
+          .btn {
+            display: block;
+            margin: 0.5rem 0;
+          }
+        }
+      `}</style>
+    </>
   );
 }

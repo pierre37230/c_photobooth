@@ -1,62 +1,84 @@
-import { Container } from "@/components/Container";
-import { siteConfig } from "@/config/site";
+import type { Metadata } from 'next';
+import { siteData } from '@/data/siteData';
+
+export const metadata: Metadata = {
+  title: 'Contact - Location Photobooth Tours',
+  description: 'Contactez CPhotobooth pour louer un photobooth premium à Tours. Devis gratuit pour votre mariage, anniversaire ou événement d\'entreprise en Indre-et-Loire.',
+  keywords: ['contact photobooth Tours', 'réservation borne photo 37', 'devis photobooth Tours'],
+};
 
 export default function ContactPage() {
   return (
     <section className="section">
-      <Container>
-        <div className="pill">
-          <span className="badge">Contact</span>
-          <span>Réponse rapide</span>
+      <div className="container">
+        <div className="section-title">
+          <h1>Contactez-nous</h1>
+          <p>Réservez votre photobooth pour votre événement à Tours</p>
         </div>
 
-        <h1 className="h1" style={{ marginTop: 14 }}>Contact</h1>
-        <p className="p" style={{ marginTop: 10, fontSize: 18 }}>
-          Pour réserver : envoie la date, la ville, le type d’événement, et la formule souhaitée.
-        </p>
-
-        <div className="grid grid-2" style={{ marginTop: 18 }}>
-          <div className="card" style={{ padding: 22 }}>
-            <h2 className="h2">Coordonnées</h2>
-            <div className="small" style={{ marginTop: 14, display: "grid", gap: 10 }}>
-              <div><strong>Téléphone :</strong> {siteConfig.contact.phone || "à compléter"}</div>
-              <div><strong>Email :</strong> {siteConfig.contact.email || "à compléter"}</div>
-              <div><strong>Retrait :</strong> {siteConfig.contact.pickupAddress || "à compléter"}</div>
+        <div className="grid grid-2" style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <div className="card">
+            <h2>Coordonnées</h2>
+            <div style={{ marginTop: '1.5rem' }}>
+              <h3>📧 Email</h3>
+              <p>
+                <a href={`mailto:${siteData.contact.email}`} style={{ color: 'var(--accent)', fontWeight: '500' }}>
+                  {siteData.contact.email}
+                </a>
+              </p>
             </div>
 
-            <div className="hr" style={{ margin: "18px 0" }} />
+            <div style={{ marginTop: '1.5rem' }}>
+              <h3>📞 Téléphone</h3>
+              <p>
+                <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`} style={{ color: 'var(--accent)', fontWeight: '500' }}>
+                  {siteData.contact.phone}
+                </a>
+              </p>
+            </div>
 
-            <div className="small">
-              <strong>Pour aller vite :</strong>
-              <ul style={{ margin: "8px 0 0", paddingLeft: 16, lineHeight: 1.8 }}>
-                <li>Date + horaires</li>
-                <li>Lieu (ville)</li>
-                <li>Formule (digitale ou impressions)</li>
-                <li>Livraison oui/non</li>
-                <li>Option template oui/non</li>
-              </ul>
+            <div style={{ marginTop: '1.5rem' }}>
+              <h3>📍 Zone d'intervention</h3>
+              <p style={{ color: 'var(--text-light)' }}>{siteData.contact.address}</p>
+            </div>
+
+            <div style={{ marginTop: '1.5rem' }}>
+              <h3>⏰ Disponibilité</h3>
+              <p style={{ color: 'var(--text-light)' }}>7 jours sur 7</p>
             </div>
           </div>
 
-          <div className="card" style={{ padding: 22 }}>
-            <h2 className="h2">Demande de devis</h2>
-            <p className="p" style={{ marginTop: 10 }}>
-              (Option rapide) Tu peux mettre un formulaire plus tard. Pour l’instant, on garde simple.
+          <div className="card">
+            <h2>Demande de devis</h2>
+            <p style={{ color: 'var(--text-light)', lineHeight: '1.8' }}>
+              Pour recevoir un devis personnalisé gratuit, contactez-nous par email ou téléphone en précisant :
             </p>
-
-            <div className="kpi" style={{ marginTop: 14 }}>
-              <div style={{ fontWeight: 850 }}>Astuce</div>
-              <div className="small" style={{ marginTop: 6 }}>
-                Ajoute ici un bouton “Envoyer un email” (mailto:) quand tu auras ton email pro.
-              </div>
-            </div>
-
-            <div className="small" style={{ marginTop: 14 }}>
-              Email : <span style={{ opacity: .7 }}>{siteConfig.contact.email || "à compléter"}</span>
-            </div>
+            <ul style={{ marginTop: '1rem', lineHeight: '2', color: 'var(--text-light)' }}>
+              <li>Date de votre événement</li>
+              <li>Type d'événement (mariage, anniversaire, entreprise...)</li>
+              <li>Lieu de l'événement</li>
+              <li>Nombre d'invités estimé</li>
+              <li>Durée souhaitée</li>
+              <li>Options désirées</li>
+            </ul>
+            <p style={{ marginTop: '1.5rem', color: 'var(--text-light)' }}>
+              Nous vous répondrons dans les 24h avec un devis détaillé et personnalisé.
+            </p>
           </div>
         </div>
-      </Container>
+
+        <div className="card" style={{ marginTop: '3rem', textAlign: 'center' }}>
+          <h2>Secteurs d'intervention</h2>
+          <p style={{ color: 'var(--text-light)', lineHeight: '1.8', maxWidth: '700px', margin: '1rem auto' }}>
+            Nous intervenons sur <strong>Tours</strong> et dans toute l'<strong>Indre-et-Loire (37)</strong> : 
+            Joué-lès-Tours, Saint-Pierre-des-Corps, Saint-Avertin, La Riche, Chambray-lès-Tours, Amboise, 
+            Chinon, Loches, Montbazon, Vouvray, et toutes les communes du département.
+          </p>
+          <p style={{ color: 'var(--text-light)', marginTop: '1rem' }}>
+            Déplacements possibles dans les départements voisins (41, 36, 86).
+          </p>
+        </div>
+      </div>
     </section>
   );
 }
