@@ -77,7 +77,6 @@ export default function TarifsPage() {
                 <li>Acompte de 30% à la réservation</li>
                 <li>Solde à régler avant le retrait</li>
                 <li>Paiement par virement ou espèces</li>
-                <li>Annulation gratuite jusqu'à 14 jours avant l'événement</li>
               </ul>
 
               <h3 style={{ marginTop: '2rem' }}>🎯 Nos Engagements</h3>

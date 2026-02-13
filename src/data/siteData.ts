@@ -121,23 +121,12 @@ export const siteData = {
 
   testimonials: [
     {
-      name: "Marie & Thomas",
-      event: "Mariage - Tours",
-      text: "Installation en 2 minutes chrono ! La qualité des photos est incroyable grâce au vrai appareil photo. Les invités ont adoré et le retrait à Tours était hyper pratique.",
+      name: "Noé",
+      event: "Anniversaire",
+      text: "Installation en 2 minutes chrono ! La qualité des photos est top. Les invités ont adoré et le retrait à Tours était hyper pratique.",
       rating: 5,
     },
-    {
-      name: "Sophie L.",
-      event: "Anniversaire 30 ans - Saint-Pierre-des-Corps",
-      text: "Aucune prise de tête, tout était clair dès le départ. Le photobooth en bois est magnifique et les impressions de qualité pro. Je recommande à 100% !",
-      rating: 5,
-    },
-    {
-      name: "Julien R.",
-      event: "Événement entreprise - Tours",
-      text: "Location en semaine pour notre séminaire. Tarif transparent, installation ultra-rapide, qualité au top. Parfait pour un événement pro !",
-      rating: 5,
-    },
+
   ],
 
   faq: [
