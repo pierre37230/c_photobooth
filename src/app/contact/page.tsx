@@ -75,7 +75,7 @@ export default function ContactPage() {
             Chinon, Loches, Montbazon, Vouvray, et toutes les communes du département.
           </p>
           <p style={{ color: 'var(--text-light)', marginTop: '1rem' }}>
-            Déplacements possibles dans les départements voisins (41, 36, 86).
+            Déplacements possibles dans les départements limitrophes (tarif sur devis).
           </p>
         </div>
       </div>
