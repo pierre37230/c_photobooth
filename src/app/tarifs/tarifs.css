@@ -1,0 +1,46 @@
+.option-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--background-light);
+  border-radius: 8px;
+}
+
+.option-item h3 {
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.option-price {
+  color: var(--accent);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.option-desc {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.tarifs-cta {
+  text-align: center;
+  margin-top: 3rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .tarifs-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tarifs-cta .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}

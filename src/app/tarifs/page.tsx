@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { siteData } from '@/data/siteData';
+import './tarifs.css';
 
 export const metadata: Metadata = {
   title: 'Tarifs Location Photobooth Tours - Dès 179€',
@@ -89,8 +90,8 @@ export default function TarifsPage() {
             </div>
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-            <Link href="/contact" className="btn btn-primary" style={{ marginRight: '1rem' }}>
+          <div className="tarifs-cta">
+            <Link href="/contact" className="btn btn-primary">
               Réserver maintenant
             </Link>
             <Link href="/faq" className="btn btn-secondary">
@@ -99,41 +100,6 @@ export default function TarifsPage() {
           </div>
         </div>
       </section>
-
-      <style jsx>{`
-        .option-item {
-          text-align: center;
-          padding: 1.5rem;
-          background: var(--background-light);
-          border-radius: 8px;
-        }
-
-        .option-item h3 {
-          color: var(--primary);
-          margin-bottom: 0.75rem;
-          font-size: 1.25rem;
-        }
-
-        .option-price {
-          color: var(--accent);
-          font-size: 1.5rem;
-          font-weight: 700;
-          margin-bottom: 0.5rem;
-        }
-
-        .option-desc {
-          color: var(--text-light);
-          font-size: 0.95rem;
-          margin: 0;
-        }
-
-        @media (max-width: 768px) {
-          .btn {
-            display: block;
-            margin: 0.5rem 0;
-          }
-        }
-      `}</style>
     </>
   );
 }
