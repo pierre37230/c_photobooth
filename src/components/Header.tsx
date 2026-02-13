@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { siteData } from '@/data/siteData';
 import './Header.css';
@@ -21,8 +22,26 @@ export default function Header() {
       <div className="container">
         <div className="header-content">
           <Link href="/" className="logo" onClick={closeMenu}>
-            {siteData.businessName}
+            <Image 
+              src="/images/logo.png" 
+              alt={siteData.businessName}
+              width={180}
+              height={50}
+              priority
+            />
           </Link>
+          
+          <Link href="/" className="logo" onClick={closeMenu}>
+  <Image 
+    src="/images/logo.png" 
+    alt={siteData.businessName}
+    width={50}
+    height={50}
+    priority
+  />
+  <span className="logo-text">{siteData.businessName}</span>
+</Link>
+
 
           <button 
             className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}
