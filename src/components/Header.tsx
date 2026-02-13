@@ -22,16 +22,7 @@ export default function Header() {
       <div className="container">
         <div className="header-content">
           <Link href="/" className="logo" onClick={closeMenu}>
-            <Image 
-              src="/images/logo.png" 
-              alt={siteData.businessName}
-              width={180}
-              height={50}
-              priority
-            />
-          </Link>
-          
-          <Link href="/" className="logo" onClick={closeMenu}>
+
   <Image 
     src="/images/logo.png" 
     alt={siteData.businessName}
