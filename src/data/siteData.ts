@@ -110,10 +110,6 @@ export const siteData = {
     },
   ],
 
-  gallery: [
-    { src: "/images/photobooth-1.jpg", alt: "Photobooth bois fabriqué France Tours" },
-
-  ],
 
   testimonials: [
     {
