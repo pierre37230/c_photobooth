@@ -112,6 +112,12 @@ export const siteData = {
 
   gallery: [
     { src: "/images/photobooth-vrai.jpg", alt: "Photobooth bois fabriqué France Tours" },
+    { src: "/images/photobooth-2.jpg", alt: "Borne photo artisanale appareil photo professionnel" },
+    { src: "/images/photobooth-3.jpg", alt: "Location photobooth mariage Tours retrait express" },
+    { src: "/images/photobooth-4.jpg", alt: "Photobooth bois véritable fabrication française" },
+    { src: "/images/photobooth-5.jpg", alt: "Borne photo weekend Tours installation simple" },
+    { src: "/images/photobooth-6.jpg", alt: "Photobooth premium Tours Indre-et-Loire 37" },
+
 
   ],
 
