@@ -60,8 +60,8 @@ export default function TarifsPage() {
               <ul style={{ lineHeight: '2', color: 'var(--text-light)' }}>
                 <li><strong>Retrait :</strong> À Tours (adresse communiquée à la réservation)</li>
                 <li><strong>Retrait express :</strong> En 5 minutes avec guide et vidéos d'installation</li>
-                <li><strong>Option livraison :</strong> À partir de 29€ selon le lieu</li>
-                <li><strong>Restitution :</strong> Même lieu que le retrait, le lundi suivant</li>
+                <li><strong>Option livraison et installation :</strong> À partir de 29€ selon le lieu</li>
+                <li><strong>Restitution :</strong> Même lieu que le retrait</li>
               </ul>
 
               <h3 style={{ marginTop: '2rem' }}>⚡ Installation</h3>
@@ -82,7 +82,7 @@ export default function TarifsPage() {
               <h3 style={{ marginTop: '2rem' }}>🎯 Nos Engagements</h3>
               <ul style={{ lineHeight: '2', color: 'var(--text-light)' }}>
                 <li><strong>Transparence totale :</strong> Pas de frais cachés, tous les tarifs sont clairs</li>
-                <li><strong>Qualité premium :</strong> Photobooth fabriqué en France, bois véritable, vrai appareil photo</li>
+                <li><strong>Qualité premium :</strong> Photobooth fabriqué à la main en France, bois véritable, vrai appareil photo</li>
                 <li><strong>Simplicité :</strong> Installation en 2 minutes, aucune prise de tête</li>
                 <li><strong>Fiabilité :</strong> Matériel testé et vérifié avant chaque location</li>
               </ul>
