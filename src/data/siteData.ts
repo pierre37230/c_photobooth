@@ -94,7 +94,7 @@ export const siteData = {
 
   options: [
     {
-      name: "Livraison",
+      name: "Livraison et installation",
       price: "À partir de 29€",
       description: "Selon le lieu de livraison (alternative au retrait à Tours)",
     },
