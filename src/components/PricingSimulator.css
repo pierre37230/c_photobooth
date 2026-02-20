@@ -1,0 +1,265 @@
+.pricing-simulator {
+  padding: 4rem 0;
+  background: var(--background-light);
+}
+
+.simulator-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px var(--shadow-lg);
+  overflow: hidden;
+}
+
+.simulator-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.simulator-header h2 {
+  color: white;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.simulator-header p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+.progress-bar {
+  background: rgba(255, 255, 255, 0.2);
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.simulator-body {
+  padding: 2.5rem 2rem;
+  min-height: 400px;
+}
+
+.simulator-step h3 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.simulator-step h4 {
+  text-align: center;
+  color: var(--primary);
+  margin: 2rem 0 1rem;
+  font-size: 1.25rem;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.option-btn {
+  background: var(--background-light);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.option-btn:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.option-btn.active {
+  border-color: var(--accent);
+  background: rgba(212, 175, 55, 0.1);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.option-btn.small {
+  padding: 1rem;
+}
+
+.option-icon {
+  font-size: 2.5rem;
+}
+
+.option-btn strong {
+  color: var(--primary);
+  font-size: 1.125rem;
+}
+
+.option-btn small {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.sub-options {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px dashed var(--border);
+}
+
+.info-text {
+  text-align: center;
+  color: var(--text-light);
+  background: var(--background-light);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.btn-back {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.simulator-result {
+  text-align: center;
+}
+
+.result-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 2.5rem;
+}
+
+.result-card h3 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.formula-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.result-price {
+  margin: 2rem 0;
+}
+
+.old-price {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--text-light);
+  text-decoration: line-through;
+  margin-bottom: 0.5rem;
+}
+
+.final-price {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.savings {
+  display: block;
+  color: #16a34a;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.result-details {
+  text-align: left;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.result-details h4 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.result-details ul {
+  list-style: none;
+}
+
+.result-details li {
+  padding: 0.5rem 0;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.result-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .simulator-header {
+    padding: 2rem 1.5rem;
+  }
+
+  .simulator-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .simulator-body {
+    padding: 2rem 1.5rem;
+  }
+
+  .simulator-step h3 {
+    font-size: 1.25rem;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .final-price {
+    font-size: 2.5rem;
+  }
+
+  .result-actions {
+    flex-direction: column;
+  }
+
+  .result-actions .btn {
+    width: 100%;
+  }
+}

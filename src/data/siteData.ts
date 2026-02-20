@@ -3,18 +3,17 @@ export const siteData = {
   tagline: "Location de photobooth premium à Tours",
   description: "Location de bornes photo haut de gamme pour vos mariages, anniversaires et événements. Fabrication 100% française, artisanale en bois véritable avec appareil photo professionnel intégré. Retrait express à Tours.",
   
-  promoText: "🎉 OFFRE DE LANCEMENT : Jusqu'à 70€ de remise pour toute réservation avant le 31 mars 2026 !",
+  promoText: "🎉 OFFRE DE LANCEMENT : jusqu'à -60€ sur toutes les formules !",
   
   contact: {
     email: "contact@cphotobooth.fr",
-    phone: "07 81 41 51 95",
-    address: "Tours (37) et alentours",
+    phone: "06 XX XX XX XX",
+    address: "Tours, Indre-et-Loire (37)",
     city: "Tours",
     postalCode: "37000",
     region: "Centre-Val de Loire",
     country: "France",
   },
-
 
   social: {
     facebook: "",
@@ -48,66 +47,130 @@ export const siteData = {
     },
   ],
 
-  pricing: [
+  pricingWeekend: [
     {
-      name: "Formule Numérique",
-      price: "179€",
-      oldPrice: "229€",
-      duration: "Weekend",
+      name: "Formule Digitale",
+      price: "229€",
+      oldPrice: "279€",
+      duration: "Weekend 48h",
+      savings: "-30€",
       features: [
         "Photobooth en bois fabrication française",
         "Véritable appareil photo intégré",
-        "Photos illimitées pendant l'événement",
-        "Toutes les photos disponibles après",
+        "Photos illimitées pendant 48h",
+        "Toutes les photos en ligne après l'événement",
         "Envoi par email ou lien de téléchargement",
         "Guide et vidéos d'installation",
         "Retrait express à Tours",
       ],
       popular: false,
-      badge: "100% numérique",
     },
     {
-      name: "Formule Complète",
-      price: "259€",
+      name: "Formule Impression",
+      price: "289€",
       oldPrice: "329€",
-      duration: "Weekend",
+      duration: "Weekend 48h",
+      savings: "-40€",
       features: [
-        "Tout de la formule Numérique",
+        "Tout de la formule Digitale",
         "200 impressions papier 10x15cm incluses",
         "Imprimante professionnelle",
         "Qualité photo exceptionnelle",
         "Souvenirs instantanés pour vos invités",
       ],
       popular: true,
-      badge: "La meilleure",
     },
     {
-      name: "Location Soirée",
-      price: "Sur devis",
-      oldPrice: null,
-      duration: "En semaine",
+      name: "Formule Complète",
+      price: "329€",
+      oldPrice: "389€",
+      duration: "Weekend 48h",
+      savings: "-60€",
       features: [
-        "Toutes les options disponibles",
-        "Formule numérique ou avec impressions",
-        "Tarifs préférentiels en semaine",
-        "Idéal pour événements d'entreprise",
-        "Contactez-nous pour un devis personnalisé",
+        "Tout de la formule Impression",
+        "400 impressions papier 10x15cm au total",
+        "Template photo personnalisé inclus",
+        "Le maximum pour votre événement",
       ],
       popular: false,
-      badge: "En semaine",
+    },
+  ],
+
+  pricingSoiree: [
+    {
+      name: "Formule Digitale Soirée",
+      price: "124€",
+      oldPrice: "189€",
+      duration: "À partir de 18h",
+      savings: "-15€",
+      features: [
+        "Photobooth en bois fabrication française",
+        "Véritable appareil photo intégré",
+        "Photos illimitées pendant la soirée",
+        "Toutes les photos en ligne après",
+        "Parfait pour soirées et afterworks",
+        "Guide et vidéos d'installation",
+        "Retrait express à Tours",
+      ],
+      popular: false,
+    },
+    {
+      name: "Formule Impression Soirée",
+      price: "169€",
+      oldPrice: "259€",
+      duration: "Soirée",
+      savings: "-30€",
+      features: [
+        "Tout de la formule Digitale",
+        "200 impressions papier 10x15cm incluses",
+        "Imprimante professionnelle",
+        "Parfait pour événements en semaine",
+      ],
+      popular: true,
+    },
+    {
+      name: "Formule Complète Soirée",
+      price: "219€",
+      oldPrice: "289€",
+      duration: "Soirée",
+      savings: "-40€",
+      features: [
+        "Tout de la formule Impression",
+        "400 impressions papier 10x15cm au total",
+        "Le maximum pour votre soirée",
+      ],
+      popular: false,
+    },
+  ],
+
+  delivery: [
+    {
+      distance: "Moins de 30km",
+      price: "29€",
+      description: "Livraison dans un rayon de 30km autour de Tours",
+    },
+    {
+      distance: "30 à 60km",
+      price: "45€",
+      description: "Livraison entre 30 et 60km de Tours",
+    },
+    {
+      distance: "Plus de 60km",
+      price: "60€",
+      description: "Livraison au-delà de 60km de Tours",
     },
   ],
 
   options: [
     {
-      name: "Livraison",
-      price: "À partir de 29€",
-      description: "Selon le lieu de livraison (alternative au retrait à Tours)",
+      name: "400 Impressions Supplémentaires",
+      price: "39€",
+      description: "Pack de 400 photos 10x15cm en plus",
     },
     {
       name: "200 Impressions Supplémentaires",
-      price: "50€",
-      description: "Pack de 200 photos 10x15cm en plus (formule Complète uniquement)",
+      price: "60€",
+      description: "Pack de 200 photos 10x15cm en plus",
     },
     {
       name: "Template Personnalisé",
@@ -116,8 +179,52 @@ export const siteData = {
     },
   ],
 
+  // Ancien pricing gardé pour compatibilité
+  pricing: [
+    {
+      name: "Formule Digitale",
+      price: "229€",
+      oldPrice: "279€",
+      duration: "Weekend 48h",
+      features: [
+        "Photobooth en bois fabrication française",
+        "Véritable appareil photo intégré",
+        "Photos illimitées pendant 48h",
+        "Toutes les photos en ligne après",
+      ],
+      popular: false,
+      badge: "100% numérique",
+    },
+    {
+      name: "Formule Complète",
+      price: "329€",
+      oldPrice: "389€",
+      duration: "Weekend 48h",
+      features: [
+        "Tout de la formule Digitale",
+        "400 impressions papier incluses",
+        "Template personnalisé inclus",
+      ],
+      popular: true,
+      badge: "La meilleure",
+    },
+    {
+      name: "Formule Soirée",
+      price: "À partir de 124€",
+      oldPrice: null,
+      duration: "Dès 18h",
+      features: [
+        "Toutes les options disponibles",
+        "Tarifs préférentiels soirée",
+        "Idéal pour événements en semaine",
+      ],
+      popular: false,
+      badge: "Soirée",
+    },
+  ],
+
   gallery: [
-    { src: "/images/photobooth-vrai.jpg", alt: "Photobooth bois fabriqué France Tours" },
+    { src: "/images/photobooth-1.jpg", alt: "Photobooth bois fabriqué France Tours" },
     { src: "/images/photobooth-2.jpg", alt: "Borne photo artisanale appareil photo professionnel" },
     { src: "/images/photobooth-3.jpg", alt: "Location photobooth mariage Tours retrait express" },
     { src: "/images/photobooth-4.jpg", alt: "Photobooth bois véritable fabrication française" },
@@ -132,12 +239,13 @@ export const siteData = {
       text: "Installation en 2 minutes chrono ! La qualité des photos est top. Les invités ont adoré et le retrait à Tours était hyper pratique.",
       rating: 5,
     },
+
   ],
 
   faq: [
     {
       question: "Où récupérer le photobooth ?",
-      answer: "Le retrait se fait directement à Tours (37). Nous vous communiquons l'adresse exacte lors de la réservation. Le retrait est express : vous arrivez, on vous remet le photobooth avec le guide et les vidéos, et c'est parti ! Une option de livraison est disponible à partir de 29€ selon votre localisation.",
+      answer: "Le retrait se fait directement à Tours (37). Nous vous communiquons l'adresse exacte lors de la réservation. Le retrait est express : vous arrivez, on vous remet le photobooth avec le guide et les vidéos, et c'est parti ! Une option de livraison est disponible selon votre localisation.",
     },
     {
       question: "L'installation est-elle compliquée ?",
@@ -153,34 +261,30 @@ export const siteData = {
     },
     {
       question: "Comment récupérer les photos après l'événement ?",
-      answer: "Avec la formule Numérique et Complète, toutes les photos sont disponibles après votre événement. Nous vous les envoyons par email ou via un lien de téléchargement sécurisé. Vous pouvez les partager avec tous vos invités !",
+      answer: "Avec toutes nos formules, toutes les photos sont disponibles après votre événement. Nous vous les envoyons par email ou via un lien de téléchargement sécurisé. Vous pouvez les partager avec tous vos invités !",
     },
     {
       question: "Combien de photos puis-je prendre ?",
       answer: "Autant que vous voulez ! Les photos sont illimitées pendant toute la durée de votre location. Vos invités peuvent se faire tirer le portrait autant de fois qu'ils le souhaitent.",
     },
     {
-      question: "Que comprend la formule Complète à 259€ ?",
-      answer: "La formule Complète inclut tout de la formule Numérique PLUS une imprimante professionnelle avec 200 impressions papier 10x15cm. Vos invités repartent avec leurs photos instantanément ! Vous pouvez ajouter 200 impressions supplémentaires pour 50€.",
-    },
-    {
-      question: "Proposez-vous des locations en semaine ?",
-      answer: "Oui ! Nous proposons des locations à la soirée en semaine avec des tarifs préférentiels. Parfait pour les événements d'entreprise, séminaires, ou soirées privées. Contactez-nous pour recevoir un devis personnalisé.",
+      question: "Quelle est la différence entre weekend et soirée ?",
+      answer: "La formule weekend est pour 48h (vendredi soir au dimanche soir), parfaite pour les mariages. La formule soirée démarre à partir de 18h et est idéale pour les événements en semaine, anniversaires ou soirées d'entreprise.",
     },
     {
       question: "Puis-je personnaliser les photos ?",
-      answer: "Oui ! Pour 10€, nous créons un template personnalisé avec vos prénoms, date de l'événement, logo d'entreprise, ou tout autre élément graphique de votre choix.",
+      answer: "Oui ! Le template personnalisé est inclus dans la formule Complète, ou disponible en option pour 10€ avec les autres formules. Nous créons un design avec vos prénoms, date, logo, etc.",
     },
     {
       question: "Quel est le délai de réservation ?",
-      answer: "Nous conseillons de réserver au minimum 2 semaines à l'avance pour les weekends. Pour les locations en semaine, une semaine d'avance est généralement suffisante. N'hésitez pas à nous contacter même à la dernière minute, nous ferons notre possible !",
+      answer: "Nous conseillons de réserver au minimum 2 semaines à l'avance pour les weekends. Pour les soirées en semaine, une semaine d'avance est généralement suffisante. N'hésitez pas à nous contacter même à la dernière minute, nous ferons notre possible !",
     },
   ],
 
- legalEntity: {
+  legalEntity: {
     companyName: "CPhotobooth",
     legalForm: "Micro entreprise",
-    siret: "100 959 626 00019",
+    siret: "numéro de SIRET en cours d'attribution",
     address: "Dangé Saint Romain, 86220, France",
     email: "contact@cphotobooth.fr",
     phone: "07 81 41 51 95",
