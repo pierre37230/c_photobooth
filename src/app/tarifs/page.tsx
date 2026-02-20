@@ -32,7 +32,7 @@ export default function TarifsPage() {
 
           {/* TARIFS WEEKEND */}
           <div style={{ marginBottom: '4rem' }}>
-            <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>📅 Formules Weekend (48h)</h2>
+            <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>📅 Formules 48h (Weekend complet ou en semaine)</h2>
             <div className="grid grid-3">
               {siteData.pricingWeekend.map((plan, index) => (
                 <div key={index} className={`pricing-card ${plan.popular ? 'popular' : ''}`}>
