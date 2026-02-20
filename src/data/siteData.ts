@@ -51,7 +51,7 @@ export const siteData = {
     {
       name: "Formule Digitale",
       price: "229€",
-      oldPrice: "279€",
+      oldPrice: "259€",
       duration: "Weekend 48h",
       savings: "-30€",
       features: [
@@ -82,8 +82,8 @@ export const siteData = {
     },
     {
       name: "Formule Complète",
-      price: "329€",
-      oldPrice: "389€",
+      price: "339€",
+      oldPrice: "399€",
       duration: "Weekend 48h",
       savings: "-60€",
       features: [
@@ -100,7 +100,7 @@ export const siteData = {
     {
       name: "Formule Digitale Soirée",
       price: "124€",
-      oldPrice: "189€",
+      oldPrice: "139€",
       duration: "À partir de 18h",
       savings: "-15€",
       features: [
@@ -117,7 +117,7 @@ export const siteData = {
     {
       name: "Formule Impression Soirée",
       price: "169€",
-      oldPrice: "259€",
+      oldPrice: "199€",
       duration: "Soirée",
       savings: "-30€",
       features: [
@@ -131,7 +131,7 @@ export const siteData = {
     {
       name: "Formule Complète Soirée",
       price: "219€",
-      oldPrice: "289€",
+      oldPrice: "259€",
       duration: "Soirée",
       savings: "-40€",
       features: [
@@ -163,9 +163,9 @@ export const siteData = {
 
   options: [
     {
-      name: "400 Impressions Supplémentaires",
+      name: "100 Impressions Supplémentaires",
       price: "39€",
-      description: "Pack de 400 photos 10x15cm en plus",
+      description: "Pack de 100 photos 10x15cm en plus",
     },
     {
       name: "200 Impressions Supplémentaires",
@@ -184,7 +184,7 @@ export const siteData = {
     {
       name: "Formule Digitale",
       price: "229€",
-      oldPrice: "279€",
+      oldPrice: "259€",
       duration: "Weekend 48h",
       features: [
         "Photobooth en bois fabrication française",
@@ -224,7 +224,7 @@ export const siteData = {
   ],
 
   gallery: [
-    { src: "/images/photobooth-1.jpg", alt: "Photobooth bois fabriqué France Tours" },
+    { src: "/images/photobooth-vrai.jpg", alt: "Photobooth bois fabriqué France Tours" },
     { src: "/images/photobooth-2.jpg", alt: "Borne photo artisanale appareil photo professionnel" },
     { src: "/images/photobooth-3.jpg", alt: "Location photobooth mariage Tours retrait express" },
     { src: "/images/photobooth-4.jpg", alt: "Photobooth bois véritable fabrication française" },
