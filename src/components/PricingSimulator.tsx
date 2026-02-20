@@ -22,29 +22,29 @@ export default function PricingSimulator() {
     if (eventType === 'weekend') {
       if (formula === 'digitale') {
         basePrice = 229;
-        oldPrice = 279;
+        oldPrice = 259;
         formulaName = 'Formule Digitale Weekend';
       } else if (formula === 'impression') {
         basePrice = 289;
         oldPrice = 329;
         formulaName = 'Formule Impression Weekend';
       } else if (formula === 'complete') {
-        basePrice = 329;
-        oldPrice = 389;
+        basePrice = 339;
+        oldPrice = 399;
         formulaName = 'Formule Complète Weekend';
       }
     } else if (eventType === 'soiree') {
       if (formula === 'digitale') {
         basePrice = 124;
-        oldPrice = 189;
+        oldPrice = 139;
         formulaName = 'Formule Digitale Soirée';
       } else if (formula === 'impression') {
         basePrice = 169;
-        oldPrice = 259;
+        oldPrice = 199;
         formulaName = 'Formule Impression Soirée';
       } else if (formula === 'complete') {
         basePrice = 219;
-        oldPrice = 289;
+        oldPrice = 259;
         formulaName = 'Formule Complète Soirée';
       }
     }
