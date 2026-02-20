@@ -3,7 +3,7 @@ export const siteData = {
   tagline: "Location de photobooth premium à Tours",
   description: "Location de bornes photo haut de gamme pour vos mariages, anniversaires et événements. Fabrication 100% française, artisanale en bois véritable avec appareil photo professionnel intégré. Retrait express à Tours.",
   
-  promoText: "🎉 OFFRE DE LANCEMENT : -50€ sur toutes les formules jusqu'au 31 mars 2026 !",
+  promoText: "🎉 OFFRE DE LANCEMENT : Jusqu'à 70€ de remise sur toutes les formules pour toute réservation avant le 31 mars 2026 !",
   
   contact: {
     email: "contact@cphotobooth.fr",
