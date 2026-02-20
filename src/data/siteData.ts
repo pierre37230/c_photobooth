@@ -117,7 +117,7 @@ export const siteData = {
   ],
 
   gallery: [
-    { src: "/images/photobooth-1.jpg", alt: "Photobooth bois fabriqué France Tours" },
+    { src: "/images/photobooth-vrai.jpg", alt: "Photobooth bois fabriqué France Tours" },
     { src: "/images/photobooth-2.jpg", alt: "Borne photo artisanale appareil photo professionnel" },
     { src: "/images/photobooth-3.jpg", alt: "Location photobooth mariage Tours retrait express" },
     { src: "/images/photobooth-4.jpg", alt: "Photobooth bois véritable fabrication française" },
