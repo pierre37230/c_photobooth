@@ -18,52 +18,76 @@ export default function PricingSimulator() {
     let oldPrice = 0;
     let formulaName = '';
 
-    // Prix de base selon type et formule
+    // Prix de base selon type et formule (depuis siteData)
     if (eventType === 'weekend') {
       if (formula === 'digitale') {
-        basePrice = 229;
-        oldPrice = 259;
-        formulaName = 'Formule Digitale Weekend';
+        const plan = siteData.pricingWeekend[0];
+        basePrice = parseInt(plan.price);
+        oldPrice = parseInt(plan.oldPrice);
+        formulaName = plan.name;
       } else if (formula === 'impression') {
-        basePrice = 289;
-        oldPrice = 329;
-        formulaName = 'Formule Impression Weekend';
+        const plan = siteData.pricingWeekend[1];
+        basePrice = parseInt(plan.price);
+        oldPrice = parseInt(plan.oldPrice);
+        formulaName = plan.name;
       } else if (formula === 'complete') {
-        basePrice = 339;
-        oldPrice = 399;
-        formulaName = 'Formule Complète Weekend';
+        const plan = siteData.pricingWeekend[2];
+        basePrice = parseInt(plan.price);
+        oldPrice = parseInt(plan.oldPrice);
+        formulaName = plan.name;
       }
     } else if (eventType === 'soiree') {
       if (formula === 'digitale') {
-        basePrice = 124;
-        oldPrice = 139;
-        formulaName = 'Formule Digitale Soirée';
+        const plan = siteData.pricingSoiree[0];
+        basePrice = parseInt(plan.price);
+        oldPrice = parseInt(plan.oldPrice);
+        formulaName = plan.name;
       } else if (formula === 'impression') {
-        basePrice = 169;
-        oldPrice = 199;
-        formulaName = 'Formule Impression Soirée';
+        const plan = siteData.pricingSoiree[1];
+        basePrice = parseInt(plan.price);
+        oldPrice = parseInt(plan.oldPrice);
+        formulaName = plan.name;
       } else if (formula === 'complete') {
-        basePrice = 219;
-        oldPrice = 259;
-        formulaName = 'Formule Complète Soirée';
+        const plan = siteData.pricingSoiree[2];
+        basePrice = parseInt(plan.price);
+        oldPrice = parseInt(plan.oldPrice);
+        formulaName = plan.name;
       }
     }
 
+    // Ancien prix de base (pour calculer l'économie totale)
+    const baseOldPrice = oldPrice;
+
     // Livraison
     if (needsDelivery && distance) {
-      if (distance === '<30') basePrice += 29;
-      else if (distance === '30-60') basePrice += 45;
-      else if (distance === '>60') basePrice += 60;
+      if (distance === '<30') {
+        basePrice += 29;
+        oldPrice += 29;
+      } else if (distance === '30-60') {
+        basePrice += 45;
+        oldPrice += 45;
+      } else if (distance === '>60') {
+        basePrice += 60;
+        oldPrice += 60;
+      }
     }
 
     // Impressions supplémentaires
-    if (extraPrints === '200') basePrice += 60;
-    else if (extraPrints === '400') basePrice += 39;
+    if (extraPrints === '200') {
+      basePrice += 60;
+      oldPrice += 60;
+    } else if (extraPrints === '400') {
+      basePrice += 39;
+      oldPrice += 39;
+    }
 
     // Template (sauf si formule complète qui l'inclut déjà)
-    if (needsTemplate && formula !== 'complete') basePrice += 10;
+    if (needsTemplate && formula !== 'complete') {
+      basePrice += 10;
+      oldPrice += 10;
+    }
 
-    return { basePrice, oldPrice, formulaName };
+    return { basePrice, oldPrice, formulaName, baseOldPrice };
   };
 
   const resetSimulator = () => {
@@ -341,7 +365,7 @@ export default function PricingSimulator() {
                     <span className="old-price">{result.oldPrice}€</span>
                   )}
                   <span className="final-price">{result.basePrice}€</span>
-                  {result.oldPrice > 0 && (
+                  {result.oldPrice > 0 && result.oldPrice > result.basePrice && (
                     <span className="savings">Économisez {result.oldPrice - result.basePrice}€</span>
                   )}
                 </div>
@@ -349,7 +373,7 @@ export default function PricingSimulator() {
                 <div className="result-details">
                   <h4>Détails de votre configuration :</h4>
                   <ul>
-                    <li>📅 Type : {eventType === 'weekend' ? 'Weekend 48h' : 'Soirée'}</li>
+                    <li>📅 Type : {eventType === 'weekend' ? 'Weekend 48h' : 'Soirée (dès 18h)'}</li>
                     <li>📦 Formule : {formula === 'digitale' ? 'Digitale' : formula === 'impression' ? 'Impression' : 'Complète'}</li>
                     {needsDelivery && distance && (
                       <li>🚚 Livraison : {distance === '<30' ? 'Moins de 30km (+29€)' : distance === '30-60' ? '30-60km (+45€)' : 'Plus de 60km (+60€)'}</li>
