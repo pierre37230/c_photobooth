@@ -180,7 +180,7 @@ export const siteData = {
  legalEntity: {
     companyName: "CPhotobooth",
     legalForm: "Micro entreprise",
-    siret: "numéro de SIRET en cours d'attribution",
+    siret: "100 959 626 00019",
     address: "Dangé Saint Romain, 86220, France",
     email: "contact@cphotobooth.fr",
     phone: "07 81 41 51 95",
