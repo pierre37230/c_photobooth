@@ -2,9 +2,12 @@ import type { Metadata } from 'next';
 import { siteData } from '@/data/siteData';
 
 export const metadata: Metadata = {
-  title: 'Galerie Photos Photobooth Tours',
-  description: 'Découvrez nos photobooths premium en action lors de mariages, anniversaires et événements à Tours et en Indre-et-Loire.',
-  keywords: ['galerie photobooth Tours', 'photos borne photo 37', 'photobooth mariage Tours'],
+  title: 'Galerie Photos Photobooth Tours | Mariages & Événements 37',
+  description: 'Découvrez notre photobooth en bois en action lors de mariages, anniversaires et événements à Tours. Photos réelles de nos clients en Indre-et-Loire.',
+  alternates: {
+    canonical: 'https://cphotobooth.fr/galerie',
+  },
+  keywords: ['galerie photobooth Tours', 'photos borne photo mariage 37', 'photobooth événement Tours'],
 };
 
 export default function GaleriePage() {

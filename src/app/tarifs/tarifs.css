@@ -33,6 +33,36 @@
   flex-wrap: wrap;
 }
 
+.promo-banner {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin: 2rem auto 0;
+  max-width: 800px;
+  box-shadow: 0 4px 12px rgba(238, 90, 111, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.savings {
+  display: block;
+  color: #16a34a;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
 @media (max-width: 768px) {
   .tarifs-cta {
     flex-direction: column;
@@ -42,5 +72,10 @@
   .tarifs-cta .btn {
     width: 100%;
     max-width: 300px;
+  }
+  
+  .promo-banner {
+    font-size: 1rem;
+    padding: 0.875rem 1.5rem;
   }
 }

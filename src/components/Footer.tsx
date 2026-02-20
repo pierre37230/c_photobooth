@@ -20,27 +20,28 @@ export default function Footer() {
           </div>
 
           <div className="footer-section">
-            <h4>Navigation</h4>
+            <h4>Nos Services</h4>
             <ul>
-              <li><Link href="/">Accueil</Link></li>
-              <li><Link href="/tarifs">Tarifs</Link></li>
-              <li><Link href="/galerie">Galerie</Link></li>
-              <li><Link href="/faq">FAQ</Link></li>
-              <li><Link href="/contact">Contact</Link></li>
+              <li><Link href="/photobooth-mariage-tours">Photobooth Mariage</Link></li>
+              <li><Link href="/photobooth-entreprise-tours">Événements Entreprise</Link></li>
+              <li><Link href="/tarifs">Tarifs & Formules</Link></li>
+              <li><Link href="/galerie">Galerie Photos</Link></li>
             </ul>
           </div>
 
           <div className="footer-section">
-            <h4>Légal</h4>
+            <h4>Informations</h4>
             <ul>
+              <li><Link href="/faq">Questions Fréquentes</Link></li>
+              <li><Link href="/contact">Contact & Devis</Link></li>
               <li><Link href="/mentions-legales">Mentions légales</Link></li>
-              <li><Link href="/politique-confidentialite">Politique de confidentialité</Link></li>
+              <li><Link href="/politique-confidentialite">Confidentialité</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {currentYear} {siteData.businessName}. Tous droits réservés.</p>
+          <p>&copy; {currentYear} {siteData.businessName}. Tous droits réservés. Location photobooth Tours et Indre-et-Loire (37).</p>
         </div>
       </div>
     </footer>

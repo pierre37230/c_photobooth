@@ -45,10 +45,11 @@ export const siteData = {
     },
   ],
 
-  pricing: [
+ pricing: [
     {
       name: "Formule Numérique",
       price: "179€",
+      oldPrice: "229€", // NOUVEAU : prix barré
       duration: "Weekend",
       features: [
         "Photobooth en bois fabrication française",
@@ -65,6 +66,7 @@ export const siteData = {
     {
       name: "Formule Complète",
       price: "259€",
+      oldPrice: "329€", // NOUVEAU : prix barré
       duration: "Weekend",
       features: [
         "Tout de la formule Numérique",
@@ -79,6 +81,7 @@ export const siteData = {
     {
       name: "Location Soirée",
       price: "Sur devis",
+      oldPrice: null, // Pas de prix barré pour cette formule
       duration: "En semaine",
       features: [
         "Toutes les options disponibles",

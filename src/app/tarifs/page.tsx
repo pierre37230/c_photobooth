@@ -4,9 +4,12 @@ import { siteData } from '@/data/siteData';
 import './tarifs.css';
 
 export const metadata: Metadata = {
-  title: 'Tarifs Location Photobooth Tours - Dès 179€',
-  description: 'Tarifs transparents pour la location de photobooth à Tours. Formule weekend dès 179€. Retrait express, installation simple, fabrication française. Pas de frais cachés.',
-  keywords: ['tarif photobooth Tours', 'prix location borne photo 37', 'photobooth pas cher Tours', 'location weekend Tours'],
+  title: 'Tarifs Photobooth Tours - 179€ & 259€ | Prix Clairs',
+  description: 'Tarifs location photobooth Tours : 179€ numérique, 259€ avec impressions. Options livraison dès 29€. Pas de frais cachés. Devis gratuit sous 24h.',
+  alternates: {
+    canonical: 'https://cphotobooth.fr/tarifs',
+  },
+  keywords: ['tarif photobooth Tours', 'prix borne photo 37', 'location photobooth pas cher Tours', 'devis photobooth Indre-et-Loire'],
 };
 
 export default function TarifsPage() {
@@ -17,6 +20,11 @@ export default function TarifsPage() {
           <div className="section-title">
             <h1>Nos Tarifs</h1>
             <p>Location weekend ou soirée • Retrait express à Tours • Tarifs transparents, sans surprise</p>
+            {siteData.promoText && (
+              <div className="promo-banner">
+                {siteData.promoText}
+              </div>
+            )}
           </div>
 
           <div className="grid grid-3">
@@ -25,8 +33,14 @@ export default function TarifsPage() {
                 {plan.badge && <div className="plan-badge">{plan.badge}</div>}
                 <h2>{plan.name}</h2>
                 <div className="price">
+                  {plan.oldPrice && (
+                    <span className="old-price">{plan.oldPrice}</span>
+                  )}
                   <span className="amount">{plan.price}</span>
                   <span className="duration">{plan.duration}</span>
+                  {plan.oldPrice && (
+                    <span className="savings">Économisez {parseInt(plan.oldPrice) - parseInt(plan.price)}€ !</span>
+                  )}
                 </div>
                 <ul className="features">
                   {plan.features.map((feature, i) => (
@@ -60,8 +74,8 @@ export default function TarifsPage() {
               <ul style={{ lineHeight: '2', color: 'var(--text-light)' }}>
                 <li><strong>Retrait :</strong> À Tours (adresse communiquée à la réservation)</li>
                 <li><strong>Retrait express :</strong> En 5 minutes avec guide et vidéos d'installation</li>
-                <li><strong>Option livraison et installation :</strong> À partir de 29€ selon le lieu</li>
-                <li><strong>Restitution :</strong> Même lieu que le retrait</li>
+                <li><strong>Option livraison :</strong> À partir de 29€ selon le lieu</li>
+                <li><strong>Restitution :</strong> Même lieu que le retrait, le lundi suivant</li>
               </ul>
 
               <h3 style={{ marginTop: '2rem' }}>⚡ Installation</h3>
@@ -77,12 +91,13 @@ export default function TarifsPage() {
                 <li>Acompte de 30% à la réservation</li>
                 <li>Solde à régler avant le retrait</li>
                 <li>Paiement par virement ou espèces</li>
+                <li>Annulation gratuite jusqu'à 14 jours avant l'événement</li>
               </ul>
 
               <h3 style={{ marginTop: '2rem' }}>🎯 Nos Engagements</h3>
               <ul style={{ lineHeight: '2', color: 'var(--text-light)' }}>
                 <li><strong>Transparence totale :</strong> Pas de frais cachés, tous les tarifs sont clairs</li>
-                <li><strong>Qualité premium :</strong> Photobooth fabriqué à la main en France, bois véritable, vrai appareil photo</li>
+                <li><strong>Qualité premium :</strong> Photobooth fabriqué en France, bois véritable, vrai appareil photo</li>
                 <li><strong>Simplicité :</strong> Installation en 2 minutes, aucune prise de tête</li>
                 <li><strong>Fiabilité :</strong> Matériel testé et vérifié avant chaque location</li>
               </ul>

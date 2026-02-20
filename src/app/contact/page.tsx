@@ -2,9 +2,12 @@ import type { Metadata } from 'next';
 import { siteData } from '@/data/siteData';
 
 export const metadata: Metadata = {
-  title: 'Contact - Location Photobooth Tours',
-  description: 'Contactez CPhotobooth pour louer un photobooth premium à Tours. Devis gratuit pour votre mariage, anniversaire ou événement d\'entreprise en Indre-et-Loire.',
-  keywords: ['contact photobooth Tours', 'réservation borne photo 37', 'devis photobooth Tours'],
+  title: 'Contact Photobooth Tours | Devis Gratuit Location Borne 37',
+  description: 'Contactez CPhotobooth Tours pour un devis gratuit. Réponse sous 24h. Location photobooth mariage, anniversaire, entreprise en Indre-et-Loire.',
+  alternates: {
+    canonical: 'https://cphotobooth.fr/contact',
+  },
+  keywords: ['contact photobooth Tours', 'devis borne photo 37', 'réservation photobooth Tours'],
 };
 
 export default function ContactPage() {
