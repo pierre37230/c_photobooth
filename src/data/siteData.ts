@@ -7,7 +7,7 @@ export const siteData = {
   
   contact: {
     email: "contact@cphotobooth.fr",
-    phone: "06 XX XX XX XX",
+    phone: "07 81 41 51 95",
     address: "Tours, Indre-et-Loire (37)",
     city: "Tours",
     postalCode: "37000",

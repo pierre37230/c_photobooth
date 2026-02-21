@@ -59,7 +59,7 @@ export default function TarifsPage() {
 
           {/* TARIFS SOIRÉE */}
           <div style={{ marginBottom: '4rem' }}>
-            <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>🌙 Formules Soirée (dès 18h)</h2>
+            <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>🌙 Formules Soirée (dès 18h) | en semaine uniquement</h2>
             <div className="grid grid-3">
               {siteData.pricingSoiree.map((plan, index) => (
                 <div key={index} className={`pricing-card ${plan.popular ? 'popular' : ''}`}>

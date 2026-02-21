@@ -10,7 +10,7 @@ import ContactSection from '@/components/ContactSection';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Location Photobooth Tours dès 179€ | Borne Photo 37',
+  title: 'Location Photobooth Tours dès 124€ | Borne Photo 37',
   description: 'Location photobooth premium à Tours. Fabrication française, bois véritable, appareil photo pro. Mariage, anniversaire, entreprise. Retrait express. 179€ le weekend.',
   alternates: {
     canonical: 'https://cphotobooth.fr',
