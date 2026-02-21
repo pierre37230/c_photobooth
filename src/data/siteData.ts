@@ -89,6 +89,7 @@ export const siteData = {
       features: [
         "Tout de la formule Impression",
         "400 impressions papier 10x15cm au total",
+        "Livraison incluse jusqu'à 30kms de Tours",
         "Template photo personnalisé inclus",
         "Le maximum pour votre événement",
       ],
@@ -137,6 +138,7 @@ export const siteData = {
       features: [
         "Tout de la formule Impression",
         "400 impressions papier 10x15cm au total",
+        "Livraison incluse jusqu'à 30kms de Tours",
         "Le maximum pour votre soirée",
       ],
       popular: false,
@@ -145,19 +147,19 @@ export const siteData = {
 
   delivery: [
     {
-      distance: "Moins de 30km",
-      price: "29€",
-      description: "Livraison dans un rayon de 30km autour de Tours",
+      distance: "Moins de 20km",
+      price: "39€",
+      description: "Livraison dans un rayon de 20km autour de Tours",
     },
     {
-      distance: "30 à 60km",
+      distance: "20 à 40km",
       price: "45€",
-      description: "Livraison entre 30 et 60km de Tours",
+      description: "Livraison entre 20 et 40km de Tours",
     },
     {
-      distance: "Plus de 60km",
+      distance: "Jusqu'à 60km",
       price: "60€",
-      description: "Livraison au-delà de 60km de Tours",
+      description: "Livraison jusqu'à 60km de Tours",
     },
   ],
 
