@@ -127,8 +127,8 @@ export default function PricingSimulator() {
                   }}
                 >
                   <span className="option-icon">📅</span>
-                  <strong>Weekend (48h)</strong>
-                  <small>Vendredi soir au dimanche soir</small>
+                  <strong>Weekend ou semaine (48h)</strong>
+                 
                 </button>
                 <button
                   className={`option-btn ${eventType === 'soiree' ? 'active' : ''}`}
@@ -138,7 +138,7 @@ export default function PricingSimulator() {
                   }}
                 >
                   <span className="option-icon">🌙</span>
-                  <strong>Soirée</strong>
+                  <strong>Soirée (en semiane uniquement)</strong>
                   <small>À partir de 18h</small>
                 </button>
               </div>
