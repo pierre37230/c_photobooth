@@ -47,12 +47,12 @@ export const siteData = {
     },
   ],
 
-  pricingWeekend: [
+ pricingWeekend: [
     {
       name: "Formule Digitale",
       price: "229€",
       oldPrice: "259€",
-      duration: "Weekend 48h",
+      duration: "Weekend ou 48h en semaine",
       savings: "-30€",
       features: [
         "Photobooth en bois fabrication française",
@@ -64,12 +64,13 @@ export const siteData = {
         "Retrait express à Tours",
       ],
       popular: false,
+      includesDelivery: false,
     },
     {
       name: "Formule Impression",
       price: "289€",
       oldPrice: "329€",
-      duration: "Weekend 48h",
+      duration: "Weekend ou 48h en semaine",
       savings: "-40€",
       features: [
         "Tout de la formule Digitale",
@@ -79,21 +80,23 @@ export const siteData = {
         "Souvenirs instantanés pour vos invités",
       ],
       popular: true,
+      includesDelivery: false,
     },
     {
       name: "Formule Complète",
       price: "339€",
       oldPrice: "399€",
-      duration: "Weekend 48h",
+      duration: "Weekend ou 48h en semaine",
       savings: "-60€",
       features: [
         "Tout de la formule Impression",
         "400 impressions papier 10x15cm au total",
-        "Livraison incluse jusqu'à 30kms de Tours",
         "Template photo personnalisé inclus",
+        "Livraison jusqu'à 20km incluse",
         "Le maximum pour votre événement",
       ],
       popular: false,
+      includesDelivery: true, // NOUVEAU : livraison <20km incluse
     },
   ],
 
@@ -102,7 +105,7 @@ export const siteData = {
       name: "Formule Digitale Soirée",
       price: "124€",
       oldPrice: "139€",
-      duration: "À partir de 18h",
+      duration: "Soirée en semaine uniquement",
       savings: "-15€",
       features: [
         "Photobooth en bois fabrication française",
@@ -114,12 +117,13 @@ export const siteData = {
         "Retrait express à Tours",
       ],
       popular: false,
+      includesDelivery: false,
     },
     {
       name: "Formule Impression Soirée",
       price: "169€",
       oldPrice: "199€",
-      duration: "Soirée",
+      duration: "Soirée en semaine uniquement",
       savings: "-30€",
       features: [
         "Tout de la formule Digitale",
@@ -128,20 +132,22 @@ export const siteData = {
         "Parfait pour événements en semaine",
       ],
       popular: true,
+      includesDelivery: false,
     },
     {
       name: "Formule Complète Soirée",
       price: "219€",
       oldPrice: "259€",
-      duration: "Soirée",
+      duration: "Soirée en semaine uniquement",
       savings: "-40€",
       features: [
         "Tout de la formule Impression",
         "400 impressions papier 10x15cm au total",
-        "Livraison incluse jusqu'à 30kms de Tours",
+        "Livraison jusqu'à 20km incluse",
         "Le maximum pour votre soirée",
       ],
       popular: false,
+      includesDelivery: true, // NOUVEAU : livraison <20km incluse
     },
   ],
 
@@ -178,50 +184,6 @@ export const siteData = {
       name: "Template Personnalisé",
       price: "10€",
       description: "Personnalisation du design des photos avec vos prénoms, logo, date...",
-    },
-  ],
-
-  // Ancien pricing gardé pour compatibilité
-  pricing: [
-    {
-      name: "Formule Digitale",
-      price: "229€",
-      oldPrice: "259€",
-      duration: "Weekend 48h",
-      features: [
-        "Photobooth en bois fabrication française",
-        "Véritable appareil photo intégré",
-        "Photos illimitées pendant 48h",
-        "Toutes les photos en ligne après",
-      ],
-      popular: false,
-      badge: "100% numérique",
-    },
-    {
-      name: "Formule Complète",
-      price: "329€",
-      oldPrice: "389€",
-      duration: "Weekend 48h",
-      features: [
-        "Tout de la formule Digitale",
-        "400 impressions papier incluses",
-        "Template personnalisé inclus",
-      ],
-      popular: true,
-      badge: "La meilleure",
-    },
-    {
-      name: "Formule Soirée",
-      price: "À partir de 124€",
-      oldPrice: null,
-      duration: "Dès 18h",
-      features: [
-        "Toutes les options disponibles",
-        "Tarifs préférentiels soirée",
-        "Idéal pour événements en semaine",
-      ],
-      popular: false,
-      badge: "Soirée",
     },
   ],
 

@@ -9,32 +9,36 @@ export default function PricingSimulator() {
   const [eventType, setEventType] = useState<'weekend' | 'soiree' | null>(null);
   const [formula, setFormula] = useState<'digitale' | 'impression' | 'complete' | null>(null);
   const [needsDelivery, setNeedsDelivery] = useState<boolean | null>(null);
-  const [distance, setDistance] = useState<'<30' | '30-60' | '>60' | null>(null);
-  const [extraPrints, setExtraPrints] = useState<'none' | '200' | '400' | null>(null);
+  const [distance, setDistance] = useState<'<20' | '20-40' | '40-60' | null>(null);
+  const [extraPrints, setExtraPrints] = useState<'none' | '100' | '200' | null>(null);
   const [needsTemplate, setNeedsTemplate] = useState<boolean | null>(null);
 
   const calculatePrice = () => {
     let basePrice = 0;
     let oldPrice = 0;
     let formulaName = '';
+    let deliveryIncluded = false;
 
-    // Prix de base selon type et formule (depuis siteData)
+    // Prix de base selon type et formule
     if (eventType === 'weekend') {
       if (formula === 'digitale') {
         const plan = siteData.pricingWeekend[0];
         basePrice = parseInt(plan.price);
         oldPrice = parseInt(plan.oldPrice);
         formulaName = plan.name;
+        deliveryIncluded = plan.includesDelivery || false;
       } else if (formula === 'impression') {
         const plan = siteData.pricingWeekend[1];
         basePrice = parseInt(plan.price);
         oldPrice = parseInt(plan.oldPrice);
         formulaName = plan.name;
+        deliveryIncluded = plan.includesDelivery || false;
       } else if (formula === 'complete') {
         const plan = siteData.pricingWeekend[2];
         basePrice = parseInt(plan.price);
         oldPrice = parseInt(plan.oldPrice);
         formulaName = plan.name;
+        deliveryIncluded = plan.includesDelivery || false;
       }
     } else if (eventType === 'soiree') {
       if (formula === 'digitale') {
@@ -42,43 +46,49 @@ export default function PricingSimulator() {
         basePrice = parseInt(plan.price);
         oldPrice = parseInt(plan.oldPrice);
         formulaName = plan.name;
+        deliveryIncluded = plan.includesDelivery || false;
       } else if (formula === 'impression') {
         const plan = siteData.pricingSoiree[1];
         basePrice = parseInt(plan.price);
         oldPrice = parseInt(plan.oldPrice);
         formulaName = plan.name;
+        deliveryIncluded = plan.includesDelivery || false;
       } else if (formula === 'complete') {
         const plan = siteData.pricingSoiree[2];
         basePrice = parseInt(plan.price);
         oldPrice = parseInt(plan.oldPrice);
         formulaName = plan.name;
+        deliveryIncluded = plan.includesDelivery || false;
       }
     }
 
-    // Ancien prix de base (pour calculer l'économie totale)
-    const baseOldPrice = oldPrice;
-
     // Livraison
     if (needsDelivery && distance) {
-      if (distance === '<30') {
-        basePrice += 29;
-        oldPrice += 29;
-      } else if (distance === '30-60') {
-        basePrice += 45;
-        oldPrice += 45;
-      } else if (distance === '>60') {
-        basePrice += 60;
-        oldPrice += 60;
+      // Si formule complète et distance <20km, livraison incluse
+      if (deliveryIncluded && distance === '<20') {
+        // Livraison déjà incluse, pas de surcoût
+      } else {
+        // Sinon, ajouter le prix de la livraison
+        if (distance === '<20') {
+          basePrice += 39;
+          oldPrice += 39;
+        } else if (distance === '20-40') {
+          basePrice += 45;
+          oldPrice += 45;
+        } else if (distance === '40-60') {
+          basePrice += 60;
+          oldPrice += 60;
+        }
       }
     }
 
     // Impressions supplémentaires
-    if (extraPrints === '200') {
-      basePrice += 60;
-      oldPrice += 60;
-    } else if (extraPrints === '400') {
+    if (extraPrints === '100') {
       basePrice += 39;
       oldPrice += 39;
+    } else if (extraPrints === '200') {
+      basePrice += 60;
+      oldPrice += 60;
     }
 
     // Template (sauf si formule complète qui l'inclut déjà)
@@ -87,7 +97,7 @@ export default function PricingSimulator() {
       oldPrice += 10;
     }
 
-    return { basePrice, oldPrice, formulaName, baseOldPrice };
+    return { basePrice, oldPrice, formulaName, deliveryIncluded };
   };
 
   const resetSimulator = () => {
@@ -127,8 +137,8 @@ export default function PricingSimulator() {
                   }}
                 >
                   <span className="option-icon">📅</span>
-                  <strong>Weekend ou semaine (48h)</strong>
-                 
+                  <strong>Weekend ou 48h</strong>
+                  <small>Weekend ou 48h en semaine</small>
                 </button>
                 <button
                   className={`option-btn ${eventType === 'soiree' ? 'active' : ''}`}
@@ -138,8 +148,8 @@ export default function PricingSimulator() {
                   }}
                 >
                   <span className="option-icon">🌙</span>
-                  <strong>Soirée (en semaine uniquement)</strong>
-                  <small>À partir de 18h</small>
+                  <strong>Soirée</strong>
+                  <small>En semaine uniquement</small>
                 </button>
               </div>
             </div>
@@ -181,7 +191,7 @@ export default function PricingSimulator() {
                 >
                   <span className="option-icon">⭐</span>
                   <strong>Complète</strong>
-                  <small>+ 400 impressions + template</small>
+                  <small>+ 400 impressions + livraison incluse</small>
                 </button>
               </div>
               <button className="btn-back" onClick={() => setStep(1)}>← Retour</button>
@@ -192,6 +202,9 @@ export default function PricingSimulator() {
           {step === 3 && (
             <div className="simulator-step">
               <h3>Avez-vous besoin d'une livraison ?</h3>
+              {formula === 'complete' && (
+                <p className="info-text">✅ Livraison jusqu'à 20km incluse dans la formule Complète !</p>
+              )}
               <div className="options-grid">
                 <button
                   className={`option-btn ${needsDelivery === false ? 'active' : ''}`}
@@ -213,7 +226,7 @@ export default function PricingSimulator() {
                 >
                   <span className="option-icon">🚚</span>
                   <strong>Oui, livraison</strong>
-                  <small>Dès 29€</small>
+                  <small>{formula === 'complete' ? 'Incluse jusqu\'à 20km' : 'Dès 39€'}</small>
                 </button>
               </div>
 
@@ -222,33 +235,33 @@ export default function PricingSimulator() {
                   <h4>Quelle est votre distance depuis Tours ?</h4>
                   <div className="options-grid">
                     <button
-                      className={`option-btn small ${distance === '<30' ? 'active' : ''}`}
+                      className={`option-btn small ${distance === '<20' ? 'active' : ''}`}
                       onClick={() => {
-                        setDistance('<30');
+                        setDistance('<20');
                         setStep(4);
                       }}
                     >
-                      <strong>Moins de 30km</strong>
-                      <small>+29€</small>
+                      <strong>Moins de 20km</strong>
+                      <small>{formula === 'complete' ? 'Inclus !' : '+39€'}</small>
                     </button>
                     <button
-                      className={`option-btn small ${distance === '30-60' ? 'active' : ''}`}
+                      className={`option-btn small ${distance === '20-40' ? 'active' : ''}`}
                       onClick={() => {
-                        setDistance('30-60');
+                        setDistance('20-40');
                         setStep(4);
                       }}
                     >
-                      <strong>30 à 60km</strong>
+                      <strong>20 à 40km</strong>
                       <small>+45€</small>
                     </button>
                     <button
-                      className={`option-btn small ${distance === '>60' ? 'active' : ''}`}
+                      className={`option-btn small ${distance === '40-60' ? 'active' : ''}`}
                       onClick={() => {
-                        setDistance('>60');
+                        setDistance('40-60');
                         setStep(4);
                       }}
                     >
-                      <strong>Plus de 60km</strong>
+                      <strong>Jusqu'à 60km</strong>
                       <small>+60€</small>
                     </button>
                   </div>
@@ -279,13 +292,13 @@ export default function PricingSimulator() {
                 {formula !== 'digitale' && (
                   <>
                     <button
-                      className={`option-btn ${extraPrints === '400' ? 'active' : ''}`}
+                      className={`option-btn ${extraPrints === '100' ? 'active' : ''}`}
                       onClick={() => {
-                        setExtraPrints('400');
+                        setExtraPrints('100');
                         setStep(5);
                       }}
                     >
-                      <strong>+400 impressions</strong>
+                      <strong>+100 impressions</strong>
                       <small>+39€</small>
                     </button>
                     <button
@@ -373,14 +386,31 @@ export default function PricingSimulator() {
                 <div className="result-details">
                   <h4>Détails de votre configuration :</h4>
                   <ul>
-                    <li>📅 Type : {eventType === 'weekend' ? 'Weekend 48h' : 'Soirée (dès 18h)'}</li>
-                    <li>📦 Formule : {formula === 'digitale' ? 'Digitale' : formula === 'impression' ? 'Impression' : 'Complète'}</li>
+                    <li>📅 Type : {eventType === 'weekend' ? 'Weekend ou 48h en semaine' : 'Soirée (en semaine uniquement)'}</li>
+                    <li>📦 Formule : {
+                      formula === 'digitale' ? 'Digitale' : 
+                      formula === 'impression' ? 'Impression' : 
+                      'Complète'
+                    }</li>
                     {needsDelivery && distance && (
-                      <li>🚚 Livraison : {distance === '<30' ? 'Moins de 30km (+29€)' : distance === '30-60' ? '30-60km (+45€)' : 'Plus de 60km (+60€)'}</li>
+                      <li>
+                        🚚 Livraison : {
+                          distance === '<20' ? 'Moins de 20km' : 
+                          distance === '20-40' ? '20 à 40km' : 
+                          'Jusqu\'à 60km'
+                        }
+                        {' '}
+                        {
+                          result.deliveryIncluded && distance === '<20' ? '(incluse !)' : 
+                          distance === '<20' ? '(+39€)' : 
+                          distance === '20-40' ? '(+45€)' : 
+                          '(+60€)'
+                        }
+                      </li>
                     )}
                     {!needsDelivery && <li>🚗 Retrait à Tours (gratuit)</li>}
                     {extraPrints !== 'none' && extraPrints && (
-                      <li>🖨️ +{extraPrints} impressions ({extraPrints === '400' ? '+39€' : '+60€'})</li>
+                      <li>🖨️ +{extraPrints} impressions supplémentaires ({extraPrints === '100' ? '+39€' : '+60€'})</li>
                     )}
                     {needsTemplate && formula !== 'complete' && <li>🎨 Template personnalisé (+10€)</li>}
                     {formula === 'complete' && <li>🎨 Template personnalisé (inclus)</li>}
