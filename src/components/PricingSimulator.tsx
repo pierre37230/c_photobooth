@@ -138,7 +138,7 @@ export default function PricingSimulator() {
                   }}
                 >
                   <span className="option-icon">🌙</span>
-                  <strong>Soirée (en semiane uniquement)</strong>
+                  <strong>Soirée (en semaine uniquement)</strong>
                   <small>À partir de 18h</small>
                 </button>
               </div>
