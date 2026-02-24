@@ -1,20 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import { siteData } from '@/data/siteData';
 
 export const metadata: Metadata = {
   title: 'Location Photobooth Mariage à Tours (37) | CPhotobooth',
   description: 'Louez un photobooth premium pour votre mariage à Tours et en Indre-et-Loire. 200 impressions incluses, installation simple, livraison possible. Devis rapide.',
-  keywords: [
-    'photobooth mariage Tours',
-    'borne photo mariage 37',
-    'location photobooth mariage Indre-et-Loire',
-    'animation mariage Tours',
-    'photobooth mariage Centre-Val de Loire',
-    'borne photo mariage Tours',
-    'location borne photo 37',
-  ],
   alternates: {
     canonical: 'https://www.cphotobooth.fr/photobooth-mariage-tours',
   },
@@ -26,7 +16,7 @@ export const metadata: Metadata = {
     locale: 'fr_FR',
     images: [
       {
-        url: 'https://www.cphotobooth.fr/images/photobooth-mariage.jpg',
+        url: 'https://www.cphotobooth.fr/images/hero.jpg',
         width: 1200,
         height: 630,
         alt: 'Photobooth mariage Tours',
@@ -38,7 +28,7 @@ export const metadata: Metadata = {
 export default function PhotoboothMariagePage() {
   const jsonLdLocalBusiness = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': ['LocalBusiness', 'ProfessionalService'],
     '@id': 'https://www.cphotobooth.fr/#organization',
     name: 'CPhotobooth',
     image: 'https://www.cphotobooth.fr/images/hero.jpg',
@@ -64,16 +54,46 @@ export default function PhotoboothMariagePage() {
         name: 'Tours',
       },
       {
+        '@type': 'City',
+        name: 'Joué-lès-Tours',
+      },
+      {
+        '@type': 'City',
+        name: 'Saint-Avertin',
+      },
+      {
+        '@type': 'City',
+        name: 'Amboise',
+      },
+      {
+        '@type': 'City',
+        name: 'Vouvray',
+      },
+      {
+        '@type': 'City',
+        name: 'Chinon',
+      },
+      {
+        '@type': 'City',
+        name: 'Loches',
+      },
+      {
+        '@type': 'City',
+        name: 'Chambray-lès-Tours',
+      },
+      {
         '@type': 'AdministrativeArea',
         name: 'Indre-et-Loire',
       },
     ],
-    openingHoursSpecification: {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-      opens: '09:00',
-      closes: '19:00',
-    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '09:00',
+        closes: '19:00',
+      },
+    ],
   };
 
   const jsonLdService = {
@@ -90,7 +110,7 @@ export default function PhotoboothMariagePage() {
         latitude: 47.3941,
         longitude: 0.6848,
       },
-      geoRadius: '50000',
+      geoRadius: 50000,
     },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
@@ -100,31 +120,43 @@ export default function PhotoboothMariagePage() {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
+            serviceType: 'Location photobooth mariage formule digitale',
             name: 'Formule Digitale Mariage',
             description: 'Location photobooth weekend avec photos numériques illimitées',
           },
           price: '229',
           priceCurrency: 'EUR',
+          url: 'https://www.cphotobooth.fr/tarifs',
+          availability: 'https://schema.org/InStock',
+          priceValidUntil: '2026-12-31',
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
+            serviceType: 'Location photobooth mariage avec impressions',
             name: 'Formule Impression Mariage',
             description: 'Location photobooth weekend avec 200 impressions papier incluses',
           },
           price: '289',
           priceCurrency: 'EUR',
+          url: 'https://www.cphotobooth.fr/tarifs',
+          availability: 'https://schema.org/InStock',
+          priceValidUntil: '2026-12-31',
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
+            serviceType: 'Location photobooth mariage formule complète',
             name: 'Formule Complète Mariage',
             description: 'Location photobooth weekend avec 400 impressions et template personnalisé',
           },
           price: '339',
           priceCurrency: 'EUR',
+          url: 'https://www.cphotobooth.fr/tarifs',
+          availability: 'https://schema.org/InStock',
+          priceValidUntil: '2026-12-31',
         },
       ],
     },
@@ -179,7 +211,7 @@ export default function PhotoboothMariagePage() {
         name: 'Que se passe-t-il en cas de problème technique pendant le mariage ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Votre tranquillité d\'esprit est notre priorité. En cas de problème technique pendant votre mariage, nous assurons une assistance téléphonique immédiate 7 jours sur 7. Notre équipe peut vous guider à distance pour résoudre la plupart des situations en quelques minutes. Si le problème persiste, nous intervenons sur place dans l\'heure ou nous remplaçons le matériel défectueux. Tous nos photobooths sont testés et vérifiés avant chaque location. Nous disposons également d\'un stock de matériel de remplacement pour garantir le bon déroulement de votre événement.',
+          text: 'Votre tranquillité d\'esprit est notre priorité. En cas de problème technique pendant votre mariage, nous assurons une assistance téléphonique immédiate 7 jours sur 7. Notre équipe peut vous guider à distance pour résoudre la plupart des situations rapidement. Tous nos photobooths sont testés et vérifiés avant chaque location. Nous disposons également d\'un stock de matériel de remplacement et faisons notre maximum pour garantir le bon déroulement de votre événement.',
         },
       },
       {
@@ -308,9 +340,8 @@ export default function PhotoboothMariagePage() {
 
               <p>
                 La <strong>fiabilité</strong> est notre priorité absolue pour votre mariage. Chaque photobooth est testé et vérifié avant d'être livré. Nous utilisons du matériel 
-                professionnel robuste, conçu pour fonctionner sans interruption pendant toute la durée de votre événement. Notre assistance téléphonique 7j/7 et notre stock de matériel 
-                de secours vous garantissent une tranquillité d'esprit totale. Depuis notre lancement, nous maintenons un taux de satisfaction de 100% sur les mariages dans la région 
-                tourangelle.
+                professionnel robuste, conçu pour fonctionner sans interruption pendant toute la durée de votre événement. Notre assistance téléphonique 7j/7 et notre réactivité 
+                vous garantissent une tranquillité d'esprit totale.
               </p>
 
               <h3 style={{ marginTop: '2rem', fontSize: '1.25rem' }}>Installation simple et autonomie totale</h3>
@@ -382,10 +413,10 @@ export default function PhotoboothMariagePage() {
                 service de location un choix premium pour votre mariage en Indre-et-Loire.
               </p>
 
-              <h3 style={{ marginTop: '2rem', fontSize: '1.25rem' }}>Tendances mariage 2024-2025 en région Centre-Val de Loire</h3>
+              <h3 style={{ marginTop: '2rem', fontSize: '1.25rem' }}>Tendances mariage actuelles en région Centre-Val de Loire</h3>
               
               <p>
-                Les mariages évoluent, et les attentes des couples également. En 2024-2025, nous observons plusieurs tendances fortes dans la région de Tours et l'Indre-et-Loire. 
+                Les mariages évoluent, et les attentes des couples également. En 2026, nous observons plusieurs tendances fortes dans la région de Tours et l'Indre-et-Loire. 
                 Le retour au local et à l'artisanal est très marqué : les couples privilégient les prestataires de proximité et les productions françaises, comme notre photobooth 
                 fabriqué artisanalement en bois massif en France.
               </p>
@@ -426,6 +457,58 @@ export default function PhotoboothMariagePage() {
                 Enfin, comparez les formules et la transparence tarifaire. Méfiez-vous des offres trop alléchantes qui cachent souvent des frais supplémentaires ou un 
                 matériel de qualité médiocre. Un tarif clair, détaillé, sans surprise, avec toutes les prestations incluses, témoigne du professionnalisme et du sérieux 
                 du prestataire.
+              </p>
+            </div>
+
+            {/* SECTION POURQUOI NOUS FAIRE CONFIANCE */}
+            <div className="card" style={{ marginBottom: '3rem', background: 'var(--background-light)' }}>
+              <h2>Pourquoi nous faire confiance pour votre mariage ?</h2>
+              
+              <p>
+                Choisir le bon prestataire pour votre <strong>photobooth de mariage à Tours</strong> est une décision importante. Voici ce qui nous distingue et vous garantit 
+                une expérience réussie le jour J.
+              </p>
+
+              <h3 style={{ fontSize: '1.125rem', marginTop: '1.5rem' }}>Matériel testé et vérifié systématiquement</h3>
+              <p>
+                Chaque photobooth fait l'objet d'une vérification complète avant chaque location. Nous testons l'appareil photo, l'imprimante (si formule avec impressions), 
+                l'écran tactile, l'éclairage et tous les composants électroniques. Cette procédure de contrôle qualité systématique nous permet de détecter et résoudre tout 
+                problème potentiel avant votre événement. Vous récupérez un matériel parfaitement fonctionnel, prêt à l'emploi.
+              </p>
+
+              <h3 style={{ fontSize: '1.125rem', marginTop: '1.5rem' }}>Installation ultra-simplifiée</h3>
+              <p>
+                Nous avons conçu notre service pour que l'installation soit accessible à tous, même sans aucune compétence technique. Le guide papier fourni avec chaque location 
+                est illustré pas à pas. Les vidéos explicatives accessibles via QR code montrent concrètement chaque étape. En 2 minutes chrono, votre photobooth est opérationnel. 
+                Pas de câblage compliqué, pas de réglages obscurs : branchez, allumez, c'est prêt.
+              </p>
+
+              <h3 style={{ fontSize: '1.125rem', marginTop: '1.5rem' }}>Assistance disponible 7 jours sur 7</h3>
+              <p>
+                Votre mariage a lieu un samedi, un dimanche, un jour férié ? Aucun problème. Notre assistance téléphonique est joignable 7 jours sur 7 pendant toute la durée 
+                de votre location. Une question pendant l'installation ? Un doute sur une manipulation ? Un invité a appuyé sur un bouton et vous ne savez plus comment revenir 
+                au menu principal ? Un simple appel et nous vous guidons pas à pas pour résoudre la situation rapidement.
+              </p>
+
+              <h3 style={{ fontSize: '1.125rem', marginTop: '1.5rem' }}>Récupération garantie de toutes vos photos</h3>
+              <p>
+                Vos souvenirs sont précieux. Nous mettons en place un système de sauvegarde fiable pour vous garantir la récupération de l'intégralité des photos prises pendant 
+                votre mariage. Dans les 48h suivant votre événement, vous recevez par email un lien de téléchargement sécurisé. Les photos restent disponibles en ligne pendant 
+                6 mois. Nous conservons également une sauvegarde de secours pendant 1 an au cas où vous auriez besoin de télécharger à nouveau vos photos.
+              </p>
+
+              <h3 style={{ fontSize: '1.125rem', marginTop: '1.5rem' }}>Fabrication française et circuit court</h3>
+              <p>
+                Nos photobooths sont fabriqués artisanalement en France, en bois massif véritable. Cette fabrication locale nous permet de contrôler la qualité de chaque borne 
+                et de garantir une finition premium. Le circuit court réduit notre impact environnemental et assure une maintenance rapide en cas de besoin. Vous louez un 
+                produit français de qualité, conçu pour durer.
+              </p>
+
+              <h3 style={{ fontSize: '1.125rem', marginTop: '1.5rem' }}>Transparence tarifaire totale</h3>
+              <p>
+                Tous nos tarifs sont affichés clairement sur notre site. Pas de frais cachés, pas de suppléments surprise. Le prix que vous voyez est le prix que vous payez. 
+                Cette transparence vous permet de budgétiser sereinement votre mariage sans craindre de dépassement inattendu. Les options sont clairement identifiées et leur 
+                prix est indiqué en toute transparence.
               </p>
             </div>
 
@@ -535,12 +618,13 @@ export default function PhotoboothMariagePage() {
               
               <h3 style={{ fontSize: '1.25rem', marginTop: '2rem' }}>Villes principales desservies</h3>
               <p>
-                <strong>Tours</strong> (centre-ville, Tours-Nord, Tours-Sud) • <strong>Joué-lès-Tours</strong> • 
-                <strong>Saint-Pierre-des-Corps</strong> • <strong>Saint-Avertin</strong> • <strong>La Riche</strong> • 
-                <strong>Chambray-lès-Tours</strong> • <strong>Ballan-Miré</strong> • <strong>Saint-Cyr-sur-Loire</strong> • 
-                <strong>Fondettes</strong> • <strong>Amboise</strong> • <strong>Montbazon</strong> • <strong>Vouvray</strong> • 
-                <strong>Azay-le-Rideau</strong> • <strong>Langeais</strong> • <strong>Chinon</strong> • <strong>Loches</strong> • 
-                <strong>Descartes</strong> • <strong>Ligueil</strong> • <strong>Sainte-Maure-de-Touraine</strong>
+                <strong>Tours</strong> • <strong>Joué-lès-Tours</strong> • <strong>Saint-Avertin</strong> • 
+                <strong>Chambray-lès-Tours</strong> • <strong>Amboise</strong> • <strong>Vouvray</strong> • 
+                <strong>Chinon</strong> • <strong>Loches</strong> • <strong>Saint-Pierre-des-Corps</strong> • 
+                <strong>La Riche</strong> • <strong>Ballan-Miré</strong> • <strong>Saint-Cyr-sur-Loire</strong> • 
+                <strong>Fondettes</strong> • <strong>Montbazon</strong> • <strong>Azay-le-Rideau</strong> • 
+                <strong>Langeais</strong> • <strong>Descartes</strong> • <strong>Ligueil</strong> • 
+                <strong>Sainte-Maure-de-Touraine</strong>
               </p>
 
               <h3 style={{ fontSize: '1.25rem', marginTop: '2rem' }}>Lieux de réception populaires</h3>
@@ -597,7 +681,7 @@ export default function PhotoboothMariagePage() {
                   <p style={{ color: 'var(--text-light)', lineHeight: '1.8' }}>
                     Oui, nous livrons votre photobooth dans tout le département de l'Indre-et-Loire (37). Nous intervenons à Tours, Joué-lès-Tours, 
                     Saint-Pierre-des-Corps, Amboise, Chinon, Loches, Montbazon, Azay-le-Rideau et toutes les communes du 37. La livraison jusqu'à 20km 
-                    de Tours est incluse dans notre formule Complète. Au-delà, les frais de livraison sont de 39€ (<20km), 45€ (20-40km) ou 60€ 
+                    de Tours est incluse dans notre formule Complète. Au-delà, les frais de livraison sont de 39€ (moins de 20km), 45€ (20-40km) ou 60€ 
                     (jusqu'à 60km). Nous pouvons également intervenir dans les départements limitrophes pour votre mariage.
                   </p>
                 </div>
@@ -645,10 +729,9 @@ export default function PhotoboothMariagePage() {
                   </h3>
                   <p style={{ color: 'var(--text-light)', lineHeight: '1.8' }}>
                     Votre tranquillité d'esprit est notre priorité. En cas de problème technique pendant votre mariage, nous assurons une <strong>assistance 
-                    téléphonique immédiate 7 jours sur 7</strong>. Notre équipe peut vous guider à distance pour résoudre la plupart des situations en quelques 
-                    minutes. Si le problème persiste, nous intervenons sur place dans l'heure ou nous remplaçons le matériel défectueux. Tous nos photobooths 
-                    sont testés et vérifiés avant chaque location. Nous disposons également d'un stock de matériel de remplacement pour garantir le bon 
-                    déroulement de votre événement.
+                    téléphonique immédiate 7 jours sur 7</strong>. Notre équipe peut vous guider à distance pour résoudre la plupart des situations rapidement. 
+                    Tous nos photobooths sont testés et vérifiés avant chaque location. Nous disposons également d'un stock de matériel de remplacement et 
+                    faisons notre maximum pour garantir le bon déroulement de votre événement.
                   </p>
                 </div>
 
