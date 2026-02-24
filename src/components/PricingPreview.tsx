@@ -17,9 +17,9 @@ export default function PricingPreview() {
         </div>
 
         <div className="grid grid-3">
-          {siteData.pricing.map((plan, index) => (
+          {siteData.pricingWeekend.map((plan, index) => (
             <div key={index} className={`pricing-card ${plan.popular ? 'popular' : ''}`}>
-              {plan.badge && <div className="plan-badge">{plan.badge}</div>}
+              {plan.popular && <div className="plan-badge">Le plus populaire</div>}
               <h3>{plan.name}</h3>
               <div className="price">
                 {plan.oldPrice && (
@@ -29,7 +29,7 @@ export default function PricingPreview() {
                 <span className="duration">{plan.duration}</span>
               </div>
               <ul className="features">
-                {plan.features.map((feature, i) => (
+                {plan.features.slice(0, 5).map((feature, i) => (
                   <li key={i}>{feature}</li>
                 ))}
               </ul>
@@ -41,7 +41,7 @@ export default function PricingPreview() {
         </div>
 
         <div className="options-notice">
-          <p><strong>Options disponibles :</strong> Livraison dès 29€ • 200 impressions sup. 50€ • Template personnalisé 10€</p>
+          <p><strong>Options disponibles :</strong> Livraison dès 39€ • Impressions sup. dès 39€ • Template personnalisé 10€</p>
         </div>
       </div>
     </section>

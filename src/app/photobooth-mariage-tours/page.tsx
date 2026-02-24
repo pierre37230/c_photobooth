@@ -87,7 +87,7 @@ export default function PhotoboothMariagePage() {
             Amboise, Chinon, Loches, Montbazon, Vouvray, Azay-le-Rideau, Langeais, et toutes les communes du département.
           </p>
           <p style={{ marginTop: '1rem' }}>
-            <strong>Livraison disponible</strong> directement sur votre lieu de réception à partir de 29€.
+            <strong>Livraison disponible</strong> directement sur votre lieu de réception à partir de 39€.
           </p>
         </div>
 

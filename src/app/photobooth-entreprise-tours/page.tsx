@@ -115,7 +115,7 @@ export default function PhotoboothEntreprisePage() {
             Chambray-lès-Tours, et toutes les communes du département.
           </p>
           <p style={{ marginTop: '1rem' }}>
-            <strong>Livraison directe</strong> dans vos locaux ou sur votre lieu d'événement à partir de 29€.
+            <strong>Livraison directe</strong> dans vos locaux ou sur votre lieu d'événement à partir de 39€.
           </p>
           <p style={{ marginTop: '1rem' }}>
             Déplacements possibles dans les départements limitrophes pour les grands événements.
