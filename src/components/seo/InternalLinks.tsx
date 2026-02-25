@@ -12,59 +12,43 @@ interface InternalLinksProps {
 
 export default function InternalLinks({ title, links }: InternalLinksProps) {
   return (
-    <section className="internal-links">
-      <h2>{title}</h2>
-      <div className="links-grid">
+    <section style={{ 
+      background: 'var(--background-light)', 
+      padding: '3rem 2rem', 
+      borderRadius: '12px', 
+      margin: '3rem 0' 
+    }}>
+      <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>{title}</h2>
+      <div style={{ 
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+        gap: '1rem',
+        maxWidth: '1000px',
+        margin: '0 auto'
+      }}>
         {links.map(link => (
-          <Link key={link.href} href={link.href} className="internal-link-card">
+          <Link 
+            key={link.href} 
+            href={link.href}
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              padding: '1rem 1.5rem',
+              background: 'white',
+              border: '1px solid var(--border)',
+              borderRadius: '8px',
+              textDecoration: 'none',
+              color: 'var(--primary)',
+              transition: 'all 0.3s ease'
+            }}
+            className="internal-link-hover"
+          >
             <span>{link.text}</span>
-            <span className="arrow">→</span>
+            <span style={{ color: 'var(--accent)', fontSize: '1.25rem' }}>→</span>
           </Link>
         ))}
       </div>
-      <style jsx>{`
-        .internal-links {
-          background: var(--background-light);
-          padding: 3rem 2rem;
-          border-radius: 12px;
-          margin: 3rem 0;
-        }
-        .internal-links h2 {
-          text-align: center;
-          margin-bottom: 2rem;
-        }
-        .links-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 1rem;
-          max-width: 1000px;
-          margin: 0 auto;
-        }
-        .internal-link-card {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 1rem 1.5rem;
-          background: white;
-          border: 1px solid var(--border);
-          border-radius: 8px;
-          text-decoration: none;
-          color: var(--primary);
-          transition: all 0.3s ease;
-        }
-        .internal-link-card:hover {
-          border-color: var(--accent);
-          transform: translateX(4px);
-        }
-        .internal-link-card .arrow {
-          color: var(--accent);
-          font-size: 1.25rem;
-          transition: transform 0.3s ease;
-        }
-        .internal-link-card:hover .arrow {
-          transform: translateX(4px);
-        }
-      `}</style>
     </section>
   );
 }
