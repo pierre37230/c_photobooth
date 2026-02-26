@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // Suppression de output: 'export' pour permettre les routes dynamiques
   images: {
     unoptimized: true,
     formats: ['image/webp'],
