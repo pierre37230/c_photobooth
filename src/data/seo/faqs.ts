@@ -1,8 +1,10 @@
 export interface FAQItem {
   question: string;
   answer: string;
-  category: 'general' | 'pricing' | 'technical' | 'logistics' | 'wedding' | 'business';
+  category?: 'general' | 'pricing' | 'technical' | 'logistics' | 'wedding' | 'business';
 }
+
+// Reste du fichier inchangé...
 
 export const globalFAQs: FAQItem[] = [
   {
