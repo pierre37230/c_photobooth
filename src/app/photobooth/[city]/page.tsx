@@ -89,14 +89,12 @@ export default function CityPage({ params }: CityPageProps) {
             <p>{city.description}</p>
           </div>
 
-          {/* INTRO SPÉCIFIQUE */}
           <div className="card" style={{ marginBottom: '3rem' }}>
             <p style={{ fontSize: '1.125rem', lineHeight: '1.8' }}>
               {city.specificContent.intro}
             </p>
           </div>
 
-          {/* SECTION MARIAGE */}
           <div className="card" style={{ marginBottom: '3rem' }}>
             <h2>Photobooth pour votre mariage à {city.name}</h2>
             <p style={{ lineHeight: '1.8', marginBottom: '1.5rem' }}>
@@ -112,7 +110,6 @@ export default function CityPage({ params }: CityPageProps) {
             </div>
           </div>
 
-          {/* SECTION ENTREPRISE */}
           <div className="card" style={{ marginBottom: '3rem' }}>
             <h2>Événements d'entreprise à {city.name}</h2>
             <p style={{ lineHeight: '1.8' }}>
@@ -125,7 +122,6 @@ export default function CityPage({ params }: CityPageProps) {
             </p>
           </div>
 
-          {/* SECTION LOGISTIQUE */}
           <div className="card" style={{ marginBottom: '3rem' }}>
             <h2>Livraison à {city.name} depuis Tours</h2>
             <p style={{ lineHeight: '1.8', marginBottom: '1.5rem' }}>
@@ -161,7 +157,6 @@ export default function CityPage({ params }: CityPageProps) {
             </div>
           </div>
 
-          {/* NOS FORMULES */}
           <div style={{ marginBottom: '4rem' }}>
             <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Nos formules pour {city.name}</h2>
             <div className="grid grid-3">
@@ -214,19 +209,12 @@ export default function CityPage({ params }: CityPageProps) {
             </div>
           </div>
 
-          {/* FAQ LOCALE */}
           <FAQSection faqs={city.localFAQ} title={`Questions fréquentes pour ${city.name}`} />
 
-          {/* LIENS INTERNES */}
-          <InternalLinks
-            title="Découvrez aussi"
-            links={internalLinks}
-          />
+          <InternalLinks title="Découvrez aussi" links={internalLinks} />
 
-          {/* VILLES PROCHES */}
           <LocalAreas currentCity={city.slug} limit={8} />
 
-          {/* CTA FINAL */}
           <div style={{ textAlign: 'center', background: 'var(--background-light)', padding: '3rem 2rem', borderRadius: '12px', marginTop: '4rem' }}>
             <h2>Réservez votre photobooth à {city.name}</h2>
             <p style={{ marginBottom: '2rem', color: 'var(--text-light)' }}>

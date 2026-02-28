@@ -1,12 +1,10 @@
 import { MetadataRoute } from 'next';
 import { cities } from '@/data/seo/cities';
-import { services } from '@/data/seo/services';
-import { blogPosts } from '@/data/seo/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.cphotobooth.fr';
 
-  // Pages statiques principales
+  // Pages statiques EXISTANTES uniquement
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -38,9 +36,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/mentions-legales`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/politique-confidentialite`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
   ];
 
-  // Pages piliers
+  // Pages piliers EXISTANTES
   const pillarPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/photobooth-tours`,
@@ -61,12 +71,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/photobooth-anniversaire-tours`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
       url: `${baseUrl}/prix-photobooth-tours`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
@@ -74,7 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Pages villes
+  // Pages villes dynamiques
   const cityPages: MetadataRoute.Sitemap = cities.map(city => ({
     url: `${baseUrl}/photobooth-${city.slug}`,
     lastModified: new Date(),
@@ -82,29 +86,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Pages services/intentionnelles
-  const servicePages: MetadataRoute.Sitemap = services
-    .filter(s => s.category === 'intent')
-    .map(service => ({
-      url: `${baseUrl}/${service.slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.75,
-    }));
-
-  // Articles blog
-  const blogPages: MetadataRoute.Sitemap = blogPosts.map(post => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.publishDate),
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }));
-
   return [
     ...staticPages,
     ...pillarPages,
     ...cityPages,
-    ...servicePages,
-    ...blogPages,
   ];
 }

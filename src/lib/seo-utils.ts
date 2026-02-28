@@ -13,7 +13,7 @@ export function generateMetadata(params: SEOParams): Metadata {
     title,
     description,
     canonical,
-    ogImage = 'https://www.cphotobooth.fr/images/hero.jpg',
+    ogImage = 'https://www.cphotobooth.fr/icon.png',
     noindex = false,
   } = params;
 
@@ -55,9 +55,10 @@ export function generateLocalBusinessSchema() {
     '@type': ['LocalBusiness', 'ProfessionalService'],
     '@id': 'https://www.cphotobooth.fr/#organization',
     name: 'CPhotobooth',
-    image: 'https://www.cphotobooth.fr/images/hero.jpg',
+    image: 'https://www.cphotobooth.fr/icon.png',
+    logo: 'https://www.cphotobooth.fr/icon.png',
     url: 'https://www.cphotobooth.fr',
-    telephone: '+33 X XX XX XX XX', // À remplacer
+    telephone: '+33781415195',
     email: 'contact@cphotobooth.fr',
     priceRange: '229€-339€',
     address: {
@@ -73,10 +74,20 @@ export function generateLocalBusinessSchema() {
       longitude: 0.6848,
     },
     areaServed: [
-      { '@type': 'City', name: 'Tours' },
-      { '@type': 'AdministrativeArea', name: 'Indre-et-Loire' },
-      { '@type': 'AdministrativeArea', name: 'Centre-Val de Loire' },
+      {
+        '@type': 'City',
+        name: 'Tours',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Indre-et-Loire',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Centre-Val de Loire',
+      },
     ],
+    sameAs: [],
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',

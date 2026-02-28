@@ -254,4 +254,6 @@ export const siteData = {
     phone: "07 81 41 51 95",
     directorName: "Cannelle Laverne",
   },
+
+
 };
