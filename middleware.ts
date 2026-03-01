@@ -13,18 +13,24 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
-  // 2. Rewrite /photobooth-[ville] → /photobooth/[ville]
-  // SAUF /photobooth-tours et /photobooth-mariage-tours et /photobooth-entreprise-tours
+  // 2. Liste des pages statiques à NE PAS rewriter
   const staticPages = [
     '/photobooth-tours',
-    '/photobooth-mariage-tours', 
+    '/photobooth-mariage-tours',
     '/photobooth-entreprise-tours',
+    '/prix-photobooth-tours',
   ];
 
+  // 3. Rewrite /photobooth-[ville] → /photobooth/[ville]
   if (pathname.startsWith('/photobooth-') && !staticPages.includes(pathname)) {
-    const city = pathname.replace('/photobooth-', '');
+    // Extraire le slug de la ville
+    const citySlug = pathname.replace('/photobooth-', '');
+    
+    // Créer l'URL de destination
     const url = request.nextUrl.clone();
-    url.pathname = `/photobooth/${city}`;
+    url.pathname = `/photobooth/${citySlug}`;
+    
+    // IMPORTANT: Rewrite (pas redirect)
     return NextResponse.rewrite(url);
   }
 
@@ -33,6 +39,12 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|icon.png|api).*)',
+    /*
+     * Match toutes les routes sauf :
+     * - _next/static (fichiers statiques)
+     * - _next/image (optimisation images)
+     * - favicon.ico, icon.png
+     */
+    '/((?!_next/static|_next/image|favicon.ico|icon.png).*)',
   ],
 };
