@@ -3,17 +3,25 @@ import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const host = request.headers.get('host') || '';
 
-  // Redirection permanente non-www → www
-  if (request.headers.get('host')?.startsWith('cphotobooth.fr')) {
+  // 1. Redirection permanente non-www → www
+  if (host === 'cphotobooth.fr' || host.startsWith('cphotobooth.fr:')) {
     const url = request.nextUrl.clone();
+    url.protocol = 'https:';
     url.host = 'www.cphotobooth.fr';
     return NextResponse.redirect(url, 301);
   }
 
-  // Rewrite /photobooth-[ville] → /photobooth/[ville]
-  // Exception : /photobooth-tours reste une page statique
-  if (pathname.startsWith('/photobooth-') && pathname !== '/photobooth-tours') {
+  // 2. Rewrite /photobooth-[ville] → /photobooth/[ville]
+  // SAUF /photobooth-tours et /photobooth-mariage-tours et /photobooth-entreprise-tours
+  const staticPages = [
+    '/photobooth-tours',
+    '/photobooth-mariage-tours', 
+    '/photobooth-entreprise-tours',
+  ];
+
+  if (pathname.startsWith('/photobooth-') && !staticPages.includes(pathname)) {
     const city = pathname.replace('/photobooth-', '');
     const url = request.nextUrl.clone();
     url.pathname = `/photobooth/${city}`;
@@ -25,6 +33,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|icon.png).*)',
+    '/((?!_next/static|_next/image|favicon.ico|icon.png|api).*)',
   ],
 };
