@@ -33,34 +33,19 @@ export const cities: City[] = [
     neighborhoods: ['Centre-ville', 'Les Rabières', 'Champ Giroult'],
     venueTypes: ['salles municipales', 'domaines privés', 'restaurants'],
     nearbyCities: ['tours', 'ballan-mire', 'chambray-les-tours'],
-    specificContent: {
-      intro: 'Joué-lès-Tours, deuxième commune de l\'agglomération tourangelle avec ses 38 000 habitants, offre un cadre idéal pour vos événements festifs. Située à seulement 5 kilomètres du centre de Tours, cette ville dynamique conjugue proximité urbaine et espaces événementiels variés. Notre service de location de photobooth s\'adapte parfaitement aux lieux de réception de Joué-lès-Tours, des salles municipales modernes aux restaurants avec espaces privatisables.',
-      weddingContext: 'Les mariages à Joué-lès-Tours bénéficient d\'une belle diversité de lieux de réception : salles municipales spacieuses et bien équipées, restaurants avec espaces privatisables pouvant accueillir de grandes tablées, et quelques domaines privés dans les quartiers résidentiels. La ville attire particulièrement les couples recherchant une ambiance conviviale et festive, avec une accessibilité optimale pour tous les invités. Les salles des fêtes de Joué offrent des espaces modulables parfaits pour installer notre photobooth, avec suffisamment de recul pour les photos de groupe.',
-      businessContext: 'Joué-lès-Tours accueille de nombreuses entreprises dans sa zone d\'activités dynamique. Les événements corporate y trouvent des espaces modernes et fonctionnels : hôtels avec salles de conférence équipées, restaurants avec salons privatifs, et espaces événementiels dédiés aux séminaires. Notre photobooth s\'intègre naturellement dans ces cadres professionnels, apportant une touche conviviale aux team building, soirées d\'entreprise et lancements de produits organisés à Joué-lès-Tours.',
-      logisticsNote: 'Notre livraison depuis Tours vers Joué-lès-Tours est particulièrement rapide et fluide : moins de 15 minutes via l\'avenue de la République. Cette proximité immédiate nous permet une grande réactivité. La livraison est incluse gratuitement dans notre formule Complète. Le retrait à Tours reste également très pratique pour les habitants de Joué qui préfèrent cette option économique.'
-    },
-    localFAQ: [
-      {
-        question: 'Livrez-vous le photobooth dans tous les quartiers de Joué-lès-Tours ?',
-        answer: 'Oui, nous livrons notre photobooth dans tous les quartiers de Joué-lès-Tours : Centre-ville, Les Rabières, Champ Giroult, La Vallée Violette, et tous les secteurs de la commune. La livraison est gratuite (formule Complète) ou facturée 39€ (autres formules). Nous connaissons bien la ville et pouvons vous conseiller sur l\'accessibilité de votre lieu de réception.'
-      },
-      {
-        question: 'Quels sont les lieux de réception populaires à Joué-lès-Tours pour installer un photobooth ?',
-        answer: 'À Joué-lès-Tours, nos photobooths sont régulièrement installés dans les salles des fêtes municipales (salle Balzac, salle des Fêtes), les restaurants avec salons (plusieurs établissements sur l\'avenue de la République), et dans les espaces privatifs des zones d\'activité. Tous ces lieux offrent l\'espace et l\'électricité nécessaires pour une installation optimale.'
-      },
-      {
-        question: 'Puis-je retirer le photobooth à Joué-lès-Tours plutôt qu\'à Tours ?',
-        answer: 'Notre point de retrait principal est situé à Tours centre. Cependant, la proximité de Joué-lès-Tours (5 minutes en voiture) rend le retrait très pratique. Si vous préférez la livraison directe à votre lieu de réception à Joué, nous proposons ce service dès 39€, ou gratuitement avec la formule Complète.'
-      },
-      {
-        question: 'Le photobooth fonctionne-t-il dans les salles municipales de Joué-lès-Tours ?',
-        answer: 'Absolument ! Nos photobooths sont régulièrement utilisés dans les salles municipales de Joué-lès-Tours. Ces espaces sont généralement bien dimensionnés et équipés électriquement. Nous fournissons une rallonge de 10 mètres pour garantir la flexibilité d\'installation. N\'hésitez pas à nous indiquer quelle salle vous avez réservée, nous pourrons vous confirmer la compatibilité.'
-      },
-      {
-        question: 'Combien de temps à l\'avance dois-je réserver pour un événement à Joué-lès-Tours ?',
-        answer: 'Pour un mariage ou événement majeur à Joué-lès-Tours, nous recommandons 6 à 8 semaines d\'avance, surtout pour les weekends de mai à septembre. Pour un événement d\'entreprise en semaine, 3 à 4 semaines suffisent généralement. La proximité avec Tours nous permet cependant d\'être plus flexibles : contactez-nous même à la dernière minute, nous ferons notre maximum.'
-      }
-    ]
+specificContent: {
+  intro: `Pour une location de photobooth à Joué-lès-Tours, l’objectif est simple : une animation qui crée du lien sans demander d’organisation. Entre fêtes de famille, soirées associatives et événements privés, Joué est une ville où les invités aiment participer “naturellement”. Une borne photo devient vite le point de rendez-vous de la soirée : on passe une première fois “pour voir”, puis on revient en groupe, et les tirages finissent sur les frigos et dans les sacs le soir même. CPhotobooth propose une expérience premium mais fluide : installation claire, rendu photo net, impressions 10x15 et galerie en ligne après l’événement.`,
+  weddingContext: `Les mariages autour de Joué-lès-Tours ont souvent une atmosphère conviviale et généreuse : on mélange plusieurs cercles (famille, amis, collègues tourangeaux) et on cherche une animation qui plaît à tous les âges. Le photobooth marche particulièrement bien ici parce qu’il ne coupe jamais l’ambiance : il tourne en continu, sans micro, sans “moment imposé”. Pour un mariage, on conseille un template photo sobre et élégant (prénoms + date + petite touche graphique), afin que les tirages ressemblent à votre réception, pas à un gadget. La borne s’intègre facilement dans une salle municipale, un restaurant privatisé ou un lieu plus champêtre : l’important est de choisir un emplacement visible mais légèrement en retrait, pour éviter les bouchons et encourager les photos de groupe.`,
+  businessContext: `Joué-lès-Tours est aussi un terrain intéressant côté entreprise : afterworks, soirées internes, inaugurations, événements de zone d’activité… Un photobooth corporate apporte un bénéfice très concret : il engage les participants sans effort. Avec un template aux couleurs de la marque (logo discret, nom d’événement, date), la borne devient un support d’image et de cohésion : photo d’équipe, mini-défis “par service”, souvenirs à emporter. Et comme les photos sont récupérées ensuite via galerie, tu obtiens du contenu exploitable (communication interne, réseaux sociaux, compte-rendu d’événement) sans complexité.`,
+  logisticsNote: `Depuis Tours, la livraison vers Joué-lès-Tours est très simple, ce qui permet une organisation sereine (horaires, accès, installation). Si tu préfères un retrait, c’est aussi pratique : tu récupères la borne et tu gardes la flexibilité. Le jour J, l’objectif est surtout d’éviter les imprévus : on valide ensemble l’emplacement (prise, circulation, lumière), et la borne reste autonome pendant l’événement.`
+},
+localFAQ: [
+  { question: "Est-ce que le photobooth convient à une salle municipale ou une salle des fêtes ?", answer: "Oui : il suffit d’un coin dégagé et d’une prise. On t’aide à choisir un emplacement pour favoriser les photos de groupe sans gêner la circulation." },
+  { question: "Peut-on personnaliser le cadre photo pour un anniversaire ou un mariage ?", answer: "Oui : prénoms, date, thème, couleurs… L’idée est d’obtenir un rendu propre et cohérent avec ta déco." },
+  { question: "Faut-il quelqu’un pour “animer” la borne pendant la soirée ?", answer: "Non. Une fois installée et expliquée, elle fonctionne en autonomie : les invités s’en emparent naturellement." },
+  { question: "Les invités récupèrent-ils les photos après l’événement ?", answer: "Oui : tirages immédiats selon formule + galerie en ligne privée pour télécharger et partager." },
+  { question: "Quelle formule choisir pour une soirée familiale ?", answer: "En général, une formule soirée suffit si l’événement est court ; pour un week-end ou un mariage, une formule plus longue évite la frustration sur les impressions." }
+]
   },
   {
     slug: 'saint-avertin',
