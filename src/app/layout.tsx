@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { generateLocalBusinessSchema } from '@/lib/seo-utils';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -32,6 +33,24 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
+        {/* Google Analytics 4 */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-8BRPGVJPXY"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-8BRPGVJPXY');
+            `,
+          }}
+        />
+
         <Header />
         <main>{children}</main>
         <Footer />
