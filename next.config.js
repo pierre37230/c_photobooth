@@ -30,8 +30,14 @@ const nextConfig = {
   },
   compress: true,
   poweredByHeader: false,
-  
+
   async redirects() {
+    const cityRedirects = cities.map(city => ({
+      source: `/photobooth/${city}`,
+      destination: `/photobooth-${city}`,
+      permanent: true,
+    }));
+
     return [
       // Redirection permanente non-www → www
       {
@@ -45,11 +51,26 @@ const nextConfig = {
         destination: 'https://www.cphotobooth.fr/:path*',
         permanent: true,
       },
+      // Redirection /prix-photobooth-tours → /tarifs
+      {
+        source: '/prix-photobooth-tours',
+        destination: '/tarifs',
+        permanent: true,
+      },
+      // Redirection /photobooth-anniversaire-tours → /photobooth-tours
+      {
+        source: '/photobooth-anniversaire-tours',
+        destination: '/photobooth-tours',
+        permanent: true,
+      },
+      // Redirections /photobooth/:city → /photobooth-:city
+      ...cityRedirects,
     ];
   },
 
   async rewrites() {
-    // Créer un rewrite pour chaque ville
+    // Rewrites internes pour le rendu des pages villes
+    // (le routing public passe par les redirections ci-dessus)
     const cityRewrites = cities.map(city => ({
       source: `/photobooth-${city}`,
       destination: `/photobooth/${city}`,
@@ -57,6 +78,6 @@ const nextConfig = {
 
     return cityRewrites;
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

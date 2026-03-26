@@ -1,4 +1,7 @@
+'use client';
+
 import { siteData } from '@/data/siteData';
+import { trackEvent } from '@/lib/analytics';
 import './ContactSection.css';
 
 export default function ContactSection() {
@@ -14,12 +17,22 @@ export default function ContactSection() {
           <div className="contact-info">
             <div className="contact-item">
               <h3>📧 Email</h3>
-              <a href={`mailto:${siteData.contact.email}`}>{siteData.contact.email}</a>
+              <a
+                href={`mailto:${siteData.contact.email}`}
+                onClick={() => trackEvent('click_mail')}
+              >
+                {siteData.contact.email}
+              </a>
             </div>
 
             <div className="contact-item">
               <h3>📞 Téléphone</h3>
-              <a href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`}>{siteData.contact.phone}</a>
+              <a
+                href={`tel:${siteData.contact.phone.replace(/\s/g, '')}`}
+                onClick={() => trackEvent('click_tel')}
+              >
+                {siteData.contact.phone}
+              </a>
             </div>
 
             <div className="contact-item">

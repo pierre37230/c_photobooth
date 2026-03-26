@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import { siteData } from '@/data/siteData';
+import { trackEvent } from '@/lib/analytics';
 import './Footer.css';
 
 export default function Footer() {
@@ -33,7 +36,14 @@ export default function Footer() {
             <h4>Informations</h4>
             <ul>
               <li><Link href="/faq">Questions Fréquentes</Link></li>
-              <li><Link href="/contact">Contact & Devis</Link></li>
+              <li>
+                <Link
+                  href="/contact"
+                  onClick={() => trackEvent('click_cta_footer')}
+                >
+                  Contact & Devis
+                </Link>
+              </li>
               <li><Link href="/mentions-legales">Mentions légales</Link></li>
               <li><Link href="/politique-confidentialite">Confidentialité</Link></li>
             </ul>

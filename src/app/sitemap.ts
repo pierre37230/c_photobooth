@@ -70,15 +70,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.95,
     },
-    {
-      url: `${baseUrl}/prix-photobooth-tours`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
   ];
 
-  // Pages villes dynamiques
+  // Pages villes dynamiques — format public /photobooth-:slug uniquement
   const cityPages: MetadataRoute.Sitemap = cities.map(city => ({
     url: `${baseUrl}/photobooth-${city.slug}`,
     lastModified: new Date(),

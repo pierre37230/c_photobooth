@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { siteData } from '@/data/siteData';
+import { trackEvent } from '@/lib/analytics';
 import './PricingSimulator.css';
 
 export default function PricingSimulator() {
@@ -12,6 +13,16 @@ export default function PricingSimulator() {
   const [distance, setDistance] = useState<'<20' | '20-40' | '40-60' | null>(null);
   const [extraPrints, setExtraPrints] = useState<'none' | '100' | '200' | null>(null);
   const [needsTemplate, setNeedsTemplate] = useState<boolean | null>(null);
+
+  // Émettre pricing_simulator_complete quand on atteint l'étape 6
+  useEffect(() => {
+    if (step === 6) {
+      trackEvent('pricing_simulator_complete', {
+        event_type: eventType,
+        formula,
+      });
+    }
+  }, [step, eventType, formula]);
 
   const calculatePrice = () => {
     let basePrice = 0;
@@ -64,11 +75,9 @@ export default function PricingSimulator() {
 
     // Livraison
     if (needsDelivery && distance) {
-      // Si formule complète et distance <20km, livraison incluse
       if (deliveryIncluded && distance === '<20') {
         // Livraison déjà incluse, pas de surcoût
       } else {
-        // Sinon, ajouter le prix de la livraison
         if (distance === '<20') {
           basePrice += 39;
           oldPrice += 39;
@@ -226,7 +235,7 @@ export default function PricingSimulator() {
                 >
                   <span className="option-icon">🚚</span>
                   <strong>Oui, livraison</strong>
-                  <small>{formula === 'complete' ? 'Incluse jusqu\'à 20km' : 'Dès 39€'}</small>
+                  <small>{formula === 'complete' ? "Incluse jusqu'à 20km" : 'Dès 39€'}</small>
                 </button>
               </div>
 
@@ -388,22 +397,22 @@ export default function PricingSimulator() {
                   <ul>
                     <li>📅 Type : {eventType === 'weekend' ? 'Weekend ou 48h en semaine' : 'Soirée (en semaine uniquement)'}</li>
                     <li>📦 Formule : {
-                      formula === 'digitale' ? 'Digitale' : 
-                      formula === 'impression' ? 'Impression' : 
+                      formula === 'digitale' ? 'Digitale' :
+                      formula === 'impression' ? 'Impression' :
                       'Complète'
                     }</li>
                     {needsDelivery && distance && (
                       <li>
                         🚚 Livraison : {
-                          distance === '<20' ? 'Moins de 20km' : 
-                          distance === '20-40' ? '20 à 40km' : 
-                          'Jusqu\'à 60km'
+                          distance === '<20' ? 'Moins de 20km' :
+                          distance === '20-40' ? '20 à 40km' :
+                          "Jusqu'à 60km"
                         }
                         {' '}
                         {
-                          result.deliveryIncluded && distance === '<20' ? '(incluse !)' : 
-                          distance === '<20' ? '(+39€)' : 
-                          distance === '20-40' ? '(+45€)' : 
+                          result.deliveryIncluded && distance === '<20' ? '(incluse !)' :
+                          distance === '<20' ? '(+39€)' :
+                          distance === '20-40' ? '(+45€)' :
                           '(+60€)'
                         }
                       </li>
@@ -418,7 +427,11 @@ export default function PricingSimulator() {
                 </div>
 
                 <div className="result-actions">
-                  <a href="/contact" className="btn btn-primary">
+                  <a
+                    href="/contact"
+                    className="btn btn-primary"
+                    onClick={() => trackEvent('click_reserver')}
+                  >
                     Réserver maintenant
                   </a>
                   <button className="btn btn-secondary" onClick={resetSimulator}>

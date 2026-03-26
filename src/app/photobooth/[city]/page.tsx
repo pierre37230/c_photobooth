@@ -51,7 +51,7 @@ export default function CityPage({ params }: CityPageProps) {
 
   const internalLinks = [
     { href: '/photobooth-tours', text: 'Photobooth Tours - Page principale' },
-    { href: '/prix-photobooth-tours', text: 'Nos tarifs détaillés' },
+    { href: '/tarifs', text: 'Nos tarifs détaillés' },
     { href: '/photobooth-mariage-tours', text: 'Photobooth mariage' },
     { href: '/photobooth-entreprise-tours', text: 'Événements d\'entreprise' },
     ...city.nearbyCities.slice(0, 3).map(nearbySlug => ({

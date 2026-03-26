@@ -5,9 +5,8 @@ import { siteData } from '@/data/siteData';
 export const metadata: Metadata = {
   title: 'Photobooth Entreprise Tours | Animation Séminaire 37',
   description: 'Location photobooth pour événements d\'entreprise à Tours : séminaires, salons, team building. Tarifs pro, installation express, branding personnalisé.',
-  keywords: ['photobooth entreprise Tours', 'animation séminaire 37', 'borne photo événement pro Tours', 'team building Tours'],
   alternates: {
-    canonical: 'https://cphotobooth.fr/photobooth-entreprise-tours',
+    canonical: 'https://www.cphotobooth.fr/photobooth-entreprise-tours',
   },
 };
 

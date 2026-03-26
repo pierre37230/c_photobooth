@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { siteData } from '@/data/siteData';
+import { trackEvent } from '@/lib/analytics';
 import './Header.css';
 
 export default function Header() {
@@ -22,19 +23,17 @@ export default function Header() {
       <div className="container">
         <div className="header-content">
           <Link href="/" className="logo" onClick={closeMenu}>
+            <Image
+              src="/images/logo.png"
+              alt={siteData.businessName}
+              width={50}
+              height={50}
+              priority
+            />
+            <span className="logo-text">{siteData.businessName}</span>
+          </Link>
 
-  <Image 
-    src="/images/logo.png" 
-    alt={siteData.businessName}
-    width={50}
-    height={50}
-    priority
-  />
-  <span className="logo-text">{siteData.businessName}</span>
-</Link>
-
-
-          <button 
+          <button
             className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}
             onClick={toggleMenu}
             aria-label="Menu"
@@ -49,7 +48,15 @@ export default function Header() {
             <Link href="/tarifs" onClick={closeMenu}>Tarifs</Link>
             <Link href="/galerie" onClick={closeMenu}>Galerie</Link>
             <Link href="/faq" onClick={closeMenu}>FAQ</Link>
-            <Link href="/contact" onClick={closeMenu}>Contact</Link>
+            <Link
+              href="/contact"
+              onClick={() => {
+                closeMenu();
+                trackEvent('click_cta_header');
+              }}
+            >
+              Contact
+            </Link>
           </nav>
         </div>
       </div>

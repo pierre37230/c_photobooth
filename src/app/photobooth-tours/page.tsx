@@ -40,7 +40,7 @@ export default function PhotoboothToursPage() {
     { href: '/photobooth-mariage-tours', text: 'Photobooth pour votre mariage' },
     { href: '/photobooth-entreprise-tours', text: 'Événements d\'entreprise' },
     { href: '/photobooth-anniversaire-tours', text: 'Anniversaires et fêtes' },
-    { href: '/prix-photobooth-tours', text: 'Nos tarifs détaillés' },
+    { href: '/tarifs', text: 'Nos tarifs détaillés' },
     { href: '/contact', text: 'Demander un devis gratuit' },
   ];
 
@@ -166,7 +166,7 @@ export default function PhotoboothToursPage() {
               ))}
             </div>
             <p style={{ textAlign: 'center', marginTop: '2rem' }}>
-              <Link href="/prix-photobooth-tours" style={{ color: 'var(--accent)', fontWeight: '600', fontSize: '1.125rem' }}>
+              <Link href="/tarifs" style={{ color: 'var(--accent)', fontWeight: '600', fontSize: '1.125rem' }}>
                 → Comparez toutes nos formules en détail
               </Link>
             </p>
@@ -212,7 +212,7 @@ export default function PhotoboothToursPage() {
                   Pour tous les âges : 18 ans, 30 ans, 40 ans, 50 ans et plus. Créez des souvenirs mémorables.
                 </p>
                 <p style={{ marginTop: '1rem' }}>
-                  <Link href="/photobooth-anniversaire-tours" style={{ color: 'var(--accent)', fontWeight: '600' }}>
+                  <Link href="/photobooth-tours" style={{ color: 'var(--accent)', fontWeight: '600' }}>
                     → Photobooth pour votre anniversaire
                   </Link>
                 </p>

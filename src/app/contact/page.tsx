@@ -5,9 +5,8 @@ export const metadata: Metadata = {
   title: 'Contact Photobooth Tours | Devis Gratuit Location Borne 37',
   description: 'Contactez CPhotobooth Tours pour un devis gratuit. Réponse sous 24h. Location photobooth mariage, anniversaire, entreprise en Indre-et-Loire.',
   alternates: {
-    canonical: 'https://cphotobooth.fr/contact',
+    canonical: 'https://www.cphotobooth.fr/contact',
   },
-  keywords: ['contact photobooth Tours', 'devis borne photo 37', 'réservation photobooth Tours'],
 };
 
 export default function ContactPage() {
