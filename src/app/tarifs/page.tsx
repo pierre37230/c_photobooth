@@ -6,7 +6,7 @@ import './tarifs.css';
 
 export const metadata: Metadata = {
   title: 'Tarifs Photobooth Tours - Dès 124€ | Prix Clairs',
-  description: 'Tarifs location photobooth Tours : dès 124€ en soirée, 229€ weekend. Options livraison dès 29€. Pas de frais cachés. Devis gratuit sous 24h.',
+  description: 'Tarifs location photobooth Tours : dès 124€ en soirée, 229€ weekend. Options livraison dès 39€. Pas de frais cachés. Devis gratuit sous 24h.',
   alternates: {
     canonical: 'https://www.cphotobooth.fr/tarifs',
   },
