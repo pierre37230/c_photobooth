@@ -9,11 +9,7 @@ export default function PricingPreview() {
         <div className="section-title">
           <h2>Nos Formules</h2>
           <p>Location weekend ou soirée • Retrait express à Tours</p>
-          {siteData.promoText && (
-            <div className="promo-banner">
-              {siteData.promoText}
-            </div>
-          )}
+
         </div>
 
         <div className="grid grid-3">
@@ -22,11 +18,8 @@ export default function PricingPreview() {
               {plan.popular && <div className="plan-badge">Le plus populaire</div>}
               <h3>{plan.name}</h3>
               <div className="price">
-                {plan.oldPrice && (
-                  <span className="old-price">{plan.oldPrice}</span>
-                )}
-                <span className="amount">{plan.price}</span>
-                <span className="duration">{plan.duration}</span>
+
+
               </div>
               <ul className="features">
                 {plan.features.slice(0, 5).map((feature, i) => (
