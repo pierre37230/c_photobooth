@@ -16,8 +16,7 @@ export const weekendOffers: Offer[] = [
     name: 'Digitale',
     slug: 'digitale-weekend',
     price: '229€',
-    oldPrice: '279€',
-    savings: '-50€',
+
     duration: 'Weekend 48h',
     features: [
       'Photobooth bois artisanal français',
@@ -35,8 +34,7 @@ export const weekendOffers: Offer[] = [
     name: 'Impression',
     slug: 'impression-weekend',
     price: '289€',
-    oldPrice: '329€',
-    savings: '-40€',
+
     duration: 'Weekend 48h',
     popular: true,
     features: [
@@ -53,8 +51,7 @@ export const weekendOffers: Offer[] = [
     name: 'Complète',
     slug: 'complete-weekend',
     price: '339€',
-    oldPrice: '399€',
-    savings: '-60€',
+
     duration: 'Weekend 48h',
     features: [
       'Tout de la formule Impression',
@@ -74,8 +71,7 @@ export const eveningOffers: Offer[] = [
     name: 'Digitale Soirée',
     slug: 'digitale-soiree',
     price: '124€',
-    oldPrice: '139€',
-    savings: '-15€',
+
     duration: 'Soirée (à partir de 18h)',
     features: [
       'Photobooth bois artisanal français',
@@ -91,8 +87,7 @@ export const eveningOffers: Offer[] = [
     name: 'Impression Soirée',
     slug: 'impression-soiree',
     price: '169€',
-    oldPrice: '199€',
-    savings: '-30€',
+
     duration: 'Soirée (à partir de 18h)',
     popular: true,
     features: [
@@ -108,8 +103,7 @@ export const eveningOffers: Offer[] = [
     name: 'Complète Soirée',
     slug: 'complete-soiree',
     price: '219€',
-    oldPrice: '259€',
-    savings: '-40€',
+
     duration: 'Soirée (à partir de 18h)',
     features: [
       'Tout de la formule Impression Soirée',
