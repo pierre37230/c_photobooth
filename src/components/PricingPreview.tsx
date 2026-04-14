@@ -18,7 +18,9 @@ export default function PricingPreview() {
               {plan.popular && <div className="plan-badge">Le plus populaire</div>}
               <h3>{plan.name}</h3>
               <div className="price">
-
+                {plan.price && (
+                  <span className="price">{plan.price}</span>
+                )}
 
               </div>
               <ul className="features">
