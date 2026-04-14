@@ -35,19 +35,19 @@ export default function PricingSimulator() {
       if (formula === 'digitale') {
         const plan = siteData.pricingWeekend[0];
         basePrice = parseInt(plan.price);
-        oldPrice = parseInt(plan.oldPrice);
+
         formulaName = plan.name;
         deliveryIncluded = plan.includesDelivery || false;
       } else if (formula === 'impression') {
         const plan = siteData.pricingWeekend[1];
         basePrice = parseInt(plan.price);
-        oldPrice = parseInt(plan.oldPrice);
+
         formulaName = plan.name;
         deliveryIncluded = plan.includesDelivery || false;
       } else if (formula === 'complete') {
         const plan = siteData.pricingWeekend[2];
         basePrice = parseInt(plan.price);
-        oldPrice = parseInt(plan.oldPrice);
+
         formulaName = plan.name;
         deliveryIncluded = plan.includesDelivery || false;
       }
@@ -55,19 +55,19 @@ export default function PricingSimulator() {
       if (formula === 'digitale') {
         const plan = siteData.pricingSoiree[0];
         basePrice = parseInt(plan.price);
-        oldPrice = parseInt(plan.oldPrice);
+
         formulaName = plan.name;
         deliveryIncluded = plan.includesDelivery || false;
       } else if (formula === 'impression') {
         const plan = siteData.pricingSoiree[1];
         basePrice = parseInt(plan.price);
-        oldPrice = parseInt(plan.oldPrice);
+
         formulaName = plan.name;
         deliveryIncluded = plan.includesDelivery || false;
       } else if (formula === 'complete') {
         const plan = siteData.pricingSoiree[2];
         basePrice = parseInt(plan.price);
-        oldPrice = parseInt(plan.oldPrice);
+
         formulaName = plan.name;
         deliveryIncluded = plan.includesDelivery || false;
       }
