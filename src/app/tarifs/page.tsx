@@ -127,7 +127,7 @@ export default function TarifsPage() {
               <ul style={{ lineHeight: '2', color: 'var(--text-light)' }}>
                 <li>Acompte de 30% à la réservation</li>
                 <li>Solde avant le retrait</li>
-                <li>Paiement par virement ou espèces</li>
+                <li>Paiement par virement, chèque ou espèces</li>
                 <li>Annulation gratuite jusqu'à 14 jours avant</li>
               </ul>
             </div>
