@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function TarifsPage() {
   return (
     <>
-      <PricingSimulator />
+
 
       <section className="section">
         <div className="container">
