@@ -22,11 +22,6 @@ export default function TarifsPage() {
           <div className="section-title">
             <h1>Nos Tarifs Détaillés</h1>
             <p>Tous nos tarifs affichés clairement • Aucun frais caché</p>
-            {siteData.promoText && (
-              <div className="promo-banner">
-                {siteData.promoText}
-              </div>
-            )}
           </div>
 
           {/* TARIFS WEEKEND */}
@@ -38,10 +33,7 @@ export default function TarifsPage() {
                   {plan.popular && <div className="plan-badge">Le plus populaire</div>}
                   <h3>{plan.name}</h3>
                   <div className="price">
-                    <span className="old-price">{plan.oldPrice}</span>
-                    <span className="amount">{plan.price}</span>
-                    <span className="duration">{plan.duration}</span>
-                    <span className="savings">Économisez {plan.savings}</span>
+                    <span className="old-price">{plan.Price}</span>
                   </div>
                   <ul className="features">
                     {plan.features.map((feature, i) => (
@@ -65,10 +57,7 @@ export default function TarifsPage() {
                   {plan.popular && <div className="plan-badge">Le plus populaire</div>}
                   <h3>{plan.name}</h3>
                   <div className="price">
-                    <span className="old-price">{plan.oldPrice}</span>
-                    <span className="amount">{plan.price}</span>
-                    <span className="duration">{plan.duration}</span>
-                    <span className="savings">Économisez {plan.savings}</span>
+                    <span className="old-price">{plan.Price}</span>
                   </div>
                   <ul className="features">
                     {plan.features.map((feature, i) => (
