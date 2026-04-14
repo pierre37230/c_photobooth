@@ -15,9 +15,7 @@ export const weekendOffers: Offer[] = [
   {
     name: 'Digitale',
     slug: 'digitale-weekend',
-    price: '229€',
-    oldPrice: '279€',
-    savings: '-50€',
+    price: '279€',
     duration: 'Weekend 48h',
     features: [
       'Photobooth bois artisanal français',
@@ -34,9 +32,7 @@ export const weekendOffers: Offer[] = [
   {
     name: 'Impression',
     slug: 'impression-weekend',
-    price: '289€',
-    oldPrice: '329€',
-    savings: '-40€',
+    price: '329€',
     duration: 'Weekend 48h',
     popular: true,
     features: [
