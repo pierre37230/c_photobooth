@@ -49,10 +49,8 @@ export const siteData = {
  pricingWeekend: [
     {
       name: "Formule Digitale",
-      price: "229€",
-      oldPrice: "259€",
+      price: "259€",
       duration: "Weekend ou 48h en semaine",
-      savings: "-30€",
       features: [
         "Photobooth en bois fabrication française",
         "Véritable appareil photo intégré",
@@ -67,10 +65,8 @@ export const siteData = {
     },
     {
       name: "Formule Impression",
-      price: "289€",
-      oldPrice: "329€",
+      price: "329€",
       duration: "Weekend ou 48h en semaine",
-      savings: "-40€",
       features: [
         "Tout de la formule Digitale",
         "200 impressions papier 10x15cm incluses",
@@ -83,10 +79,8 @@ export const siteData = {
     },
     {
       name: "Formule Complète",
-      price: "339€",
-      oldPrice: "399€",
+      price: "399€",
       duration: "Weekend ou 48h en semaine",
-      savings: "-60€",
       features: [
         "Tout de la formule Impression",
         "400 impressions papier 10x15cm au total",
@@ -102,10 +96,8 @@ export const siteData = {
   pricingSoiree: [
     {
       name: "Formule Digitale Soirée",
-      price: "124€",
-      oldPrice: "139€",
+      price: "139€",
       duration: "Soirée en semaine uniquement",
-      savings: "-15€",
       features: [
         "Photobooth en bois fabrication française",
         "Véritable appareil photo intégré",
@@ -120,10 +112,8 @@ export const siteData = {
     },
     {
       name: "Formule Impression Soirée",
-      price: "169€",
-      oldPrice: "199€",
+      price: "199€",
       duration: "Soirée en semaine uniquement",
-      savings: "-30€",
       features: [
         "Tout de la formule Digitale",
         "200 impressions papier 10x15cm incluses",
@@ -135,10 +125,8 @@ export const siteData = {
     },
     {
       name: "Formule Complète Soirée",
-      price: "219€",
-      oldPrice: "259€",
+      price: "259€",
       duration: "Soirée en semaine uniquement",
-      savings: "-40€",
       features: [
         "Tout de la formule Impression",
         "400 impressions papier 10x15cm au total",
