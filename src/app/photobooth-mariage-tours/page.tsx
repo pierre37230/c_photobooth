@@ -525,10 +525,8 @@ export default function PhotoboothMariagePage() {
                     {plan.popular && <div className="plan-badge">⭐ Idéal mariage</div>}
                     <h3>{plan.name}</h3>
                     <div className="price">
-                      <span className="old-price">{plan.oldPrice}</span>
+
                       <span className="amount">{plan.price}</span>
-                      <span className="duration">{plan.duration}</span>
-                      <span className="savings">Économisez {plan.savings}</span>
                     </div>
                     <ul className="features">
                       {plan.features.map((feature, i) => (

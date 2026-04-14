@@ -33,7 +33,7 @@ export default function TarifsPage() {
                   {plan.popular && <div className="plan-badge">Le plus populaire</div>}
                   <h3>{plan.name}</h3>
                   <div className="price">
-                    <span className="old-price">{plan.Price}</span>
+                    <span className="old-price">{plan.price}</span>
                   </div>
                   <ul className="features">
                     {plan.features.map((feature, i) => (
@@ -57,7 +57,7 @@ export default function TarifsPage() {
                   {plan.popular && <div className="plan-badge">Le plus populaire</div>}
                   <h3>{plan.name}</h3>
                   <div className="price">
-                    <span className="old-price">{plan.Price}</span>
+                    <span className="old-price">{plan.price}</span>
                   </div>
                   <ul className="features">
                     {plan.features.map((feature, i) => (

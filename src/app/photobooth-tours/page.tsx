@@ -149,9 +149,9 @@ export default function PhotoboothToursPage() {
                   {offer.popular && <div className="plan-badge">⭐ Plus populaire</div>}
                   <h3>{offer.name}</h3>
                   <div className="price">
-                    {offer.oldPrice && <span className="old-price">{offer.oldPrice}</span>}
+
                     <span className="amount">{offer.price}</span>
-                    <span className="duration">{offer.duration}</span>
+
                     {offer.savings && <span className="savings">Économisez {offer.savings}</span>}
                   </div>
                   <ul className="features">
