@@ -19,8 +19,8 @@ assert.equal(generateOfferSchema([{name:'Test',price:'1\u202f299,50 €',descrip
  process.env.RESEND_API_KEY='mock-key-never-sent';process.env.QUOTE_FROM_EMAIL='test@example.com';
  assert.equal((await POST(req(payload,'https://other.example'))).status,403);
  for(const changed of [{email:'invalid'},{website:'spam'},{message:'a'.repeat(1600)},{formula:'unknown'}])assert.equal((await POST(req({...payload,...changed}))).status,400);
- let calls=0;global.fetch=async(url,opts)=>{calls++;assert.equal(url,'https://api.resend.com/emails');const body=JSON.parse(opts.body);assert.deepEqual(body.to,['contact@cphotobooth.fr']);assert.equal(body.reply_to,'test@example.com');assert.ok(!body.html);return new Response(JSON.stringify({id:'mock'}),{status:200});};
- assert.equal((await POST(req())).status,200);assert.equal(calls,1);
+ let calls=0;global.fetch=async(url,opts)=>{calls++;assert.equal(url,'https://api.resend.com/emails');const body=JSON.parse(opts.body);assert.deepEqual(body.to,calls%2===1?['contact@cphotobooth.fr']:['test@example.com']);assert.ok(!body.html);return new Response(JSON.stringify({id:'mock'}),{status:200});};
+ const sent=await POST(req());assert.equal(sent.status,200);assert.equal((await sent.json()).confirmationSent,true);assert.equal(calls,2);
  global.fetch=async()=>new Response('{}',{status:429});assert.equal((await POST(req())).status,502);
  global.fetch=async()=>{throw new Error('Simulated timeout')};assert.equal((await POST(req())).status,502);
  global.fetch=async()=>new Response(JSON.stringify({id:'mock'}),{status:200});await POST(req());await POST(req());assert.equal((await POST(req())).status,429);

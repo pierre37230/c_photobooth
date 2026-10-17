@@ -4,6 +4,7 @@
 const cities = require('./src/data/seo/cities.json').map(city => city.slug);
 
 const nextConfig = {
+  turbopack: { root: process.cwd() },
   images: {
     unoptimized: false,
     formats: ['image/webp'],

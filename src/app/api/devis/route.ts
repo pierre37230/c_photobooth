@@ -20,5 +20,30 @@ export async function POST(request:NextRequest){
  const now=Date.now();for(const [k,v]of attempts)if(v.until<now)attempts.delete(k);
  const ipHash=createHash('sha256').update(request.headers.get('x-forwarded-for')?.split(',')[0]||'unknown').digest('hex');const slot=attempts.get(ipHash)||{count:0,until:now+600000};if(slot.count>=5||attempts.size>10000)return fail(429);slot.count++;attempts.set(ipHash,slot);
  const text=Object.entries(data).filter(([k])=>!['website','startedAt'].includes(k)).map(([k,v])=>`${k} : ${v}`).join('\n');
- try{const response=await fetch('https://api.resend.com/emails',{method:'POST',headers:{Authorization:`Bearer ${process.env.RESEND_API_KEY}`,'Content-Type':'application/json','Idempotency-Key':`devis-${key}`},body:JSON.stringify({from:process.env.QUOTE_FROM_EMAIL,to:[siteData.contact.email],reply_to:data.email,subject:'Nouvelle demande de devis CPhotobooth',text}),signal:AbortSignal.timeout(12000)});if(!response.ok)return fail(502);const result=await response.json();if(!result.id)return fail(502);return NextResponse.json({ok:true});}catch{return fail(502);}
+ // D'abord transmettre la demande au professionnel. Ne confirmer au visiteur qu'après acceptation par Resend.
+ try {
+  const from=process.env.QUOTE_FROM_EMAIL!;
+  const headers={Authorization:`Bearer ${process.env.RESEND_API_KEY}`,'Content-Type':'application/json'};
+  const response=await fetch('https://api.resend.com/emails',{
+   method:'POST',headers:{...headers,'Idempotency-Key':`devis-${key}`},
+   body:JSON.stringify({from,to:[siteData.contact.email],reply_to:String(data.email),subject:'Nouvelle demande de devis CPhotobooth',text}),
+   signal:AbortSignal.timeout(12000)
+  });
+  if(!response.ok)return fail(502);
+  const result=await response.json();if(!result.id)return fail(502);
+  // L'accusé client est secondaire : son échec ne doit pas transformer une demande reçue en échec.
+  let confirmationSent=false;
+  try {
+   const firstName=String(data.name).trim();
+   const acknowledgment=`Bonjour ${firstName},\n\nNous avons bien reçu votre demande de devis CPhotobooth pour le ${data.date} à ${data.city}.\nNous reviendrons vers vous pour confirmer les disponibilités et les conditions.\n\nCette demande ne constitue pas une réservation.\n\nÀ bientôt,\nL'équipe CPhotobooth`;
+   const confirm=await fetch('https://api.resend.com/emails',{
+    method:'POST',headers:{...headers,'Idempotency-Key':`confirmation-${key}`},
+    body:JSON.stringify({from,to:[String(data.email)],reply_to:siteData.contact.email,subject:'Votre demande de devis CPhotobooth a bien été reçue',text:acknowledgment}),
+    signal:AbortSignal.timeout(12000)
+   });
+   if(confirm.ok)confirmationSent=Boolean((await confirm.json()).id);
+  } catch { /* Devis déjà reçu ; accusé de réception non garanti. */ }
+  return NextResponse.json({ok:true,confirmationSent});
+ } catch {return fail(502);}
+
 }
