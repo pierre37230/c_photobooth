@@ -12,29 +12,29 @@
     {
       "id": "partybox-1",
       "name": "JBL PartyBox 320 — 1 enceinte",
-      "price": 59,
+      "price": 69,
       "unit": "location événement",
       "summary": "Une enceinte festive pour animer une soirée ou une réception.",
       "image": "/images/jbl-partybox-320.webp",
-      "priceWithPhotobooth": 39
+      "priceWithPhotobooth": 49
     },
     {
       "id": "partybox-2",
       "name": "JBL PartyBox 320 — 2 enceintes",
-      "price": 99,
+      "price": 109,
       "unit": "location événement",
       "summary": "Un duo d’enceintes pour un espace plus grand, selon les contraintes de la salle.",
       "image": "/images/jbl-partybox-320.webp",
-      "priceWithPhotobooth": 69
+      "priceWithPhotobooth": 79
     },
     {
       "id": "micros",
       "name": "Pack 2 micros sans fil",
-      "price": 25,
+      "price": 49,
       "unit": "location événement",
       "summary": "Pour discours, jeux et karaoké ; compatibilité à confirmer selon votre installation.",
       "image": "/images/micros-sans-fil.webp",
-      "priceWithPhotobooth": 15
+      "priceWithPhotobooth": 29
     }
   ]
 }
