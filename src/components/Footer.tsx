@@ -29,7 +29,7 @@ export default function Footer() {
             <ul>
               <li><Link href="/photobooth-mariage-tours">Photobooth Mariage</Link></li>
               <li><Link href="/photobooth-entreprise-tours">Événements Entreprise</Link></li>
-              <li><Link href="/tarifs">Tarifs & Formules</Link></li>
+              <li><Link href="/tarifs">Tarifs & Formules</Link></li><li><Link href="/locations-evenementielles">Livre d’or audio, enceintes et micros</Link></li>
               <li><Link href="/galerie">Galerie Photos</Link></li>
             </ul>
           </div>

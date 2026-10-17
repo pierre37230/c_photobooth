@@ -2,7 +2,13 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
 const root=path.resolve(__dirname,'..'),resolve=Module._resolveFilename;
 Module._resolveFilename=function(request,...rest){return resolve.call(this,request.startsWith('@/')?path.join(root,'src',request.slice(2)):request,...rest);};
 require.extensions['.ts']=(mod,file)=>mod._compile(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020,esModuleInterop:true}}).outputText,file);
-const {prices,estimatePrice,deliveryPrice,plans}=require('../src/lib/pricing.ts'),{generateOfferSchema}=require('../src/lib/seo-utils.ts');
+const {prices,estimatePrice,deliveryPrice,plans,includedPrints}=require('../src/lib/pricing.ts'),{generateOfferSchema}=require('../src/lib/seo-utils.ts');
+assert.equal(includedPrints('weekend','impression'),200);
+assert.equal(includedPrints('weekend','complete'),400);
+assert.equal(includedPrints('soiree','impression'),150);
+assert.equal(includedPrints('soiree','complete'),300);
+assert.equal(includedPrints('soiree','digitale'),0);
+assert.ok(plans('soiree').find(x=>x.id==='impression').features.some(x=>x.includes('150 impressions')));
 assert.equal(estimatePrice('weekend','impression',null,0,false),prices.weekend.impression);
 assert.equal(estimatePrice('weekend','impression',40,100,true),prices.weekend.impression+prices.livraison.de20a40km+prices.options.impressions100+prices.options.personnalisation);
 assert.equal(estimatePrice('soiree','complete',20,0,true),prices.soiree.complete);

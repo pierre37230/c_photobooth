@@ -67,6 +67,9 @@ export function generateLocalBusinessSchema() {
         '@type': 'City',
         name: 'Tours',
       },
+      { '@type': 'City', name: 'Blois' },
+      { '@type': 'City', name: 'Amboise' },
+      { '@type': 'AdministrativeArea', name: 'Loir-et-Cher' },
       {
         '@type': 'AdministrativeArea',
         name: 'Indre-et-Loire',

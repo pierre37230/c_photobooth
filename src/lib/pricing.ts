@@ -5,6 +5,9 @@ export type Formula = 'digitale' | 'impression' | 'complete';
 export const formatPrice = (amount: number) => `${amount.toLocaleString('fr-FR')} €`;
 export const formulaNames: Record<Formula, string> = { digitale: 'Digitale', impression: 'Impression', complete: 'Complète' };
 export const formulas: Formula[] = ['digitale', 'impression', 'complete'];
+export function includedPrints(period: Period, formula: Formula): number {
+  return prices.impressionsIncluses[period][formula];
+}
 export function contactLink(formula: Formula, period: Period = 'weekend') {
   return `/contact?formule=${formula}&duree=${period}`;
 }
@@ -31,7 +34,7 @@ export function plans(period: Period) {
       'Photobooth en bois fabriqué en France',
       'Appareil photo intégré et photos numériques illimitées',
       'Photos disponibles après votre événement',
-      ...(id === 'digitale' ? ['Sans impressions papier'] : [`${prices.inclus[id]} impressions papier 10 × 15 cm`, 'Imprimante professionnelle incluse']),
+      ...(id === 'digitale' ? ['Sans impressions papier'] : [`${includedPrints(period, id)} impressions papier 10 × 15 cm`, 'Imprimante professionnelle incluse']),
       ...(id === 'complete' ? ['Cadre photo personnalisé inclus', `Livraison incluse jusqu’à ${prices.inclus.livraisonCompleteKm} km de Tours`] : ['Retrait à Tours • livraison en option']),
       'Guide d’installation et assistance téléphonique',
     ],

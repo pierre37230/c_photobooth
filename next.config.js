@@ -23,6 +23,8 @@ const nextConfig = {
     }));
 
     return [
+      { source: '/photobooth-saint-georges-sur-cher', destination: '/photobooth-tours', permanent: true },
+      { source: '/photobooth/saint-georges-sur-cher', destination: '/photobooth-tours', permanent: true },
       // Redirection permanente non-www → www
       {
         source: '/:path*',

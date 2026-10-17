@@ -94,5 +94,17 @@
     "name": "Sainte-Maure-de-Touraine",
     "postalCode": "37800",
     "distanceFromTours": 34
+  },
+  {
+    "slug": "blois",
+    "name": "Blois",
+    "postalCode": "41000",
+    "distanceFromTours": null
+  },
+  {
+    "slug": "montrichard-val-de-cher",
+    "name": "Montrichard Val de Cher",
+    "postalCode": "41400",
+    "distanceFromTours": null
   }
 ]

@@ -2,14 +2,14 @@ import { globalFAQs } from '@/data/seo/faqs';
 import { plans, prices, formatPrice } from '@/lib/pricing';
 export const siteData = {
   businessName: "CPhotobooth",
-  tagline: "Location de photobooth premium à Tours",
+  tagline: "Location de photobooth à Tours, Amboise et Blois",
   description: "Location de bornes photo haut de gamme pour vos mariages, anniversaires et événements. Fabrication 100% française, artisanale en bois véritable avec appareil photo professionnel intégré. Retrait express à Tours.",
   
  
   contact: {
     email: "contact@cphotobooth.fr",
     phone: "07 81 41 51 95",
-    address: "Tours, Indre-et-Loire (37)",
+    address: "Tours, Amboise et Blois (37 et 41)",
     city: "Tours",
     postalCode: "37000",
     region: "Centre-Val de Loire",
@@ -66,7 +66,6 @@ export const siteData = {
     { src: "/images/photobooth-2.webp", alt: "Borne photo artisanale appareil photo professionnel" },
     { src: "/images/photobooth-3.webp", alt: "Location photobooth mariage Tours retrait express" },
     { src: "/images/photobooth-4.webp", alt: "Photobooth bois véritable fabrication française" },
-    { src: "/images/photobooth-5.webp", alt: "Borne photo weekend Tours installation simple" },
     { src: "/images/photobooth-6.webp", alt: "Photobooth premium Tours Indre-et-Loire 37" },
   ],
 

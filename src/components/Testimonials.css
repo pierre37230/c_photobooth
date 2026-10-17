@@ -33,3 +33,16 @@
   color: var(--text-light);
   font-size: 0.9rem;
 }
+.google-reviews-widget {
+  width: 100%;
+  min-height: 240px;
+  overflow: hidden;
+}
+.google-reviews-fallback {
+  text-align: center;
+  margin-top: 1.25rem;
+}
+.google-reviews-fallback a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

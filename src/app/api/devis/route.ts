@@ -15,7 +15,7 @@ export async function POST(request:NextRequest){
  const limits:Record<string,number>={name:100,email:254,phone:40,date:10,city:120,event:80,formula:20,period:10,message:1500,source:80,website:200};
  for(const [key,max]of Object.entries(limits)){if(typeof data[key]!=='string'||(data[key] as string).length>max)return fail(400);}
  if(data.website||!String(data.name).trim()||!String(data.city).trim()||!String(data.event).trim()||!/^\d{4}-\d{2}-\d{2}$/.test(String(data.date))||!/^\S+@[^\s@]+\.[^\s@]+$/.test(String(data.email)))return fail(400);
- if(!['weekend','soiree'].includes(String(data.period))||!['digitale','impression','complete','indecis'].includes(String(data.formula)))return fail(400);
+ if(!['weekend','soiree'].includes(String(data.period))||!['digitale','impression','complete','indecis','aucun'].includes(String(data.formula)))return fail(400);
  const key=request.headers.get('idempotency-key');if(!key||!/^[a-f0-9-]{36}$/.test(key))return fail(400);
  const now=Date.now();for(const [k,v]of attempts)if(v.until<now)attempts.delete(k);
  const ipHash=createHash('sha256').update(request.headers.get('x-forwarded-for')?.split(',')[0]||'unknown').digest('hex');const slot=attempts.get(ipHash)||{count:0,until:now+600000};if(slot.count>=5||attempts.size>10000)return fail(429);slot.count++;attempts.set(ipHash,slot);

@@ -48,7 +48,7 @@ export default function Header() {
           <nav id="navigation-principale" aria-label="Navigation principale" className={`nav ${mobileMenuOpen ? 'active' : ''}`}>
             <Link href="/" onClick={closeMenu}>Accueil</Link>
             <Link href="/tarifs" onClick={closeMenu}>Tarifs</Link>
-            <Link href="/galerie" onClick={closeMenu}>Galerie</Link>
+            <Link href="/galerie" onClick={closeMenu}>Galerie</Link><Link href="/locations-evenementielles" onClick={closeMenu}>Autres locations</Link>
             <Link href="/conseils" onClick={closeMenu}>Conseils</Link>
             <Link
               href="/contact"

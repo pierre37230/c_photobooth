@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "id": "livre-or",
+      "name": "Livre d’or audio",
+      "price": 49,
+      "unit": "location événement",
+      "summary": "Les invités laissent un message vocal à conserver après la fête.",
+      "image": "/images/livre-or-audio.webp",
+      "priceWithPhotobooth": 29
+    },
+    {
+      "id": "partybox-1",
+      "name": "JBL PartyBox 320 — 1 enceinte",
+      "price": 59,
+      "unit": "location événement",
+      "summary": "Une enceinte festive pour animer une soirée ou une réception.",
+      "image": "/images/jbl-partybox-320.webp",
+      "priceWithPhotobooth": 39
+    },
+    {
+      "id": "partybox-2",
+      "name": "JBL PartyBox 320 — 2 enceintes",
+      "price": 99,
+      "unit": "location événement",
+      "summary": "Un duo d’enceintes pour un espace plus grand, selon les contraintes de la salle.",
+      "image": "/images/jbl-partybox-320.webp",
+      "priceWithPhotobooth": 69
+    },
+    {
+      "id": "micros",
+      "name": "Pack 2 micros sans fil",
+      "price": 25,
+      "unit": "location événement",
+      "summary": "Pour discours, jeux et karaoké ; compatibilité à confirmer selon votre installation.",
+      "image": "/images/micros-sans-fil.webp",
+      "priceWithPhotobooth": 15
+    }
+  ]
+}

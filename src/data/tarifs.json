@@ -23,5 +23,17 @@
     "impression": 200,
     "complete": 400,
     "livraisonCompleteKm": 20
+  },
+  "impressionsIncluses": {
+    "weekend": {
+      "digitale": 0,
+      "impression": 200,
+      "complete": 400
+    },
+    "soiree": {
+      "digitale": 0,
+      "impression": 150,
+      "complete": 300
+    }
   }
 }
