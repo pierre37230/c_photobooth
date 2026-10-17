@@ -1,28 +1,11 @@
 /** @type {import('next').NextConfig} */
 
 // Liste de toutes les villes (extraite de cities.ts)
-const cities = [
-  'joue-les-tours',
-  'saint-avertin',
-  'chambray-les-tours',
-  'la-riche',
-  'saint-cyr-sur-loire',
-  'saint-pierre-des-corps',
-  'ballan-mire',
-  'fondettes',
-  'vouvray',
-  'amboise',
-  'azay-le-rideau',
-  'chinon',
-  'loches',
-  'langeais',
-  'montbazon',
-  'sainte-maure-de-touraine',
-];
+const cities = require('./src/data/seo/cities.json').map(city => city.slug);
 
 const nextConfig = {
   images: {
-    unoptimized: true,
+    unoptimized: false,
     formats: ['image/webp'],
   },
   compiler: {

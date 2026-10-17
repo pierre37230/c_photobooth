@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { siteData } from '@/data/siteData';
 import './GalleryPreview.css';
@@ -16,7 +17,7 @@ export default function GalleryPreview() {
         <div className="gallery-grid">
           {previewImages.map((image, index) => (
             <div key={index} className="gallery-item">
-              <img src={image.src} alt={image.alt} />
+              <Image src={image.src} alt={image.alt} width={1050} height={1400} sizes="(max-width: 640px) 90vw, (max-width: 1000px) 45vw, 30vw" loading="lazy" />
             </div>
           ))}
         </div>

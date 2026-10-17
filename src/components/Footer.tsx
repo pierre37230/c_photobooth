@@ -9,6 +9,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
+    <>
+    <div className="mobile-contact"><Link href="/contact" className="btn btn-primary" onClick={()=>trackEvent("click_cta_mobile")}>Demander un devis</Link><a href={`tel:${siteData.contact.phone.replace(/\s/g, "")}`} className="btn btn-secondary" onClick={()=>trackEvent("click_tel",{placement:"mobile"})}>Appeler</a></div>
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
@@ -35,6 +37,8 @@ export default function Footer() {
           <div className="footer-section">
             <h4>Informations</h4>
             <ul>
+              <li><Link href="/photobooth-tours">Livraison & secteurs</Link></li>
+              <li><Link href="/conseils">Conseils pratiques</Link></li>
               <li><Link href="/faq">Questions Fréquentes</Link></li>
               <li>
                 <Link
@@ -51,9 +55,11 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
+          <button type="button" className="privacy-settings" onClick={()=>window.dispatchEvent(new Event("open-cookie-settings"))}>Gérer les cookies</button>
           <p>&copy; {currentYear} {siteData.businessName}. Tous droits réservés. Location photobooth Tours et Indre-et-Loire (37).</p>
         </div>
       </div>
     </footer>
+    </>
   );
 }

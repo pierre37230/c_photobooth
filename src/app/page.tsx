@@ -1,57 +1,11 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Hero from '@/components/Hero';
-import Advantages from '@/components/Advantages';
-import USP from '@/components/USP';
 import PricingPreview from '@/components/PricingPreview';
 import GalleryPreview from '@/components/GalleryPreview';
 import Testimonials from '@/components/Testimonials';
 import FAQPreview from '@/components/FAQPreview';
 import ContactSection from '@/components/ContactSection';
-import Link from 'next/link';
-
-export const metadata: Metadata = {
-  title: 'Location Photobooth Tours dès 124€ | Borne Photo 37',
-  description: 'Location photobooth premium à Tours. Fabrication française, bois véritable, appareil photo pro. Mariage, anniversaire, entreprise. Retrait express. 229€ le weekend.',
-  alternates: {
-    canonical: 'https://www.cphotobooth.fr',
-  },
-};
-
-export default function HomePage() {
-  return (
-    <>
-      <Hero />
-      <USP />
-      
-      {/* Section sémantique enrichie */}
-      <section className="section section-light">
-        <div className="container">
-          <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-            <h2>Location de Photobooth à Tours et en Indre-et-Loire</h2>
-            <p style={{ fontSize: '1.125rem', lineHeight: '1.8', color: 'var(--text-light)', marginTop: '1.5rem' }}>
-              Spécialiste de la <strong>location de borne photo</strong> pour vos événements à <strong>Tours et dans tout le département 37</strong>, 
-              nous vous proposons un <strong>photobooth artisanal</strong> en bois massif <strong>fabriqué en France</strong>. 
-              Idéal pour <strong>mariages</strong>, <strong>anniversaires</strong> et <strong>événements d'entreprise</strong>, 
-              notre borne photo garantit des <strong>souvenirs mémorables</strong> avec une <strong>qualité professionnelle</strong>.
-            </p>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '2rem' }}>
-              <Link href="/photobooth-mariage-tours" className="btn btn-secondary">
-                Photobooth Mariage
-              </Link>
-              <Link href="/photobooth-entreprise-tours" className="btn btn-secondary">
-                Événements Entreprise
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Advantages />
-      <PricingPreview />
-      <GalleryPreview />
-      <Testimonials />
-      <FAQPreview />
-      <ContactSection />
-    </>
-  );
-}
+import { prices, formatPrice } from '@/lib/pricing';
+export const metadata: Metadata = { title: 'Location photobooth à Tours | Mariages & événements', description: `Photobooth en bois à louer à Tours : weekend dès ${formatPrice(prices.weekend.digitale)}, ${prices.inclus.impression} impressions à ${formatPrice(prices.weekend.impression)}. Retrait ou livraison. Vérifiez votre date.`, alternates: { canonical: 'https://www.cphotobooth.fr' } };
+export default function HomePage() { return <><Hero /><PricingPreview /><section className="section"><div className="container"><div className="section-title"><h2>De votre idée aux souvenirs imprimés</h2><p>Nous préparons la location avec vous, selon votre événement.</p></div><div className="grid grid-3"><div className="card"><p className="eyebrow">01 • Votre projet</p><h3>Une date, un lieu, une formule</h3><p>Vous nous indiquez votre besoin. Nous confirmons la disponibilité et le devis.</p></div><div className="card"><p className="eyebrow">02 • La préparation</p><h3>Un retrait ou une livraison</h3><p>Nous convenons des horaires et des accès. Vous recevez les consignes pour installer la borne.</p></div><div className="card"><p className="eyebrow">03 • Votre événement</p><h3>Des photos à partager</h3><p>Vos invités profitent de la borne. Les tirages dépendent de la formule ; les photos numériques sont récupérées après l’événement.</p></div></div></div></section><GalleryPreview /><section className="section section-light"><div className="container"><div className="section-title"><h2>À chaque événement son photobooth</h2></div><div className="grid grid-2"><div className="card"><h3>Pour votre mariage</h3><p>Comparez les tirages inclus et préparez l’installation avec votre salle de réception.</p><Link href="/photobooth-mariage-tours" className="text-link">Préparer mon mariage →</Link></div><div className="card"><h3>Pour votre entreprise</h3><p>Une soirée, un séminaire ou un événement avec un cadre photo à vos couleurs.</p><Link href="/photobooth-entreprise-tours" className="text-link">Découvrir l’offre entreprise →</Link></div></div><p className="center-note"><Link href="/photobooth-tours">Livraison à Tours et dans les communes voisines</Link> · <Link href="/conseils">Nos guides pour choisir</Link></p></div></section><Testimonials /><FAQPreview /><ContactSection /></>; }

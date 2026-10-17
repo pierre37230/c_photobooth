@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "joue-les-tours",
+    "name": "Joué-lès-Tours",
+    "postalCode": "37300",
+    "distanceFromTours": 5
+  },
+  {
+    "slug": "saint-avertin",
+    "name": "Saint-Avertin",
+    "postalCode": "37550",
+    "distanceFromTours": 4
+  },
+  {
+    "slug": "chambray-les-tours",
+    "name": "Chambray-lès-Tours",
+    "postalCode": "37170",
+    "distanceFromTours": 7
+  },
+  {
+    "slug": "la-riche",
+    "name": "La Riche",
+    "postalCode": "37520",
+    "distanceFromTours": 3
+  },
+  {
+    "slug": "saint-cyr-sur-loire",
+    "name": "Saint-Cyr-sur-Loire",
+    "postalCode": "37540",
+    "distanceFromTours": 5
+  },
+  {
+    "slug": "saint-pierre-des-corps",
+    "name": "Saint-Pierre-des-Corps",
+    "postalCode": "37700",
+    "distanceFromTours": 5
+  },
+  {
+    "slug": "ballan-mire",
+    "name": "Ballan-Miré",
+    "postalCode": "37510",
+    "distanceFromTours": 9
+  },
+  {
+    "slug": "fondettes",
+    "name": "Fondettes",
+    "postalCode": "37230",
+    "distanceFromTours": 8
+  },
+  {
+    "slug": "vouvray",
+    "name": "Vouvray",
+    "postalCode": "37210",
+    "distanceFromTours": 10
+  },
+  {
+    "slug": "amboise",
+    "name": "Amboise",
+    "postalCode": "37400",
+    "distanceFromTours": 25
+  },
+  {
+    "slug": "azay-le-rideau",
+    "name": "Azay-le-Rideau",
+    "postalCode": "37190",
+    "distanceFromTours": 26
+  },
+  {
+    "slug": "chinon",
+    "name": "Chinon",
+    "postalCode": "37500",
+    "distanceFromTours": 48
+  },
+  {
+    "slug": "loches",
+    "name": "Loches",
+    "postalCode": "37600",
+    "distanceFromTours": 42
+  },
+  {
+    "slug": "langeais",
+    "name": "Langeais",
+    "postalCode": "37130",
+    "distanceFromTours": 24
+  },
+  {
+    "slug": "montbazon",
+    "name": "Montbazon",
+    "postalCode": "37250",
+    "distanceFromTours": 12
+  },
+  {
+    "slug": "sainte-maure-de-touraine",
+    "name": "Sainte-Maure-de-Touraine",
+    "postalCode": "37800",
+    "distanceFromTours": 34
+  }
+]

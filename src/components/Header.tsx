@@ -37,17 +37,19 @@ export default function Header() {
             className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}
             onClick={toggleMenu}
             aria-label="Menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="navigation-principale"
           >
             <span></span>
             <span></span>
             <span></span>
           </button>
 
-          <nav className={`nav ${mobileMenuOpen ? 'active' : ''}`}>
+          <nav id="navigation-principale" aria-label="Navigation principale" className={`nav ${mobileMenuOpen ? 'active' : ''}`}>
             <Link href="/" onClick={closeMenu}>Accueil</Link>
             <Link href="/tarifs" onClick={closeMenu}>Tarifs</Link>
             <Link href="/galerie" onClick={closeMenu}>Galerie</Link>
-            <Link href="/faq" onClick={closeMenu}>FAQ</Link>
+            <Link href="/conseils" onClick={closeMenu}>Conseils</Link>
             <Link
               href="/contact"
               onClick={() => {
@@ -55,7 +57,7 @@ export default function Header() {
                 trackEvent('click_cta_header');
               }}
             >
-              Contact
+              Devis
             </Link>
           </nav>
         </div>

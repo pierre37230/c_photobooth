@@ -1,3 +1,4 @@
+import { prices } from '@/lib/pricing';
 import type { Metadata } from 'next';
 
 interface SEOParams {
@@ -13,7 +14,7 @@ export function generateMetadata(params: SEOParams): Metadata {
     title,
     description,
     canonical,
-    ogImage = 'https://www.cphotobooth.fr/icon.png',
+    ogImage = 'https://www.cphotobooth.fr/images/photobooth-vrai.webp',
     noindex = false,
   } = params;
 
@@ -34,8 +35,8 @@ export function generateMetadata(params: SEOParams): Metadata {
       images: [
         {
           url: ogImage,
-          width: 1200,
-          height: 630,
+          width: 1024,
+          height: 1024,
           alt: title,
         },
       ],
@@ -60,19 +61,7 @@ export function generateLocalBusinessSchema() {
     url: 'https://www.cphotobooth.fr',
     telephone: '+33781415195',
     email: 'contact@cphotobooth.fr',
-    priceRange: '229€-339€',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Tours',
-      addressRegion: 'Centre-Val de Loire',
-      postalCode: '37000',
-      addressCountry: 'FR',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 47.3941,
-      longitude: 0.6848,
-    },
+    priceRange: `${prices.soiree.digitale}€–${prices.weekend.complete}€`,
     areaServed: [
       {
         '@type': 'City',
@@ -88,14 +77,7 @@ export function generateLocalBusinessSchema() {
       },
     ],
     sameAs: [],
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        opens: '09:00',
-        closes: '19:00',
-      },
-    ],
+
   };
 }
 
@@ -109,15 +91,7 @@ export function generateServiceSchema(serviceName: string, serviceDescription: s
     provider: {
       '@id': 'https://www.cphotobooth.fr/#organization',
     },
-    areaServed: {
-      '@type': 'GeoCircle',
-      geoMidpoint: {
-        '@type': 'GeoCoordinates',
-        latitude: 47.3941,
-        longitude: 0.6848,
-      },
-      geoRadius: 50000,
-    },
+    areaServed: { '@type': 'AdministrativeArea', name: 'Indre-et-Loire' },
   };
 }
 
@@ -165,11 +139,9 @@ export function generateOfferSchema(offers: Array<{
         name: offer.name,
         description: offer.description,
       },
-      price: offer.price.replace('€', ''),
+      price: offer.price.replace(/[^0-9,.]/g, '').replace(',', '.'),
       priceCurrency: 'EUR',
       url: 'https://www.cphotobooth.fr/tarifs',
-      availability: 'https://schema.org/InStock',
-      priceValidUntil: '2026-12-31',
     })),
   };
 }

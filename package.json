@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/check-catalogue.cjs && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check": "node scripts/check-catalogue.cjs && tsc --noEmit",
+    "test": "node scripts/check-catalogue.cjs && node scripts/test-core.cjs"
   },
   "dependencies": {
     "next": "^14.2.0",

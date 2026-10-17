@@ -1,0 +1,76 @@
+# Modifications de la refonte ciblée
+
+Base : archive transmise le 17 octobre 2026, sans récupération de nouvelles modifications depuis GitHub.
+
+- Tarifs de la page Tarifs conservés et centralisés dans src/data/tarifs.json.
+- Accueil réorganisé, identité gris/doré conservée, vraie image existante en bandeau.
+- 6 versions WebP, environ 91 % plus légères au total ; originaux conservés.
+- Formules reliées au formulaire, simulateur activé et calculs corrigés.
+- Demande préremplie avec préparation d’email immédiate ; envoi direct facultatif via variables serveur.
+- Chargement GA4 après accord, refus et retrait possibles, événements sans coordonnées personnelles.
+- 16 URL locales conservées, contenu recentré, liens vers les pages absentes supprimés.
+- Page Tours dédiée aux secteurs, maillage depuis l’accueil et le pied de page.
+- Trois guides originaux : budgets, tirages, retrait/livraison. Montants liés au catalogue.
+- FAQ et JSON-LD cohérents ; sitemap nettoyé ; aucune fausse date de mise à jour.
+- Menu accessible, FAQ native sans JavaScript, contraste des boutons amélioré.
+- Informations commerciales non confirmées remplacées par une confirmation au devis.
+- Pas de modification du dépôt distant, du domaine, des DNS ou du projet Vercel.
+
+## Fichiers ajoutés ou modifiés par rapport au ZIP fourni
+
+- Ajout : `.env.example`
+- Ajout : `INTEGRATION.md`
+- Modification : `README.md`
+- Modification : `next.config.js`
+- Modification : `package.json`
+- Ajout : `public/images/photobooth-2.webp`
+- Ajout : `public/images/photobooth-3.webp`
+- Ajout : `public/images/photobooth-4.webp`
+- Ajout : `public/images/photobooth-5.webp`
+- Ajout : `public/images/photobooth-6.webp`
+- Ajout : `public/images/photobooth-vrai.webp`
+- Ajout : `scripts/check-catalogue.cjs`
+- Ajout : `scripts/test-core.cjs`
+- Ajout : `src/app/api/devis/route.ts`
+- Ajout : `src/app/conseils/[slug]/page.tsx`
+- Ajout : `src/app/conseils/page.tsx`
+- Modification : `src/app/contact/page.tsx`
+- Modification : `src/app/faq/page.tsx`
+- Modification : `src/app/galerie/page.tsx`
+- Modification : `src/app/globals.css`
+- Modification : `src/app/layout.tsx`
+- Modification : `src/app/mentions-legales/page.tsx`
+- Modification : `src/app/page.tsx`
+- Modification : `src/app/photobooth/[city]/page.tsx`
+- Modification : `src/app/photobooth-entreprise-tours/page.tsx`
+- Modification : `src/app/photobooth-mariage-tours/page.tsx`
+- Modification : `src/app/photobooth-tours/page.tsx`
+- Modification : `src/app/politique-confidentialite/page.tsx`
+- Modification : `src/app/sitemap.ts`
+- Modification : `src/app/tarifs/page.tsx`
+- Ajout : `src/components/AnalyticsConsent.tsx`
+- Modification : `src/components/FAQPreview.tsx`
+- Modification : `src/components/Footer.tsx`
+- Modification : `src/components/GalleryPreview.tsx`
+- Modification : `src/components/Header.tsx`
+- Modification : `src/components/Hero.css`
+- Modification : `src/components/Hero.tsx`
+- Ajout : `src/components/PriceCards.tsx`
+- Modification : `src/components/PricingPreview.tsx`
+- Modification : `src/components/PricingSimulator.tsx`
+- Ajout : `src/components/QuoteForm.tsx`
+- Modification : `src/components/Testimonials.tsx`
+- Ajout : `src/components/TrackedContact.tsx`
+- Modification : `src/components/seo/LocalAreas.tsx`
+- Modification : `src/data/seo/blog.ts`
+- Ajout : `src/data/seo/cities.json`
+- Modification : `src/data/seo/cities.ts`
+- Modification : `src/data/seo/faqs.ts`
+- Ajout : `src/data/seo/guides.ts`
+- Modification : `src/data/seo/offers.ts`
+- Modification : `src/data/seo/services.ts`
+- Modification : `src/data/siteData.ts`
+- Ajout : `src/data/tarifs.json`
+- Modification : `src/lib/analytics.ts`
+- Ajout : `src/lib/pricing.ts`
+- Modification : `src/lib/seo-utils.ts`

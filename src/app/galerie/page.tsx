@@ -1,3 +1,5 @@
+import '@/components/GalleryPreview.css';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 import { siteData } from '@/data/siteData';
 
@@ -21,7 +23,7 @@ export default function GaleriePage() {
         <div className="gallery-grid">
           {siteData.gallery.map((image, index) => (
             <div key={index} className="gallery-item">
-              <img src={image.src} alt={image.alt} />
+              <Image src={image.src} alt={image.alt} width={1050} height={1400} sizes="(max-width: 640px) 90vw, (max-width: 1000px) 45vw, 30vw" loading="lazy" />
             </div>
           ))}
         </div>

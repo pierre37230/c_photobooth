@@ -1,0 +1,28 @@
+const assert=require('node:assert/strict'),path=require('node:path'),fs=require('node:fs'),ts=require('typescript'),Module=require('node:module');
+const root=path.resolve(__dirname,'..'),resolve=Module._resolveFilename;
+Module._resolveFilename=function(request,...rest){return resolve.call(this,request.startsWith('@/')?path.join(root,'src',request.slice(2)):request,...rest);};
+require.extensions['.ts']=(mod,file)=>mod._compile(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020,esModuleInterop:true}}).outputText,file);
+const {prices,estimatePrice,deliveryPrice,plans}=require('../src/lib/pricing.ts'),{generateOfferSchema}=require('../src/lib/seo-utils.ts');
+assert.equal(estimatePrice('weekend','impression',null,0,false),prices.weekend.impression);
+assert.equal(estimatePrice('weekend','impression',40,100,true),prices.weekend.impression+prices.livraison.de20a40km+prices.options.impressions100+prices.options.personnalisation);
+assert.equal(estimatePrice('soiree','complete',20,0,true),prices.soiree.complete);
+assert.equal(estimatePrice('weekend','digitale',null,200,false),prices.weekend.digitale);
+for(const [km,f,expected]of [[20,'complete',0],[20.01,'complete',prices.livraison.de20a40km],[40,'digitale',prices.livraison.de20a40km],[40.01,'digitale',prices.livraison.de40a60km],[60,'digitale',prices.livraison.de40a60km],[60.1,'digitale',null]])assert.equal(deliveryPrice(km,f),expected);
+assert.equal(estimatePrice('weekend','complete',61,0,true),null);
+const schema=generateOfferSchema(plans('weekend').map(p=>({name:p.name,price:p.price,description:p.duration})));assert.equal(schema.itemListElement[0].price,String(prices.weekend.digitale));
+assert.equal(generateOfferSchema([{name:'Test',price:'1\u202f299,50 €',description:'Test'}]).itemListElement[0].price,'1299.50');
+(async()=>{
+ const {NextRequest}=require('next/server'),{POST}=require('../src/app/api/devis/route.ts');
+ const payload={name:'Test local',email:'test@example.com',phone:'',date:'2027-06-19',city:'Tours',event:'Mariage',formula:'impression',period:'weekend',message:'Test sans envoi réel',source:'',website:'',startedAt:Date.now()-5000};
+ function req(data=payload,origin='https://www.cphotobooth.fr'){return new NextRequest('https://www.cphotobooth.fr/api/devis',{method:'POST',headers:{'content-type':'application/json',origin,'x-forwarded-for':'test-1','idempotency-key':'12345678-1234-1234-1234-123456789abc'},body:JSON.stringify(data)});}
+ delete process.env.RESEND_API_KEY;delete process.env.QUOTE_FROM_EMAIL;assert.equal((await POST(req())).status,503);
+ process.env.RESEND_API_KEY='mock-key-never-sent';process.env.QUOTE_FROM_EMAIL='test@example.com';
+ assert.equal((await POST(req(payload,'https://other.example'))).status,403);
+ for(const changed of [{email:'invalid'},{website:'spam'},{message:'a'.repeat(1600)},{formula:'unknown'}])assert.equal((await POST(req({...payload,...changed}))).status,400);
+ let calls=0;global.fetch=async(url,opts)=>{calls++;assert.equal(url,'https://api.resend.com/emails');const body=JSON.parse(opts.body);assert.deepEqual(body.to,['contact@cphotobooth.fr']);assert.equal(body.reply_to,'test@example.com');assert.ok(!body.html);return new Response(JSON.stringify({id:'mock'}),{status:200});};
+ assert.equal((await POST(req())).status,200);assert.equal(calls,1);
+ global.fetch=async()=>new Response('{}',{status:429});assert.equal((await POST(req())).status,502);
+ global.fetch=async()=>{throw new Error('Simulated timeout')};assert.equal((await POST(req())).status,502);
+ global.fetch=async()=>new Response(JSON.stringify({id:'mock'}),{status:200});await POST(req());await POST(req());assert.equal((await POST(req())).status,429);
+ console.log('OK : calculs, limites livraison, absence de papier en Digitale, prix JSON-LD, API désactivée, validation, origine, succès simulé, erreurs et limitation. Aucun email envoyé.');
+})().catch(err=>{console.error(err);process.exitCode=1;});

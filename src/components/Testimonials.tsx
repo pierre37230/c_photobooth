@@ -10,7 +10,7 @@ export default function Testimonials() {
           <p>Ce que nos clients disent de nous</p>
         </div>
 
-        <div className="grid grid-3">
+        <div className="grid">
           {siteData.testimonials.map((testimonial, index) => (
             <div key={index} className="testimonial-card">
               <div className="stars">

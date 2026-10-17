@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import AnalyticsConsent from '@/components/AnalyticsConsent';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { generateLocalBusinessSchema } from '@/lib/seo-utils';
-import Script from 'next/script';
 
-const inter = Inter({ subsets: ['latin'] });
+
+
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.cphotobooth.fr'),
@@ -14,7 +14,8 @@ export const metadata: Metadata = {
     default: 'CPhotobooth - Location Photobooth Tours',
     template: '%s | CPhotobooth'
   },
-  description: 'Location photobooth premium à Tours et en Indre-et-Loire',
+  description: 'Location de photobooth en bois à Tours et en Indre-et-Loire',
+  openGraph: { type: 'website', locale: 'fr_FR', siteName: 'CPhotobooth', images: [{url:'/images/photobooth-vrai.webp',width:1024,height:1024,alt:'Borne en bois CPhotobooth'}] },
 };
 
 export default function RootLayout({
@@ -32,27 +33,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
-      <body className={inter.className}>
-        {/* Google Analytics 4 */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-8BRPGVJPXY"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-8BRPGVJPXY');
-            `,
-          }}
-        />
-
+      <body>
+        <AnalyticsConsent />
+        <a className="skip-link" href="#contenu">Aller au contenu</a>
         <Header />
-        <main>{children}</main>
+        <main id="contenu">{children}</main>
         <Footer />
       </body>
     </html>

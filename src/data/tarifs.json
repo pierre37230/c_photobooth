@@ -1,0 +1,27 @@
+{
+  "weekend": {
+    "digitale": 259,
+    "impression": 329,
+    "complete": 399
+  },
+  "soiree": {
+    "digitale": 139,
+    "impression": 199,
+    "complete": 259
+  },
+  "livraison": {
+    "jusqua20km": 39,
+    "de20a40km": 45,
+    "de40a60km": 60
+  },
+  "options": {
+    "impressions100": 39,
+    "impressions200": 60,
+    "personnalisation": 10
+  },
+  "inclus": {
+    "impression": 200,
+    "complete": 400,
+    "livraisonCompleteKm": 20
+  }
+}

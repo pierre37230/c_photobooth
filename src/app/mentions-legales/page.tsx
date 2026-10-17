@@ -21,7 +21,7 @@ export default function MentionsLegalesPage() {
             <h2>Éditeur du site</h2>
             <p><strong>Raison sociale :</strong> {siteData.legalEntity.companyName}</p>
             <p><strong>Forme juridique :</strong> {siteData.legalEntity.legalForm}</p>
-            <p><strong>SIRET :</strong> {siteData.legalEntity.siret}</p>
+            <p><strong>SIREN :</strong> {siteData.legalEntity.siren}</p>
             <p><strong>Adresse :</strong> {siteData.legalEntity.address}</p>
             <p><strong>Email :</strong> {siteData.legalEntity.email}</p>
             <p><strong>Téléphone :</strong> {siteData.legalEntity.phone}</p>
@@ -55,8 +55,7 @@ export default function MentionsLegalesPage() {
           <div style={{ marginTop: '2rem' }}>
             <h2>Cookies</h2>
             <p>
-              Ce site n'utilise pas de cookies de tracking ou de publicité. Seuls des cookies techniques 
-              nécessaires au bon fonctionnement du site peuvent être utilisés.
+              Google Analytics est activé uniquement après votre accord. Vous pouvez accepter, refuser ou retirer votre accord depuis « Gérer les cookies » dans le pied de page. Consultez notre politique de confidentialité pour les détails.
             </p>
           </div>
 
