@@ -20,8 +20,6 @@
     "personnalisation": 10
   },
   "inclus": {
-    "impression": 200,
-    "complete": 400,
     "livraisonCompleteKm": 20
   },
   "impressionsIncluses": {

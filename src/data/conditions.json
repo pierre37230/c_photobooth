@@ -1,0 +1,17 @@
+{
+  "depositPercent": 30,
+  "balanceDue": "Au plus tard la veille de l’événement",
+  "cautionWithPrinter": 1200,
+  "cautionWithoutPrinter": 900,
+  "cautionMethods": [
+    "Chèque",
+    "Virement bancaire"
+  ],
+  "paymentMethods": [
+    "Virement bancaire",
+    "Chèque",
+    "Espèces"
+  ],
+  "refundUntilDaysBefore": 60,
+  "cancellationPolicy": "Remboursement de l’acompte lorsque l’annulation intervient plus de 60 jours avant l’événement ; acompte conservé à partir de 60 jours avant l’événement, sous réserve des droits légaux applicables."
+}

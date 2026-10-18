@@ -28,8 +28,6 @@ for (const period of periods) {
   assert.ok(Number.isInteger(included.complete) && included.complete >= included.impression,
     `Impressions invalides : ${period}.complete`);
 }
-assert.ok(p.inclus && p.inclus.impression > 0 && p.inclus.complete >= p.inclus.impression,
-  'Quantités historiques d’impressions incohérentes');
 assert.ok(Number.isFinite(p.inclus.livraisonCompleteKm) && p.inclus.livraisonCompleteKm <= 60,
   'Zone de livraison incluse non prise en charge au-delà de 60 km');
 

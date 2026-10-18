@@ -62,21 +62,11 @@ export const siteData = {
   ],
 
   gallery: [
-    { src: "/images/photobooth-vrai.webp", alt: "Photobooth bois fabriqué France Tours" },
-    { src: "/images/photobooth-2.webp", alt: "Borne photo artisanale appareil photo professionnel" },
-    { src: "/images/photobooth-3.webp", alt: "Location photobooth mariage Tours retrait express" },
-    { src: "/images/photobooth-4.webp", alt: "Photobooth bois véritable fabrication française" },
-    { src: "/images/photobooth-6.webp", alt: "Photobooth premium Tours Indre-et-Loire 37" },
-  ],
-
-  testimonials: [
-    {
-      name: "Noé",
-      event: "Anniversaire",
-      text: "Installation en 2 minutes chrono ! La qualité des photos est top. Les invités ont adoré et le retrait à Tours était hyper pratique.",
-      rating: 5,
-    },
-
+    { src: "/images/photobooth-vrai.webp", alt: "Vue de la borne photobooth en bois CPhotobooth" },
+    { src: "/images/photobooth-2.webp", alt: "Photobooth en bois, vue du meuble et de son équipement" },
+    { src: "/images/photobooth-3.webp", alt: "Détail du photobooth CPhotobooth photographié en intérieur" },
+    { src: "/images/photobooth-4.webp", alt: "Présentation du design de la borne photobooth en bois" },
+    { src: "/images/photobooth-6.webp", alt: "Autre vue de la borne photo CPhotobooth" },
   ],
 
   faq: globalFAQs,

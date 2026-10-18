@@ -15,6 +15,14 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
 
+  async headers() {
+    return [{ source: '/:path*', headers: [
+      { key: 'X-Content-Type-Options', value: 'nosniff' },
+      { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+      { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+      { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+    ] }];
+  },
   async redirects() {
     const cityRedirects = cities.map(city => ({
       source: `/photobooth/${city}`,
@@ -41,12 +49,6 @@ const nextConfig = {
       {
         source: '/prix-photobooth-tours',
         destination: '/tarifs',
-        permanent: true,
-      },
-      // Redirection /photobooth-anniversaire-tours → /photobooth-tours
-      {
-        source: '/photobooth-anniversaire-tours',
-        destination: '/photobooth-tours',
         permanent: true,
       },
       // Redirections /photobooth/:city → /photobooth-:city

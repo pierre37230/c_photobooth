@@ -31,10 +31,10 @@ export function plans(period: Period) {
     duration: period === 'weekend' ? 'Weekend ou 48h en semaine' : 'Soirée en semaine uniquement',
     popular: id === 'impression', includesDelivery: id === 'complete',
     features: [
-      'Photobooth en bois fabriqué en France',
-      'Appareil photo intégré et photos numériques illimitées',
+      'Photobooth en bois avec reflex Canon et écran tactile',
+      'Deux éclairages LED réglables et photos numériques illimitées',
       'Photos disponibles après votre événement',
-      ...(id === 'digitale' ? ['Sans impressions papier'] : [`${includedPrints(period, id)} impressions papier 10 × 15 cm`, 'Imprimante professionnelle incluse']),
+      ...(id === 'digitale' ? ['Sans impressions papier'] : [`${includedPrints(period, id)} impressions papier 10 × 15 cm`, 'Imprimante DNP RX1HS à sublimation thermique']),
       ...(id === 'complete' ? ['Cadre photo personnalisé inclus', `Livraison incluse jusqu’à ${prices.inclus.livraisonCompleteKm} km de Tours`] : ['Retrait à Tours • livraison en option']),
       'Guide d’installation et assistance téléphonique',
     ],

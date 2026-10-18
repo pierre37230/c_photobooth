@@ -28,7 +28,7 @@ export default function Footer() {
             <h4>Nos Services</h4>
             <ul>
               <li><Link href="/photobooth-mariage-tours">Photobooth Mariage</Link></li>
-              <li><Link href="/photobooth-entreprise-tours">Événements Entreprise</Link></li>
+              <li><Link href="/photobooth-entreprise-tours">Événements Entreprise</Link></li><li><Link href="/photobooth-anniversaire-tours">Anniversaires & soirées</Link></li>
               <li><Link href="/tarifs">Tarifs & Formules</Link></li><li><Link href="/locations-evenementielles">Livre d’or audio, enceintes et micros</Link></li>
               <li><Link href="/galerie">Galerie Photos</Link></li>
             </ul>
@@ -37,7 +37,7 @@ export default function Footer() {
           <div className="footer-section">
             <h4>Informations</h4>
             <ul>
-              <li><Link href="/photobooth-tours">Livraison & secteurs</Link></li>
+              <li><Link href="/photobooth-tours">Location photobooth Tours</Link></li>
               <li><Link href="/conseils">Conseils pratiques</Link></li>
               <li><Link href="/faq">Questions Fréquentes</Link></li>
               <li>
@@ -48,7 +48,7 @@ export default function Footer() {
                   Contact & Devis
                 </Link>
               </li>
-              <li><Link href="/mentions-legales">Mentions légales</Link></li>
+              <li><Link href="/conditions-location">Conditions de réservation</Link></li><li><Link href="/mentions-legales">Mentions légales</Link></li>
               <li><Link href="/politique-confidentialite">Confidentialité</Link></li>
             </ul>
           </div>

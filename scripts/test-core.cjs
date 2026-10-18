@@ -4,6 +4,14 @@ Module._resolveFilename=function(request,...rest){return resolve.call(this,reque
 require.extensions['.ts']=(mod,file)=>mod._compile(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020,esModuleInterop:true}}).outputText,file);
 const {prices,estimatePrice,deliveryPrice,plans,includedPrints}=require('../src/lib/pricing.ts'),{generateOfferSchema}=require('../src/lib/seo-utils.ts');
 const catalogue = require('../src/data/tarifs.json');
+const {equipmentAmount,normalizeEquipment}=require('../src/lib/equipment.ts');
+const {terms,validEventDate}=require('../src/lib/booking.ts');
+assert.equal(equipmentAmount(['livre-or'],true),require('../src/data/locations.json').items.find(i=>i.id==='livre-or').priceWithPhotobooth);
+assert.equal(equipmentAmount(['livre-or'],false),require('../src/data/locations.json').items.find(i=>i.id==='livre-or').price);
+assert.deepEqual(normalizeEquipment(['partybox-1','partybox-2']),['partybox-2']);
+assert.ok(Number.isFinite(terms.depositPercent)&&terms.depositPercent>0&&terms.depositPercent<100);
+assert.equal(validEventDate('2027-02-30'),false);
+assert.equal(validEventDate('2020-01-01'),false);
 assert.equal(includedPrints('weekend','impression'),catalogue.impressionsIncluses.weekend.impression);
 assert.equal(includedPrints('weekend','complete'),catalogue.impressionsIncluses.weekend.complete);
 assert.equal(includedPrints('soiree','impression'),catalogue.impressionsIncluses.soiree.impression);
@@ -20,12 +28,12 @@ const schema=generateOfferSchema(plans('weekend').map(p=>({name:p.name,price:p.p
 assert.equal(generateOfferSchema([{name:'Test',price:'1\u202f299,50 €',description:'Test'}]).itemListElement[0].price,'1299.50');
 (async()=>{
  const {NextRequest}=require('next/server'),{POST}=require('../src/app/api/devis/route.ts');
- const payload={name:'Test local',email:'test@example.com',phone:'',date:'2027-06-19',city:'Tours',event:'Mariage',formula:'impression',period:'weekend',message:'Test sans envoi réel',source:'',website:'',startedAt:Date.now()-5000};
+ const payload={name:'Test local',email:'test@example.com',phone:'',date:'2027-06-19',city:'Tours',event:'Mariage',formula:'impression',period:'weekend',message:'Test sans envoi réel',source:'',website:'',startedAt:Date.now()-5000,deliveryZone:'retrait',extraPrints:0,customFrame:false,selectedEquipment:[]};
  function req(data=payload,origin='https://www.cphotobooth.fr'){return new NextRequest('https://www.cphotobooth.fr/api/devis',{method:'POST',headers:{'content-type':'application/json',origin,'x-forwarded-for':'test-1','idempotency-key':'12345678-1234-1234-1234-123456789abc'},body:JSON.stringify(data)});}
  delete process.env.RESEND_API_KEY;delete process.env.QUOTE_FROM_EMAIL;assert.equal((await POST(req())).status,503);
  process.env.RESEND_API_KEY='mock-key-never-sent';process.env.QUOTE_FROM_EMAIL='test@example.com';
  assert.equal((await POST(req(payload,'https://other.example'))).status,403);
- for(const changed of [{email:'invalid'},{website:'spam'},{message:'a'.repeat(1600)},{formula:'unknown'}])assert.equal((await POST(req({...payload,...changed}))).status,400);
+ for(const changed of [{email:'invalid'},{website:'spam'},{message:'a'.repeat(1600)},{formula:'unknown'},{email:'a@b@c.d'},{date:'2020-01-01'},{date:'2027-02-31'},{startedAt:Date.now()},{selectedEquipment:['unknown']},{selectedEquipment:['partybox-1','partybox-2']},{formula:'aucun'}])assert.equal((await POST(req({...payload,...changed}))).status,400);
  let calls=0;global.fetch=async(url,opts)=>{calls++;assert.equal(url,'https://api.resend.com/emails');const body=JSON.parse(opts.body);assert.deepEqual(body.to,calls%2===1?['contact@cphotobooth.fr']:['test@example.com']);assert.ok(!body.html);return new Response(JSON.stringify({id:'mock'}),{status:200});};
  const sent=await POST(req());assert.equal(sent.status,200);assert.equal((await sent.json()).confirmationSent,true);assert.equal(calls,2);
  global.fetch=async()=>new Response('{}',{status:429});assert.equal((await POST(req())).status,502);

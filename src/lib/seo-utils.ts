@@ -56,7 +56,8 @@ export function generateLocalBusinessSchema() {
     '@type': ['LocalBusiness', 'ProfessionalService'],
     '@id': 'https://www.cphotobooth.fr/#organization',
     name: 'CPhotobooth',
-    image: 'https://www.cphotobooth.fr/icon.png',
+    image: 'https://www.cphotobooth.fr/images/photobooth-vrai.webp',
+    description: 'Location de photobooths en bois avec appareil photo reflex Canon et impression DNP RX1HS en option, livre d’or audio, enceintes et micros. Retrait sur rendez-vous à Tours et livraison selon le lieu de réception.',
     logo: 'https://www.cphotobooth.fr/icon.png',
     url: 'https://www.cphotobooth.fr',
     telephone: '+33781415195',
@@ -74,12 +75,7 @@ export function generateLocalBusinessSchema() {
         '@type': 'AdministrativeArea',
         name: 'Indre-et-Loire',
       },
-      {
-        '@type': 'AdministrativeArea',
-        name: 'Centre-Val de Loire',
-      },
     ],
-    sameAs: [],
 
   };
 }
